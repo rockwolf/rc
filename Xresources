@@ -1,15 +1,22 @@
-
 !-- To reload changes: xrdb -merge ~/.Xresources and start a new rxvt-unicode
 
 !-- font
 !*font: xft:Liberation Mono:pixelsize=12
 !*font: -*-liberation mono-medium-r-*-*-*-*-*-*-*-*-*-*
-*font: -*-inconsolata-*-*-*-*-*-*-*-*-*-*-*-*
-
+!*font: -*-inconsolata-*-*-*-*-*-*-*-*-*-*-*-*
+*font: xft:Inconsolata:pixelsize=18
 
 !-- term behaviour
 *saveLines:3600
 *scrollBar: false
+
+!-- helps to not break urls in irssi
+*cutchars: "\"()'*<>[]{|}"
+!-- and launch them:
+*perl-lib: /usr/lib/urxvt/perl
+*perl-ext-common: default,matcher
+*matcher.button: 1
+*urlLauncher: /usr/bin/firefox
 
 !-- transparency
 !-- note: transparency is not good for the eyes and works against these main solarized colors
