@@ -1,0 +1,80 @@
+!-- To reload changes: xrdb -merge ~/.Xresources and start a new rxvt-unicode
+
+!-- font
+!*font: xft:Liberation Mono:pixelsize=12
+*font: -*-liberation mono-medium-r-*-*-*-*-*-*-*-*-*-*
+
+!-- term behaviour
+*saveLines:3600
+*scrollBar: false
+
+!-- transparency
+!-- note: transparency is not good for the eyes and works against these main solarized colors
+*fading: 10
+*transparent: true
+*shading: 80
+
+!-- colorscheme
+!--- dark solarized theme
+*foreground: rgb:83/94/96
+*background: rgb:00/2b/36
+*tintColor: rgb:00/2b/36
+*fadeColor: rgb:83/94/96
+
+!BLACK
+*color0:               #073642
+*color8:               #002636
+!RED
+*color1:               #dc322f
+*color9:               #cb4b16
+!GREEN
+*color2:               #859900
+*color10:              #586e75
+!YELLOW
+*color3:               #b58900
+*color11:              #657b83
+!BLUE
+*color4:               #268bd2
+*color12:              #839496
+!MAGENTA
+*color5:               #d33682
+*color13:              #6c71c4
+!CYAN
+*color6:               #2aa198
+*color14:              #93a1a1
+!WHITE
+*color7:               #eee8d5
+*color15:              #fdf6e3
+
+
+!--- light solarized theme
+!*foreground: rgb:65/7b/83
+!*background: rgb:fd/f6/e3
+!*tintColor: rgb:fd/f6/e3
+!*fadeColor: rgb:65/7b/83
+
+!!BLACK
+!*color0:               #
+!*color8:               #
+!!RED
+!*color1:               #
+!*color9:               #
+!!GREEN
+!*color2:               #
+!*color10:              #
+!!YELLOW
+!*color3:               #
+!*color11:              #
+!!BLUE
+!*color4:               #
+!*color12:              #
+!!MAGENTA
+!*color5:               #
+!*color13:              #
+!!CYAN
+!*color6:               #
+!*color14:              #
+!!WHITE
+!*color7:               #
+!*color15:              #
+
