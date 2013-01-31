@@ -90,7 +90,7 @@ set bg=dark
 colo solarized
 
 set autochdir
-set tw=79 " widh of document (used by gd)
+"set tw=79 " widh of document (used by gd)
 
 " don't use tabs, but spaces
 set tabstop=4
@@ -107,7 +107,8 @@ set smarttab
 " ---------------
 set guioptions +=lrbmT
 set guioptions -=lrbmT
-set guifont=Gohufont\ 14
+"set guifont=Gohufont\ 14
+set guifont=Inconsolata\ 18
 
 " Make search case insensitive
 set ignorecase
