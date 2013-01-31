@@ -1,8 +1,11 @@
+
 !-- To reload changes: xrdb -merge ~/.Xresources and start a new rxvt-unicode
 
 !-- font
 !*font: xft:Liberation Mono:pixelsize=12
-*font: -*-liberation mono-medium-r-*-*-*-*-*-*-*-*-*-*
+!*font: -*-liberation mono-medium-r-*-*-*-*-*-*-*-*-*-*
+*font: -*-inconsolata-*-*-*-*-*-*-*-*-*-*-*-*
+
 
 !-- term behaviour
 *saveLines:3600
@@ -77,4 +80,3 @@
 !!WHITE
 !*color7:               #
 !*color15:              #
-
