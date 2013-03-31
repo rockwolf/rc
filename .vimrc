@@ -1,13 +1,13 @@
 " An example for a vimrc file.
 "
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2006 Nov 16
+" Maintainer: Bram Moolenaar <Bram@vim.org>
+" Last change: 2006 Nov 16
 "
 " To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" for Unix and OS/2: ~/.vimrc
+" for Amiga: s:.vimrc
+" for MS-DOS and Win32: $VIM\_vimrc
+" for OpenVMS: sys$login:.vimrc
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -21,10 +21,10 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set history=50	" keep 50 lines of command line history
+set ruler	" show the cursor position all the time
+set showcmd	" display incomplete commands
+set incsearch	" do incremental searching
 
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
@@ -46,39 +46,39 @@ endif
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  " filetype plugin indent on
+" Enable file type detection.
+" Use the default filetype settings, so that mail gets 'tw' set to 72,
+" 'cindent' is on in C files, etc.
+" Also load indent files, to automatically do language-dependent indenting.
+" filetype plugin indent on
 
-  " Put these in an autocmd group, so that we can delete them easily.
+" Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 78 characters.
+" For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=79
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
+    \ exe "normal! g`\"" |
     \ endif
 
   augroup END
 
 "else
 
-    "set autoindent		" always set autoindenting on
+"set autoindent " always set autoindenting on
 
 endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 "command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-"	 	\ | wincmd p | diffthis
+" \ | wincmd p | diffthis
 
 " User added stuff below
 
@@ -186,29 +186,29 @@ augroup encrypted
 au!
 " First make sure nothing is written to ~/.viminfo while editing
 " an encrypted file.
-autocmd BufReadPre,FileReadPre      *.gpg set viminfo=
+autocmd BufReadPre,FileReadPre *.gpg set viminfo=
 " We don't want a swap file, as it writes unencrypted data to disk
-autocmd BufReadPre,FileReadPre      *.gpg set noswapfile
+autocmd BufReadPre,FileReadPre *.gpg set noswapfile
 " Switch to binary mode to read the encrypted file
-autocmd BufReadPre,FileReadPre      *.gpg set bin
-autocmd BufReadPre,FileReadPre      *.gpg let ch_save = &ch|set ch=2
-autocmd BufReadPre,FileReadPre      *.gpg let shsave=&sh
-autocmd BufReadPre,FileReadPre      *.gpg let &sh='sh'
-autocmd BufReadPre,FileReadPre      *.gpg let ch_save = &ch|set ch=2
-autocmd BufReadPost,FileReadPost    *.gpg '[,']!gpg --decrypt --default-recipient-self 2> /dev/null
-autocmd BufReadPost,FileReadPost    *.gpg let &sh=shsave
+autocmd BufReadPre,FileReadPre *.gpg set bin
+autocmd BufReadPre,FileReadPre *.gpg let ch_save = &ch|set ch=2
+autocmd BufReadPre,FileReadPre *.gpg let shsave=&sh
+autocmd BufReadPre,FileReadPre *.gpg let &sh='sh'
+autocmd BufReadPre,FileReadPre *.gpg let ch_save = &ch|set ch=2
+autocmd BufReadPost,FileReadPost *.gpg '[,']!gpg --decrypt --default-recipient-self 2> /dev/null
+autocmd BufReadPost,FileReadPost *.gpg let &sh=shsave
 " Switch to normal mode for editing
-autocmd BufReadPost,FileReadPost    *.gpg set nobin
-autocmd BufReadPost,FileReadPost    *.gpg let &ch = ch_save|unlet ch_save
-autocmd BufReadPost,FileReadPost    *.gpg execute ":doautocmd BufReadPost " . expand("%:r")
+autocmd BufReadPost,FileReadPost *.gpg set nobin
+autocmd BufReadPost,FileReadPost *.gpg let &ch = ch_save|unlet ch_save
+autocmd BufReadPost,FileReadPost *.gpg execute ":doautocmd BufReadPost " . expand("%:r")
 " Convert all text to encrypted text before writing
-autocmd BufWritePre,FileWritePre    *.gpg set bin
-autocmd BufWritePre,FileWritePre    *.gpg let shsave=&sh
-autocmd BufWritePre,FileWritePre    *.gpg let &sh='sh'
-autocmd BufWritePre,FileWritePre    *.gpg '[,']!gpg --encrypt --default-recipient-self 2>/dev/null
-autocmd BufWritePre,FileWritePre    *.gpg let &sh=shsave
+autocmd BufWritePre,FileWritePre *.gpg set bin
+autocmd BufWritePre,FileWritePre *.gpg let shsave=&sh
+autocmd BufWritePre,FileWritePre *.gpg let &sh='sh'
+autocmd BufWritePre,FileWritePre *.gpg '[,']!gpg --encrypt --default-recipient-self 2>/dev/null
+autocmd BufWritePre,FileWritePre *.gpg let &sh=shsave
 " Undo the encryption so we are back in the normal text, directly
 " after the file has been written.
-autocmd BufWritePost,FileWritePost  *.gpg silent u
-autocmd BufWritePost,FileWritePost  *.gpg set nobin
+autocmd BufWritePost,FileWritePost *.gpg silent u
+autocmd BufWritePost,FileWritePost *.gpg set nobin
 augroup END
