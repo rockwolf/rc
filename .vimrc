@@ -214,6 +214,6 @@ autocmd BufWritePost,FileWritePost *.gpg set nobin
 augroup END
 
 " Vimwiki
-let g:vimwiki_list = [
-    \ {'path': '~/Dropbox/vimwiki/', 'syntax': 'default', 'markdown': '.md'},
-    \ {'path': '~/Dropbox/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+"Tell vim to recognize .md extension
+let g:vimwiki_ext2syntax = {'.md': 'markdown'}
