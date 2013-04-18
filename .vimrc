@@ -215,5 +215,5 @@ augroup END
 
 " Vimwiki
 let g:vimwiki_list = [
-    \ {'path': '~/Dropbox/vimwiki/', 'syntax': 'default', 'ext': '.wiki'},
+    \ {'path': '~/Dropbox/vimwiki/', 'syntax': 'default', 'markdown': '.md'},
     \ {'path': '~/Dropbox/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
