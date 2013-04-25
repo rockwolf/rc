@@ -43,8 +43,8 @@ shell mplayer %f
 
 shell mkdir magi
 shell mkdir breakingbad
-delete
 fin
 shell unzip %f
 shell mv %f The\ Hobbit\ An\ Unexpected\ Journey\ {2012}\ DVDRIP.\ Jaybob.srt
 shell 
+delete
