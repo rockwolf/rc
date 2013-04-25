@@ -1,0 +1,50 @@
+shell mousemover.sh 
+shell mkdir bigbangtheory
+shell mplayer -alang jap %f
+shell mkdir thewalkingdead
+shell
+shell xpdf %f
+shell mv %f 
+shell mplayer -nosound %f
+w
+shell mkdir newgirl
+shell mkdir halestorm
+shell feh -ZF *.jpg
+edlete
+delete seriously? yes
+save
+set autosave_bookmarks true
+shell modernfamily
+shell mkdir modernfamily
+mkdir modern_family_s04
+mkdir s01
+shell mkdir s02
+shell rmdir
+help
+mplayer %f -alang jp
+shell mplayer %f -alang jp
+mkdir modernfamily
+mkdir walkingdead
+mkdir bigbangtheory
+open_with 
+mplayer *.avi
+shell mplayer *.avi
+shell mplayer -f *.avi
+shell mplayer -nofs *.avi
+shell soffice %f
+mplayer *.mp3
+shell mplayer *.mp3
+delete seriously? y
+shell mplayer -alang jp %f
+shell mplayer -alang jp -slang none %f
+shell mplayer -alang jp -slang jp %f
+shell youtube-dl --max-quality 360p -o jessie_j_nobodiesperfect.avi "http://www.youtube.com/watch?NR=1&feature=endscreen&v=hV8qXGeryd0"
+shell mplayer %f
+
+shell mkdir magi
+shell mkdir breakingbad
+delete
+fin
+shell unzip %f
+shell mv %f The\ Hobbit\ An\ Unexpected\ Journey\ {2012}\ DVDRIP.\ Jaybob.srt
+shell 
