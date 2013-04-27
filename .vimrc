@@ -171,7 +171,7 @@ set wildignore+=*.pyc
 " mkdir -p ~/.vim/autoload ~/.vim/bundle
 " curl -so ~/.vim/autoload/pathogen.vim
 " https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/p
-call pathogen#infect()
+"call pathogen#infect()
 
 " Python folding
 " mkdir -p ~/.vim/ftplugin
