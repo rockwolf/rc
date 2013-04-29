@@ -3,21 +3,35 @@ zstyle :compinstall filename '/home/rockwolf/.zshrc'
 
 autoload -Uz compinit
 compinit
-#TODO: clean this file up... 
 # End of lines added by compinstall
+
+# prompt and settings
 autoload -U colors && colors
 autoload -U promptinit
 promptinit
-#prompt adam2 
 netip=`/sbin/ifconfig eth0 | awk -F: '/inet addr/ {print $2}' | awk '{print $1}'`
-# %D{$netip}
 machine=`hostname`
 smiley="%(?,%{$fg[green]%}:%)%{$reset_color%},%{$fg[red]%}:(%{$reset_color%})"
 curpath="%(?.%{%}.%{%})<%{%}%3~%(?.%{%}.%{%})>"
-#PROMPT="%D{$netip}@%*%{$fg[cyan]%}%#%{$reset_color%} "
-#PROMPT="%!:: "
+vim_ins_mode="%{$fg[cyan]%}[INS]%{$reset_color%}"
+vim_cmd_mode="%{$fg[green]%}[CMD]%{$reset_color%}"
+vim_mode=$vim_ins_mode
+
+function zle-keymap-select {
+  vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+  zle reset-prompt
+}
+zle -N zle-keymap-select
+
+function zle-line-finish {
+  vim_mode=$vim_ins_mode
+}
+zle -N zle-line-finish
+
+# the actual L en R prompts:
 PROMPT="%{$fg[green]%}In $machine [%{$reset_color%}%!%{$fg[green]%}]:%{$reset_color%} "
-RPROMPT="${jobstates:+"%{%}(%{%}"${#jobstates}"%{%})%{%}"} ${curpath} [${smiley}%{%}]%{%} "
+RPROMPT="-- ${vim_mode} -- ${curpath} [${smiley}%{%}]%{%} "
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=500
