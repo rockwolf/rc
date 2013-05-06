@@ -5,6 +5,7 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys, additionalKeysP)
 import System.IO
 import XMonad.Actions.CycleWS
+import qualified XMonad.StackSet as W -- manageHook rules
 
 terminal' = "urxvtc"
 
@@ -17,7 +18,7 @@ main = do
     xmonad $ defaultConfig
         {
             -- workspaces
-            workspaces = ["1:一","2:二","3:三","4:四","5:五","6:六","7:七","8:八","9:九","0:十"]
+            workspaces = myWorkspaces
             -- status bar and dock
             , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
             , layoutHook = avoidStruts $ layoutHook defaultConfig
@@ -41,8 +42,13 @@ main = do
         , ("M-<Tab>", moveTo Next NonEmptyWS)
         ]
 
+myWorkspaces :: [String]
+myWorkspaces = ["一","二","三","四","五","六","七","八","九","十"]
+
 myManageHook = composeAll
     [
         className =? "Gimp" --> doFloat
         , className =? "MPlayer" --> doFloat
+        , className =? "Gimp" --> doF (W.shift (myWorkspaces !! 6))
+        , className =? "firefox" --> doF (W.shift (myWorkspaces !! 1))
     ]
