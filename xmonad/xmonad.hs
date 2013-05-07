@@ -16,11 +16,11 @@ xmobar' = "/usr/bin/xmobar /home/rockwolf/.xmobarrc -f " ++ font'
 
 main = do
     xmproc <- spawnPipe xmobar'
-    var_screen_count <- countScreens
+    --var_screen_count <- countScreens
     xmonad $ defaultConfig
         {
             -- workspaces
-            workspaces = myWorkspaces var_screen_count
+            workspaces = myWorkspaces
             -- status bar and dock
             , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
             , layoutHook = avoidStruts $ layoutHook defaultConfig
@@ -45,7 +45,7 @@ main = do
         ]
 
 myWorkspaces :: [String]
-myWorkspaces n = withScreens n ["一","二","三","四","五","六","七","八","九","十"]
+myWorkspaces = withScreens 2 ["一","二","三","四","五","六","七","八","九","十"]
 
 myManageHook = composeAll
     [
