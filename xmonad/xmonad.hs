@@ -9,10 +9,9 @@ import qualified XMonad.StackSet as W -- manageHook rules
 import XMonad.Layout.IndependentScreens -- for DWM like workspace/xinerama behaviour
 
 terminal' = "urxvtc"
-
 font' = "xft:inconsolata:pixelsize=18:antialias=true:hinting=true"
-
 xmobar' = "/usr/bin/xmobar /home/rockwolf/.xmobarrc -f " ++ font'
+modMask' = mod4Mask
 
 main = do
     xmproc <- spawnPipe xmobar'
@@ -32,7 +31,7 @@ main = do
             -- apps
             , terminal = terminal'
             -- key bindings
-            , modMask = mod4Mask
+            , modMask = modMask'
             -- layout
             , normalBorderColor = "#002b36"
             , focusedBorderColor = "#839496"
@@ -40,12 +39,20 @@ main = do
         [ ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
         , ((0, xK_Print), spawn "scrot")
         ] `additionalKeysP`
-        [ ("M-s-<Tab>", moveTo Prev NonEmptyWS)
-        , ("M-<Tab>", moveTo Next NonEmptyWS)
-        ]
+        --[ ("M-s-<Tab>", moveTo Prev NonEmptyWS)
+        --  , ("M-<Tab>", moveTo Next NonEmptyWS)
+        --]
+        --[ (otherModMasks ++ "M-" ++ [key], action tag)
+        --  | (tag, key)  <- zip myWorkspaces ""
+        --  , (otherModMasks, action) <- [ ("", windows . W.greedyView) -- was W.greedyView
+        --                                , ("S-", windows . W.shift)]
+        --]
+        [((m .|. modm, k), windows $ onCurrentScreen f i)
+         | (i, k) <- zip (workspaces') [xK_1 .. xK_9]
+         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
 myWorkspaces :: [String]
-myWorkspaces = withScreens 2 ["一","二","三","四","五","六","七","八","九","十"]
+myWorkspaces = withScreens 1 ["一","二","三","四","五","六","七","八","九","十"]
 
 myManageHook = composeAll
     [
