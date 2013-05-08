@@ -44,12 +44,12 @@ main = do
         --]
         --[ (otherModMasks ++ "M-" ++ [key], action tag)
         --  | (tag, key)  <- zip myWorkspaces ""
-        --  , (otherModMasks, action) <- [ ("", windows . W.greedyView) -- was W.greedyView
+        --  , (otherModMasks, action) <- [ ("", windows . W.View) -- was W.greedyView
         --                                , ("S-", windows . W.shift)]
         --]
         [((m .|. modm, k), windows $ onCurrentScreen f i)
          | (i, k) <- zip (workspaces') [xK_1 .. xK_9]
-         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+         , (f, m) <- [(W.View, 0), (W.shift, shiftMask)]]
 
 myWorkspaces :: [String]
 myWorkspaces = withScreens 1 ["一","二","三","四","五","六","七","八","九","十"]
