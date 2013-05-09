@@ -1,0 +1,35 @@
+# This is the sample configuration file for herrie. Please refer to the
+# herrie(1) manual page for a complete list of configuration switches.
+
+# Use this line to change the behaviour of the playlist to be like
+# players like WinAmp, XMMS and AmaroK:
+playq.xmms=yes
+
+# This line makes the user interface look more devilish:
+#gui.color.bar.bg=default
+
+# Switch file browser to a certain directory at startup:
+gui.browser.defaultpath=/home/rockwolf/aud
+# Enable AudioScrobbler song submission. Make sure you generate the
+# password with `printf %s p4ssw0rd | md5'. It's probably not a good
+# idea to place these switches in the public config file. You'd better
+# stick these switches in ~/.herrie/config, with 0600 permissions:
+#scrobbler.username=SomeUser
+#scrobbler.password=0011223344556677889900aabbccddeeff
+
+# Chroot and setuid. You could make Herrie a shell of a user with ID 0
+# and use these switches. It should be reasonably safe...:
+#vfs.lockup.chroot=/home/rockwolf/mus
+#vfs.lockup.user=nobody
+
+gui.color.enabled=yes
+gui.color.bar.bg=default
+gui.color.bar.fg=red
+gui.color.block.bg=default
+gui.color.block.fg=white
+gui.color.deselect.bg=default
+gui.color.deselect.fg=yellow
+gui.color.marked.fg=green
+gui.color.marked.bg=default
+gui.color.select.bg=default
+gui.color.select.fg=cyan
