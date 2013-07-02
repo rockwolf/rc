@@ -1,0 +1,4 @@
+
+xmonad.hs:19:8:
+    Could not find module `Layout.Tabbed'
+    Use -v to see a list of the files searched for.
