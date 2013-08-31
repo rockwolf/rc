@@ -79,9 +79,9 @@ endif " has("autocmd")
 " --------------
 set nu
 set splitbelow
-set bg=dark
-"colo solarized
-colo reloaded
+set bg=light
+colo solarized
+"colo reloaded
 
 set autochdir
 "set tw=79 " widh of document (used by gd)

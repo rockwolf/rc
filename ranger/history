@@ -1,8 +1,3 @@
-shell mplayer *.avi
-shell mplayer -f *.avi
-shell mplayer -nofs *.avi
-shell soffice %f
-mplayer *.mp3
 shell mplayer *.mp3
 delete seriously? y
 shell mplayer -alang jp -slang none %f
@@ -38,7 +33,6 @@ shell mv %f Game.of.Thrones.S02E03.720p.BluRay.x264.MIKY.srt
 shell mkdir temp
 shell mv %f ../Game.of.Thrones.S02E02.720p.BluRay.x264.MIKY.srt
 shell mv %f Game.of.Thrones.S02E04.720p.BluRay.x264.MIKY.srt
-shell unrar x %f
 shell mv %f Game.of.Thrones.S03E01.720p.HDTV.x264-EVOLVE.srt
 delte
 mv %f delete.srt
@@ -46,5 +40,11 @@ shell mv %f delete.srt
 shell mplayer -alang es %f
 shell mplayer -alang spa %f
 shell mv %f evanescence
-
+shell unrar x %f
+shell mkdir Babylon\ A.D.\ \[BDRip-1080p-MultiLang-MultiSub-Chapters\]\[RiP\ By\ MaX\]
 delete
+shell mplayer -nosound %f
+
+shell feh -ZI *.jgj
+shell feh -ZI *.jpg
+shell feh -ZF *.jpg

@@ -22,70 +22,71 @@
 
 !-- transparency
 !-- note: transparency is not good for the eyes and works against these main solarized colors
-*fading: 10
-*transparent: true
-*shading: 80
+!*fading: 150
+*transparent: false
+!*shading: 190
 
-!-- colorscheme
-!--- dark solarized theme
-*foreground: rgb:83/94/96
-*background: rgb:00/2b/36
-*tintColor: rgb:00/2b/36
-*fadeColor: rgb:83/94/96
-
-!BLACK
-*color0:               #073642
-*color8:               #002636
-!RED
-*color1:               #dc322f
-*color9:               #cb4b16
-!GREEN
-*color2:               #859900
-*color10:              #586e75
-!YELLOW
-*color3:               #b58900
-*color11:              #657b83
-!BLUE
-*color4:               #268bd2
-*color12:              #839496
-!MAGENTA
-*color5:               #d33682
-*color13:              #6c71c4
-!CYAN
-*color6:               #2aa198
-*color14:              #93a1a1
-!WHITE
-*color7:               #eee8d5
-*color15:              #fdf6e3
-
+!!-- colorscheme
+!!--- dark solarized theme
+!*foreground: rgb:83/94/96
+!*background: rgb:00/2b/36
+!*tintColor: rgb:00/2b/36
+!*fadeColor: rgb:83/94/96
+!
+!!BLACK
+!*color0:               #073642
+!*color8:               #002636
+!!RED
+!*color1:               #dc322f
+!*color9:               #cb4b16
+!!GREEN
+!*color2:               #859900
+!*color10:              #586e75
+!!YELLOW
+!*color3:               #b58900
+!*color11:              #657b83
+!!BLUE
+!*color4:               #268bd2
+!*color12:              #839496
+!!MAGENTA
+!*color5:               #d33682
+!*color13:              #6c71c4
+!!CYAN
+!*color6:               #2aa198
+!*color14:              #93a1a1
+!!WHITE
+!*color7:               #eee8d5
+!*color15:              #fdf6e3
+!
 
 !--- light solarized theme
-!*foreground: rgb:65/7b/83
-!*background: rgb:fd/f6/e3
-!*tintColor: rgb:fd/f6/e3
-!*fadeColor: rgb:65/7b/83
+*foreground: #626262
+*background: #ffffd7
+!*tintColor: #ffffd7
+!*fadeColor: #ffffd7
 
-!!BLACK
-!*color0:               #
-!*color8:               #
-!!RED
-!*color1:               #
-!*color9:               #
-!!GREEN
-!*color2:               #
-!*color10:              #
-!!YELLOW
-!*color3:               #
-!*color11:              #
-!!BLUE
-!*color4:               #
-!*color12:              #
-!!MAGENTA
-!*color5:               #
-!*color13:              #
-!!CYAN
-!*color6:               #
-!*color14:              #
-!!WHITE
-!*color7:               #
-!*color15:              #
+!BLACK
+*color0:                #ffffd7
+!#e4e4e4
+*color8:                #e4e4e4
+!RED
+*color1:                #d7f500
+*color9:                #d70000
+!GREEN
+*color2:                #585858
+*color10:               #5f8700
+!YELLOW
+*color3:                #626262
+*color11:               #af8700
+!BLUE
+*color4:                #808080
+*color12:               #0087ff
+!MAGENTA
+*color5:                #5f5faf
+*color13:               #af005f
+!CYAN
+*color6:                #8a8a8a
+*color14:               #00afaf
+!WHITE
+*color7:                #1c1c1c
+*color15:               #262626
