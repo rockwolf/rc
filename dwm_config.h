@@ -7,7 +7,7 @@
 //static const char font[]            = "-*-sazanami gothic-*-*-*-*-12-*-*-*-*-*-*-*";
 //static const char font[]            = "-*-Inconsolata-medium-*-*-*-18-*-*-*-*-*-*-*";
 static const char font[]            = "Inconsolata 14";
-//solarized
+//solarized - dark
 /*
 static const char normbordercolor[] = "#002b36";
 static const char normbgcolor[]     = "#002b36";
@@ -16,14 +16,22 @@ static const char selbordercolor[]  = "#fdf6e3";
 static const char selbgcolor[]      = "#002b36";
 static const char selfgcolor[]      = "#fdf6e3";
 */
+//solarized - light
+static const char normbordercolor[] = "#ffffd7";
+static const char normbgcolor[]     = "#ffffd7";
+static const char normfgcolor[]     = "#626262";
+static const char selbordercolor[]  = "#626262";
+static const char selbgcolor[]      = "#ffffd7";
+static const char selfgcolor[]      = "#626262";
 //reloaded
+/*
 static const char normbordercolor[] = "#000a00";
 static const char normbgcolor[]     = "#000a00";
 static const char normfgcolor[]     = "#00ff00";
 static const char selbordercolor[]  = "#006400";
 static const char selbgcolor[]      = "#000a00";
 static const char selfgcolor[]      = "#00ff00";
-
+*/
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 16;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -71,7 +79,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "urxvtc", NULL };
 static const char *warpcmd[]  = { "/usr/local/sh/warp", NULL };
 
 static Key keys[] = {

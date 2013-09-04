@@ -1,4 +1,3 @@
-shell mplayer *.mp3
 delete seriously? y
 shell mplayer -alang jp -slang none %f
 shell mplayer -alang jp -slang jp %f
@@ -42,9 +41,10 @@ shell mplayer -alang spa %f
 shell mv %f evanescence
 shell unrar x %f
 shell mkdir Babylon\ A.D.\ \[BDRip-1080p-MultiLang-MultiSub-Chapters\]\[RiP\ By\ MaX\]
-delete
 shell mplayer -nosound %f
 
 shell feh -ZI *.jgj
 shell feh -ZI *.jpg
 shell feh -ZF *.jpg
+find 
+delete

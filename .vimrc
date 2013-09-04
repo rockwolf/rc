@@ -80,6 +80,7 @@ endif " has("autocmd")
 set nu
 set splitbelow
 set bg=light
+let g:solarized_degrade=1
 colo solarized
 "colo reloaded
 
