@@ -1,8 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 //dwm 6.0
 
-#include "bstack.c"
-#include "bstackhoriz.c"
 /* appearance */
 //static const char font[]            = "-*-sazanami gothic-*-*-*-*-12-*-*-*-*-*-*-*";
 //static const char font[]            = "-*-Inconsolata-medium-*-*-*-18-*-*-*-*-*-*-*";
@@ -59,11 +57,8 @@ static const Bool resizehints = True; /* True means respect size hints in tiled 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[ ]",      monocle },
-	{ "TTT",      bstack },
 	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "===",      bstackhoriz },
-	//{ "+++",      grid },
+	{ "><>",      NULL }    /* no layout function means floating behavior */
 };
 
 /* key definitions */
