@@ -1,5 +1,3 @@
-delete seriously? y
-shell mplayer -alang jp -slang none %f
 shell mplayer -alang jp -slang jp %f
 shell youtube-dl --max-quality 360p -o jessie_j_nobodiesperfect.avi "http://www.youtube.com/watch?NR=1&feature=endscreen&v=hV8qXGeryd0"
 shell mplayer %f
@@ -42,9 +40,11 @@ shell mv %f evanescence
 shell unrar x %f
 shell mkdir Babylon\ A.D.\ \[BDRip-1080p-MultiLang-MultiSub-Chapters\]\[RiP\ By\ MaX\]
 shell mplayer -nosound %f
-
 shell feh -ZI *.jgj
 shell feh -ZI *.jpg
 shell feh -ZF *.jpg
 find 
+cd /mnt/usb
+open_with 
+
 delete
