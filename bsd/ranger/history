@@ -41,10 +41,12 @@ shell mv %f evanescence
 shell unrar x %f
 shell mkdir Babylon\ A.D.\ \[BDRip-1080p-MultiLang-MultiSub-Chapters\]\[RiP\ By\ MaX\]
 shell mplayer -nosound %f
-
 shell feh -ZI *.jgj
 shell feh -ZI *.jpg
 shell feh -ZF *.jpg
 find 
+cd /mnt/usb
+open_with 
+
 delete
 open_with 

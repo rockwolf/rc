@@ -25,7 +25,7 @@ unsetopt beep
 
 #exports
 export EDITOR="vi"
-export PATH=$PATH:$HOME/sh:$HOME/sh_
+export PATH=$PATH:/usr/local/sh:/usr/local/sh/linux:$HOME/sh_
 export PATH=$PATH:$HOME/src/app
 export LANG="ja_JP.utf-8"
 
