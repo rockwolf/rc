@@ -1,0 +1,5 @@
+setxkbmap us -variant colemak &
+urxvtd &
+xrdb -nocpp -merge ~/.Xresources
+wallpaper &
+startwm
