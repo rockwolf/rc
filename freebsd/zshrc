@@ -26,7 +26,7 @@ unsetopt beep
 
 #exports
 export EDITOR="vi"
-export PATH=$PATH:/usr/local/sh:/usr/local/sh/bsd
+export PATH=$PATH:/usr/local/sh:/usr/local/sh/freebsd
 export PATH=$PATH:$HOME/src/app
 
 #aliases
