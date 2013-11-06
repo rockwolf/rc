@@ -1,0 +1,15 @@
+find 
+shell mplayer -alang ja %f
+shell mplayer -alang en %f
+shell alsactl 
+shell alsamixer 
+find q
+open_with 
+shell thewalkingdead
+shell mkdir thewalkingdead
+search s
+shell 
+shell 's
+delete
+shell mplayer -alang jp
+shell mplayer -alang jp %f

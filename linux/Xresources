@@ -71,14 +71,14 @@
 !#e4e4e4
 *color8:                #e4e4e4
 !RED
-*color1:                #d7f500
+*color1:                #dc322f
 *color9:                #d70000
 !GREEN
-*color2:                #585858
-*color10:               #5f8700
+*color2:                #5f8700
+*color10:               #585858
 !YELLOW
-*color3:                #626262
-*color11:               #af8700
+*color3:                #af8700
+*color11:               #626262
 !BLUE
 *color4:                #808080
 *color12:               #0087ff
