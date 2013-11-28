@@ -6,8 +6,8 @@ DISPLAY=:0.0 randomwall &
 #DISPLAY=:0.0 wallpaper &
 setxkbmap colemak &
 dropboxd &
-#stalonetray &
-trayer --edge top --align right --SetDockType true --SetPartialStrut true \
+stalonetray &
+#trayer --edge top --align right --SetDockType true --SetPartialStrut true \
  --expand true --width 5 --transparent true --tint 0x002b36 --height 12 &
 
 ## UIM
@@ -25,4 +25,8 @@ DISPLAY=:0.0 al-remind &
 timetokyo &
 
 ## WM
-DISPLAY=:0.0 startwm
+#DISPLAY=:0.0 startwm
+#DISPLAY=:0.0 mwm
+#monsterwm2some_sorta_bar.sh
+#monsterwm
+monsterwm2dzen.sh

@@ -1,10 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/mnt/D/home/rockwolf/.newsbeuter'
-let g:netrw_dirhist_2='/mnt/D/home/rockwolf/Dropbox'
-let g:netrw_dirhist_3='/mnt/D/home/rockwolf/.config/mcomix'
-let g:netrw_dirhist_4='/mnt/D/home/rockwolf/.config/ranger'
-let g:netrw_dirhist_5='/mnt/D/home/rockwolf/dev/python/pyqt_generic/.git'
-let g:netrw_dirhist_6='/mnt/D/home/rockwolf/dev/python/modules_generic/.git'
-let g:netrw_dirhist_7='/mnt/D/home/rockwolf/dev/sh/.git'
-let g:netrw_dirhist_8='/mnt/D/home/rockwolf/dev/rc/.config/test2'
+let g:netrw_dirhist_cnt =0

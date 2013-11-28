@@ -1,0 +1,13 @@
+background yes
+out_to_x no
+out_to_console yes
+update_interval 1
+total_run_times 0
+use_spacer none
+use_xft yes
+alignment top_left
+gap_x 3
+gap_y 3
+
+TEXT
+${alignc}${color #626262}up:${color}$uptime|${color #626262}cpu:${color}${cpu cpu0}%|${color #626262}mem:${color}${memperc}%|${color #626262}swap:${color}$swapperc%|${color #626262}root:${color}${fs_used /}/${fs_size /}|${color #626262}home:${color}${fs_used /home/rockwolf}/${fs_size /home/rockwolf}|${color #626262}down:${color}${downspeed eth0}${color #626262} up:${color}${upspeed eth0}|${time %F %T}

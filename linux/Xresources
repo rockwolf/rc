@@ -23,9 +23,12 @@
 
 !-- transparency
 !-- note: transparency is not good for the eyes and works against these main solarized colors
-!*fading: 150
-*transparent: false
-!*shading: 190
+*fading: 0
+*transparent: true
+*shading: -90
+*tintColor: #ffffb7
+!*fadeColor: #626262
+!#ffffd7
 
 !!-- colorscheme
 !!--- dark solarized theme
@@ -63,8 +66,6 @@
 !--- light solarized theme
 *foreground: #626262
 *background: #ffffd7
-!*tintColor: #ffffd7
-!*fadeColor: #ffffd7
 
 !BLACK
 *color0:                #ffffd7
