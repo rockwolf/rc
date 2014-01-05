@@ -9,7 +9,7 @@ autoload -U colors && colors
 autoload -U promptinit
 promptinit
 #prompt adam2 
-netip=`/sbin/ifconfig sk0 | awk -F: '/inet addr/ {print $2}' | awk '{print $1}'`
+netip=`/sbin/ifconfig re0 | awk -F: '/inet addr/ {print $2}' | awk '{print $1}'`
 # %D{$netip}
 machine=`hostname`
 smiley="%(?,%{$fg[green]%}:%)%{$reset_color%},%{$fg[red]%}:(%{$reset_color%})"
