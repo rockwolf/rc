@@ -1,20 +1,19 @@
-# Muttrc for FreeBSD user
+# Muttrc for gmail_thereisanewway
 
 # connection info
-source $HOME/mail/connection
+source $HOME/mail/connection_gmail_thereisanewway
 
 # signature file
-set signature=$HOME/mail/signature
+set signature=$HOME/mail/signature_gmail_thereisanewway
 
 # general setup
 source $HOME/mail/mutt.general
-set hidden_host
 
 # macros
 source $HOME/mail/mutt.macros
 
 # Customized headers
-source $HOME/mail/headers
+source $HOME/mail/headers_gmail_thereisanewway
 
 #run fetchmail by hitting key of G
 #macro index G "!fetchmail -v -a -m 'procmail .procmailrc -d %T'\r"
@@ -23,13 +22,13 @@ source $HOME/mail/headers
 #macro pager G "!fetchmail -v -a" #-m 'procmail ~/.procmailrc'\r"
 
 # Folders
-set spoolfile="/var/mail/rockwolf"
-set postponed=+postponed
-set record=+sent
-set alias_file=~/.mutt/aliases
+set spoolfile="+INBOX"
+set postponed="+[Gmail]]/Rascunhos"
+set record="+[Gmail]/Enviados"
+#set trash="+[Gmail]/Lixeira"
 
 # Certificates
-#set certificate_file=$HOME/mail/certificate/ca.pem
+set certificate_file=$HOME/mail/certificate_gmail_thereisanewway/ca.pem
 
 #colors
 #source ~/.mutt-colors-solarized-dark-256.muttrc
