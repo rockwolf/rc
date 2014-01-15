@@ -90,5 +90,6 @@ macro pager \cb   "|urlview\n"
 macro index a     "|abook --add-email\n" 'add sender to abook'
 macro pager a     "|abook --add-email\n" 'add sender to abook'
 
-macro pager \Ca "<enter-command>unset trash\n<delete-message>"
+#macro pager \Ca "<enter-command>unset trash\n<delete-message>"
 #macro pager d "<enter-command>set trash=\"+[Gmail]/Trash\"\n<delete-message>"
+#macro index,pager A "<save-message>[Gmail]/All Mail<enter>" "move message to the archive"

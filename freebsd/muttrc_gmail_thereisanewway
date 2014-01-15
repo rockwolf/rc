@@ -11,6 +11,7 @@ source $HOME/.mutt/mutt.general
 
 # macros
 source $HOME/.mutt/mutt.macros
+folder-hook +INBOX 'macro index,pager A "<save-message>+[Gmail]/All Mail<enter><enter>" "Archive conversation"'
 
 # Customized headers
 source $HOME/mail/headers_gmail_thereisanewway
@@ -23,8 +24,9 @@ source $HOME/mail/headers_gmail_thereisanewway
 
 # Folders
 set spoolfile="+INBOX"
-set postponed="+[Gmail]]/Rascunhos"
-set record="+[Gmail]/Enviados"
+set postponed="+[Gmail]/Drafts"
+set record="+[Gmail]/Sent Mail"
+unset record #gmail automatically saves it to the sent folder, we don't want duplicates
 #set trash="+[Gmail]/Lixeira"
 
 # Certificates
