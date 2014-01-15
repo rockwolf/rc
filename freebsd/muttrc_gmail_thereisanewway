@@ -7,10 +7,10 @@ source $HOME/mail/connection_gmail_thereisanewway
 set signature=$HOME/mail/signature_gmail_thereisanewway
 
 # general setup
-source $HOME/mail/mutt.general
+source $HOME/.mutt/mutt.general
 
 # macros
-source $HOME/mail/mutt.macros
+source $HOME/.mutt/mutt.macros
 
 # Customized headers
 source $HOME/mail/headers_gmail_thereisanewway

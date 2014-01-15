@@ -7,11 +7,12 @@ source $HOME/mail/connection
 set signature=$HOME/mail/signature
 
 # general setup
-source $HOME/mail/mutt.general
+source $HOME/.mutt/mutt.general
 set hidden_host
+#set mbox_type=Maildir
 
 # macros
-source $HOME/mail/mutt.macros
+source $HOME/.mutt/mutt.macros
 
 # Customized headers
 source $HOME/mail/headers
@@ -23,7 +24,8 @@ source $HOME/mail/headers
 #macro pager G "!fetchmail -v -a" #-m 'procmail ~/.procmailrc'\r"
 
 # Folders
-set spoolfile="/var/mail/rockwolf"
+set folder=""
+set spoolfile=/var/mail/rockwolf
 set postponed=+postponed
 set record=+sent
 set alias_file=~/.mutt/aliases

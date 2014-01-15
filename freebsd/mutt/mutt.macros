@@ -1,0 +1,94 @@
+# ~/mail/mutt.macros
+# keyboard configuration file for Mutt-i
+# copied, modified and translated from the original:
+#
+################################################################
+# The ultimative Key-Bindings for Mutt                         #
+#                                                              #
+# (c) 1997-1999 Roland Rosenfeld <roland@spinnaker.rhein.de>   #
+#                                                              #
+# $ Id: keybind,v 1.36 1999/02/20 19:36:28 roland Exp roland $ #
+################################################################
+#
+# To use it, add the next line to ~/.muttrc:
+# source ~/mail/mutt.macros
+#
+
+# Generic keybindings
+# (for all the Mutt menus, except the pager!)
+# With the next three we can change the encrypting default selected software:
+
+# <ESC>1 to use GnuPG
+macro   generic \e1     ":set pgp_default_version=gpg ?pgp_default_version\n" "Switch to GNU-PG"
+
+# <ESC>2 to use PGP2
+macro   generic \e2     ":set pgp_default_version=pgp2 ?pgp_default_version\n" "Switch to PGP 2.*" 
+
+# <ESC>5 to use PGP5
+macro   generic \e5     ":set pgp_default_version=pgp5 ?pgp_default_version\n" "Switch to PGP 5.*"
+
+#NOTE: Be careful with the last backspace at the end of the previous
+#macros. If you write that line and the next in the same line, do not write
+#it.
+
+# index, OpMain, MENU_MAIN
+# (Main menu)
+# The next macro only runs from the main menu (the one that appears when
+# you starts Mutt). The keys <CTRL>K permit us to extract the public keys
+# from a message if it has (this is known because it has the K letter in
+# the message line):
+
+macro  pager   \Ck     ":set pipe_decode pgp_key_version=pgp2\n\e\ek:set pgp_key_version=pgp5\n\e\ek:set pgp_key_version=gpg\n\e\ek:set pgp_key_version=default nopipe_decode\n"\ "Extract PGP keys to PGP2, PGP 5, and GnuPG keyrings"
+
+
+# pager, OpPager, MENU_PAGER
+# (Pager menu)
+# It permits the same operations that previous, with the same key combinations,
+# but in this case from the pager menu:
+
+macro   pager   \e1     ":set pgp_default_version=gpg ?pgp_default_version\n"\
+"switch to GNUPG"
+
+macro   pager   \e2     ":set pgp_default_version=pgp2 ?pgp_default_version\n"\
+"switch to PGP 2.*"
+
+macro   pager   \e5     ":set pgp_default_version=pgp5 ?pgp_default_version\n"\
+"switch to PGP 5.*"
+
+
+# compose, OpCompose+OpGerneric, MENU_COMPOSE
+# (Compose menu)
+# The next operations are used from the compose menu.
+# That is, after you have composed your message and you close it to send it,
+# just before pressing the "Y" key that allows us to send it to the MTA.
+
+# In this case, we create a menu that appears when you press "P".
+# The options in this menu are going to be bound to MENU_PGP. This are the
+# main use options (encryption and signing).
+
+bind    compose p       pgp-menu
+
+# As many programs can't use PGP/MIME (especially from M$), the <CTRL>P key
+# will allow us to sign "as in the old times" (Application/PGP):
+
+macro   compose \CP     "Fgpg --clearsign\ny"
+
+# The next, <CTRL>S will allow us to sign using PGP/MIME with the private key
+# that we have defined as default. This macro is not necesary, as we can
+# do the same from the "P" menu:
+#macro   compose \CS     "Fgpg --clearsign\ny^T^Uapplication/pgp; format=text; x-action=sign\n"
+#
+
+macro index 8 decrypt-copy
+macro pager 8 decrypt-copy
+
+macro index 9 decrypt-save
+macro pager 9 decrypt-save
+
+macro index \cb   "|urlview\n"
+macro pager \cb   "|urlview\n"
+macro index a     "|abook --add-email\n" 'add sender to abook'
+macro pager a     "|abook --add-email\n" 'add sender to abook'
+
+macro pager \Ca "<enter-command>unset trash\n<delete-message>"
+#macro pager d "<enter-command>set trash=\"+[Gmail]/Trash\"\n<delete-message>"
