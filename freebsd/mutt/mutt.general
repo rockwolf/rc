@@ -1,7 +1,7 @@
 # Mutt general setup
 
 set sendmail="/usr/sbin/sendmail"
-set editor=/usr/bin/vim
+set editor=$EDITOR
 set locale="utf8"
 set charset=utf-8
 set indent_string="> " # Quoting mails with this string.

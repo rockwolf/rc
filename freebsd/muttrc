@@ -26,8 +26,8 @@ source $HOME/mail/headers
 # Folders
 set folder=""
 set spoolfile=/var/mail/rockwolf
-set postponed=+postponed
-set record=+sent
+#set postponed=+postponed
+#set record=+sent
 set alias_file=~/.mutt/aliases
 
 # Certificates
