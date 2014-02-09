@@ -3,4 +3,9 @@ urxvtd &
 xrdb -nocpp -merge ~/.Xresources
 wallpaper &
 #xset s off
+export GTK_IM_MODULE='uim'
+export QT_IM_MODULE='uim'
+export XMODIFIERS=@im='uim'
+uim-xim &
+timetokyo &
 startwm
