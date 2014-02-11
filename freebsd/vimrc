@@ -103,7 +103,7 @@ set smarttab
 set guioptions +=lrbmT
 set guioptions -=lrbmT
 "set guifont=Gohufont\ 14
-set guifont=Inconsolata\ 18
+"set guifont=Inconsolata\ 18
 
 " Make search case insensitive
 set ignorecase

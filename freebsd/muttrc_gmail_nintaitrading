@@ -1,0 +1,69 @@
+# Muttrc for gmail_thereisanewway
+
+# connection info
+source $HOME/mail/connection_gmail_nintaitrading
+
+# signature file
+set signature=$HOME/mail/signature_gmail_nintaitrading
+
+# general setup
+source $HOME/.mutt/mutt.general
+
+# macros
+source $HOME/.mutt/mutt.macros
+folder-hook +INBOX 'macro index,pager A "<save-message>+[Gmail]/All Mail<enter><enter>" "Archive conversation"'
+
+# Customized headers
+source $HOME/mail/headers_gmail_nintaitrading
+
+#run fetchmail by hitting key of G
+#macro index G "!fetchmail -v -a -m 'procmail .procmailrc -d %T'\r"
+#macro index G "!fetchmail -v -a" #-m 'procmail ~/.procmailrc'\r"
+#macro pager G "!fetchmail -v -a -m 'procmail -d %T'\r"
+#macro pager G "!fetchmail -v -a" #-m 'procmail ~/.procmailrc'\r"
+
+# Folders
+set spoolfile="+INBOX"
+set postponed="+[Gmail]/Drafts"
+set record="+[Gmail]/Sent Mail"
+unset record #gmail automatically saves it to the sent folder, we don't want duplicates
+#set trash="+[Gmail]/Lixeira"
+
+# Certificates
+set certificate_file=$HOME/mail/certificate_gmail_nintaitrading/ca.pem
+
+#colors
+#source ~/.mutt-colors-solarized-dark-256.muttrc
+#source ~/.config/mutt/mutt-colors-solarized-dark-16.muttrc
+
+# html mail, works with .mailcap in the home folder, to read html messages
+auto_view text/html
+set print_command="muttprint"
+
+# abook
+set query_command = "abook --mutt-query '%s'"
+
+# Pretty Good Privacy (PGP):
+set pgp_verify_sig=no                   #dont show pgp in pager
+set pgp_sign_as="0x5475F368"    # UserID/KeyID for signing
+set nopgp_autoencrypt           # Default (no enc)
+set nopgp_autosign              # Default (sign)
+unset pgp_autoencrypt 		#ask if we want to encrypt
+set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
+set pgp_verify_sig=yes
+set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
+set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0x5475F368 -- -r %r -- %f"
+set pgp_encrypt_sign_command="pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0x5475F368 -- -r %r -- %f"
+set pgp_import_command="gpg --no-verbose --import -v %f"
+set pgp_export_command="gpg --no-verbose --export --armor %r"
+set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
+set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
+set pgp_autosign=yes
+set pgp_sign_as=0x5475F368
+set pgp_replyencrypt=yes
+set pgp_timeout=1800
+set pgp_good_sign="^gpg: This is a validly signed message from"
