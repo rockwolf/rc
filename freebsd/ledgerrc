@@ -1,0 +1,2 @@
+--date-format %Y-%m-%d
+--register-format %10D|%10N|%50A|%15t\n
