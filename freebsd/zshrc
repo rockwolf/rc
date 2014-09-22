@@ -42,6 +42,7 @@ alias tree2="tree -L 2 --noreport -Fsh --dirsfirst -I zjunk ~/ |less"
 alias pylint="pylint --include-ids=y"
 alias tidy="tidy4"
 alias anki="anki -b ~/.anki"
+alias less="less -c"
 
 # bye bye zsh, helllooooo python
 #exec /usr/bin/ipython -noconfirm_exit -p sh -i -c "_prompt_title='`hostname`@`date +%Y-%m-%d`'"

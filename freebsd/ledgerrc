@@ -1,2 +1,5 @@
 --date-format %Y-%m-%d
---register-format %10D|%-50P|%-50A|%15t\n
+;--register-format %10D|%-50P|%-50A|%15t\n
+--register-format %10D|%-50A|%15t\n
+;--balance-format %T|%-a\n
+;--balance-format %10D|%-50A|%15t\n

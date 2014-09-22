@@ -1,3 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/mnt/data00/rockwolf/dev/website/nintai/src/css'
+let g:netrw_dirhist_2='/etc/rc.d'
+let g:netrw_dirhist_3='/mnt/data00/rockwolf/nintai/prd'

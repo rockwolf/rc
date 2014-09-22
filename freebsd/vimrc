@@ -79,7 +79,13 @@ endif " has("autocmd")
 " --------------
 set nu
 set splitbelow
-set bg=dark
+
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+
 let g:solarized_degrade=1
 colo solarized
 "colo reloaded
@@ -103,7 +109,7 @@ set smarttab
 set guioptions +=lrbmT
 set guioptions -=lrbmT
 "set guifont=Gohufont\ 14
-"set guifont=Inconsolata\ 18
+set guifont=Inconsolata\ 18
 
 " Make search case insensitive
 set ignorecase
@@ -209,6 +215,6 @@ autocmd BufWritePost,FileWritePost *.gpg set nobin
 augroup END
 
 " Vimwiki
-let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 "Tell vim to recognize .md extension
 let g:vimwiki_ext2syntax = {'.md': 'markdown'}
