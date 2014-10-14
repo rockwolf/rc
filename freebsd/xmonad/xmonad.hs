@@ -1,314 +1,145 @@
-import XMonad
-import XMonad.Actions.CopyWindow
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
-import XMonad.Layout.Combo
-import XMonad.Layout.Decoration
-import XMonad.Layout.Maximize
-import XMonad.Layout.ResizableTile
-import XMonad.Layout.SimplestFloat
-import XMonad.Layout.Tabbed
-import XMonad.Layout.TwoPane
-import XMonad.Layout.WindowNavigation
-import XMonad.Prompt
-import XMonad.Prompt.RunOrRaise
-import XMonad.Prompt.Shell
-import XMonad.StackSet
-import XMonad.Util.Loggers
-import XMonad.Util.Run
- 
-import Control.Arrow ((&&&),first)
-import Data.List (partition)
- 
-import System.IO
+-- system imports
+import Control.Monad
+--import Control.Monad.Trans
+import Data.Bits ((.|.))
+import Data.Map (fromList)
+import Data.Monoid
+import Data.Ratio
+import GHC.Real
 import System.Exit
  
-import qualified XMonad.StackSet as W hiding (swapDown, swapUp)
-import qualified Data.Map        as M
+-- xmonad core
+import XMonad
+import XMonad.StackSet hiding (workspaces)
  
-------------------------------------------------------------------------
--- Simple options.
---
-myModMask = mod4Mask
-myTerminal = "urxvtc -e tmux -2 new-session"
-myFocusFollowsMouse = True
-myBorderWidth = 0
-myWorkspaces = ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
+-- xmonad contrib
+import XMonad.Actions.SpawnOn
+--import XMonad.Actions.Volume
+import XMonad.Actions.Warp
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName
+import XMonad.Layout.Grid
+import XMonad.Layout.IndependentScreens
+import XMonad.Layout.Magnifier
+import XMonad.Layout.NoBorders
+import XMonad.Util.Dzen
+import XMonad.Util.EZConfig
+import XMonad.Util.Run
  
-------------------------------------------------------------------------
--- Custom functions go here.
---
-swapUp'  (W.Stack t (l:ls) rs) = W.Stack t ls (l:rs)
-swapUp'  (W.Stack t []     rs) = W.Stack t (rot $ reverse rs) []
-    where rot (x:xs) = xs ++ [x]
-          rot _ = []
+centerMouse = warpToWindow (1/2) (1/2)
+statusBarMouse = warpToScreen 0 (5/1600) (5/1200)
+withScreen screen f = screenWorkspace screen >>= flip whenJust (windows . f)
  
-swapUp = W.modify' swapUp'
+makeLauncher yargs run exec close = concat
+    ["exe=`yeganesh ", yargs, "` && ", run, " ", exec, "$exe", close]
+launcher     = makeLauncher "" "eval" "\"exec " "\""
+termLauncher = makeLauncher "-p withterm" "exec urxvt -e" "" ""
+viewShift  i = view i . shift i
+floatAll     = composeAll . map (\s -> className =? s --> doFloat)
+sinkFocus    = peek >>= maybe id sink
+--onChannels f = f ("Front":"Headphone":defaultChannels) 4 >>= volumeDzen . show . round
+--volumeDzen   = dzenConfig $ onCurr (center 170 66) >=> font "-*-helvetica-*-r-*-*-64-*-*-*-*-*-*-*,-*-terminus-*-*-*-*-64-*-*-*-*-*-*-*"
  
-reverseStack (W.Stack t ls rs) = W.Stack t rs ls
+bright = "#80c0ff"
+dark   = "#13294e"
  
-swapDown = W.modify' (reverseStack . swapUp' . reverseStack)
- 
-taggedStacks :: [W.Workspace i l a] -> [(i, [a])]
-taggedStacks = map $ W.tag &&& W.integrate' . W.stack
- 
-partCurrent :: (Eq a, Eq i) => W.StackSet i l a s sd -> [(i, [a])] -> ([a], [(i, [a])])
-partCurrent ws = first (snd . head) . partition ((W.currentTag ws ==) . fst)
- 
-hasCopies :: (Eq a) => ([a], [(i, [a])]) -> [i]
-hasCopies (curs, oths) = map fst $ Prelude.filter (any (`elem` curs) . snd) $ oths
- 
-wsContainingCopies :: X [WorkspaceId]
-wsContainingCopies = withWindowSet $ \ws ->
-        return . hasCopies . partCurrent ws . taggedStacks $ W.workspaces ws
- 
-------------------------------------------------------------------------
--- Key bindings. Add, modify or remove key bindings here.
---
-myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
- 
-    -- launch a terminal
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
- 
-    -- launch alpine in urxvt
-    --, ((modm,               xK_a     ), spawn "urxvt -e alpine")
- 
-    -- launch shell prompt menu
-    , ((modm,               xK_r     ), shellPrompt myXPConfig)
- 
-    -- runOrRaisePrompt
-    , ((modm .|. shiftMask, xK_r     ), runOrRaisePrompt myXPConfig)
- 
-    -- close focused window
-    , ((modm .|. shiftMask, xK_k     ), kill)
- 
-    -- close coppied window
-    , ((modm,               xK_k     ), kill1)
- 
-     -- Rotate forward through the available layout algorithms
-    , ((modm,               xK_space ), sendMessage NextLayout)
- 
-    -- TODO: add PrevLayout
-    -- Rotate backward through the available layout algorithms
-    --, ((modm .|. controlMask, xK_space ), sendMessage PrevLayout)
- 
-    --  Reset the layouts on the current workspace to default
-    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
- 
-    -- Resize viewed windows to the correct size
-    , ((modm .|. controlMask, xK_r   ), refresh)
- 
-    -- Move focus to the next window
-    , ((modm,               xK_Tab   ), windows W.focusDown)
- 
-    -- Move focus to the next window
-    , ((modm,               xK_j     ), windows W.focusDown)
- 
-    -- Move focus to the previous window
-    , ((modm,               xK_k     ), windows W.focusUp  )
- 
-    -- Move focus to the master window
-    , ((modm,               xK_h     ), windows W.focusMaster  )
- 
-    -- Swap the focused window and the master window
-    , ((modm,               xK_Return), windows W.swapMaster)
- 
-    -- Swap the focused window with the next window
-    , ((modm .|. shiftMask, xK_n     ), windows Main.swapDown  )
- 
-    -- Swap the focused window with the previous window
-    , ((modm .|. shiftMask, xK_o     ), windows Main.swapUp    )
- 
-    -- Shrink the master area
-    , ((modm,               xK_e     ), sendMessage Shrink)
- 
-    -- Expand the master area
-    , ((modm,               xK_i     ), sendMessage Expand)
- 
-    -- Push window back into tiling
-    , ((modm,               xK_t     ), withFocused $ windows . W.sink)
- 
-    -- Increment the number of windows in the master area
-    , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
- 
-    -- Deincrement the number of windows in the master area
-    , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
- 
-    -- toggle the status bar gap
-    -- TODO, update this binding with avoidStruts
-    , ((modm              , xK_b     ), sendMessage ToggleStruts)
- 
-    -- To maximize a window
-    , ((modm              , xK_m     ), withFocused $ sendMessage . maximizeRestore)
- 
-    -- Quit xmonad
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
- 
-    -- Restart xmonad
-    , ((modm              , xK_q     ), restart "xmonad" True)
-    ]
-    ++
- 
-    --
-    -- mod-[1..9], Switch to workspace N
-    -- mod-shift-[1..9], Move client to workspace N
-    -- mod-control-[1..9], Copy client to workspace N
-    --
-    [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask), (copy, controlMask)]
-    ]
-    ++
- 
-    --
-    -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
-    --
-    --[((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-    --    | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
-    --    , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
-    -- ++
- 
-    -- To make the combineTwo layout work
-    [ ((modm .|. controlMask .|. shiftMask, xK_o), sendMessage $ Move R)
-    , ((modm .|. controlMask .|. shiftMask, xK_n), sendMessage $ Move L)
-    , ((modm .|. controlMask .|. shiftMask, xK_i), sendMessage $ Move U)
-    , ((modm .|. controlMask .|. shiftMask, xK_e), sendMessage $ Move D)
-    ]
-    ++
- 
-    -- For ResizableTall layout
-    [ ((modm,                    xK_u), sendMessage MirrorShrink)
-    , ((modm,                    xK_y), sendMessage MirrorExpand)
-    ]
- 
-------------------------------------------------------------------------
--- Define all the possible layouts here.
---
-myLayouts = avoidStruts ( tiled' ||| Mirror tiled' ||| myTabbed ||| Full ||| combo ||| simplestFloat ) ||| Full
-  where
-    -- The default number of windows in the master pane
-    nmaster  = 1
-    -- Default proportion of screen occupied by master pane
-    ratio    = 1/2
-    -- Percent of screen to increment by when resizing panes
-    delta    = 3/100
-    -- Tabbed Layout
-    myTabbed = tabbed shrinkText myTabTheme
-    -- Shorthand for ResizableTall
-    tiled'   = maximize $ ResizableTall nmaster delta ratio []
-    -- Combined layout
-    combo    = windowNavigation ( combineTwo (TwoPane delta ratio) (myTabbed) (tiled') )
- 
-------------------------------------------------------------------------
--- Statusbar configuration.
---
-statusBarCmd :: String
-statusBarCmd = "dzen2" ++
-               " -bg '" ++ colorDarkGray ++ "'" ++
-               " -fg '" ++ colorLightGray ++ "'" ++
-               " -sa l" ++
-               " -fn '" ++ barXFont ++ "'" ++
-               " -ta l -e ''"
- 
-------------------------------------------------------------------------
--- Theme configuration.
---
-colorBlack, colorDarkGray, colorLightGray, colorRed, colorCyan, colorWhite :: [Char]
-colorBlack           = "#000000"
-colorDarkGray        = "#222222"
-colorLightGray       = "#aaaaaa"
-colorLightBlue       = "#0066ff"
-colorWhite           = "#ffffff"
-colorRed             = "#ff0000"
-colorCyan            = "#00ffff"
-colorMagenta         = "#ff00fd"
-colorBlue            = "#003cfd"
-colorGreen           = "#00ff00"
-colorYellow          = "#fdfd00"
- 
-barFont, barXFont    :: [Char]
-barFont              = "terminus"
-barXFont             = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*"
- 
-------------------------------------------------------------------------
--- My Own PP.
---
-myPP :: PP
-myPP = dzenPP { ppCurrent  = dzenColor colorWhite colorLightBlue . activeDwmPad
-              , ppHidden   = dzenColor colorLightGray colorDarkGray . activeDwmPad
-              , ppHiddenNoWindows = const ""
-              , ppSep      = "|"
-              , ppLayout   = dzenColor colorWhite colorDarkGray .
-                          (\ x -> case x of
-                                    "Maximize ResizableTall"        -> " []= "
-                                    "Mirror Maximize ResizableTall" -> " TTT "
-                                    "Tabbed Simplest"               -> " [=] "
-                                    "Full"                          -> " [ ] "
-                                    "combining Tabbed Simplest and Maximize ResizableTall with TwoPane"
-                                                                    -> " []+ "
-                                    "SimplestFloat"                 -> " ><> "
-                                    _                               -> pad x
-                          )
-              , ppTitle    = dzenColor colorYellow colorDarkGray . pad
-              }
+fullscreenMPlayer = className =? "MPlayer" --> do
+    dpy   <- liftX $ asks display
+    win   <- ask
+    hints <- liftIO $ getWMNormalHints dpy win
+    case fmap (approx . fst) (sh_aspect hints) of
+        Just ( 4 :% 3)  -> viewFullOn win 0 "1"
+        Just (16 :% 9)  -> viewFullOn win 1 "5"
+        _               -> doFloat
     where
-      activeDwmPad a = "^i(/usr/home/joshua/.xpms/active.xpm)" ++ a ++ " "
+    fi               = fromIntegral
+    approx (n, d)    = approxRational (fi n / fi d) (1/100)
+    viewFullOn w s n = do
+        let ws = marshall s n
+        liftX  $ withScreen s view
+        return . Endo $ view ws . shiftWin ws w
  
-------------------------------------------------------------------------
--- My Own logHook
---
-myLogHook h = do
-    copies <- wsContainingCopies
-    currentWS <- gets $ peek . windowset
-    let inactiveCheck ws | ws `elem` copies = dzenColor colorLightGray colorDarkGray . inactiveDwmCopiesPad $ ws
-                         | otherwise = inactiveDwmPad ws
-    let activeCheck ws | currentWS /= Nothing = dzenColor colorWhite colorLightBlue $ activeDwmPad ws
-                       | otherwise = dzenColor colorWhite colorLightBlue $ pad ws
-    dynamicLogWithPP $ myPP { ppHidden = inactiveCheck, ppCurrent = activeCheck, ppOutput = hPutStrLn h }
-    where
-      activeDwmPad a = "^i(/usr/home/joshua/.xpms/active.xpm)" ++ a ++ " "
-      inactiveDwmPad a = "^i(/usr/home/joshua/.xpms/inactive.xpm)" ++ a ++ " "
-      inactiveDwmCopiesPad a = "^i(/usr/home/joshua/.xpms/inactiveCopies.xpm)" ++ a ++ " "
- 
- 
-------------------------------------------------------------------------
--- My Own XPConfig
---
-myXPConfig :: XPConfig
-myXPConfig = defaultXPConfig { font        = barXFont
-                             , bgColor     = colorDarkGray
-                             , fgColor     = colorLightGray
-                             , bgHLight    = colorLightBlue
-                             , fgHLight    = colorWhite
-                             , borderColor = colorLightBlue
-                             }
- 
-------------------------------------------------------------------------
--- My Own Tab Theme
---
-myTabTheme :: Theme
-myTabTheme = defaultTheme { fontName = barXFont
-                          , activeColor = colorLightBlue
-                          , inactiveColor = colorDarkGray
-                          , activeBorderColor = colorWhite
-                          , inactiveBorderColor = colorLightBlue
-                          , activeTextColor = colorWhite
-                          , inactiveTextColor = colorLightGray
-                          }
- 
-------------------------------------------------------------------------
--- main function.
---
 main = do
-        h <- spawnPipe statusBarCmd -- For the left side of the status bar (dzen)
-        --spawn "~/bin/dzenscript &" -- and the right side
-        xmonad $ defaultConfig
-                   { modMask = myModMask
-                   , terminal = myTerminal
-                   , borderWidth = myBorderWidth
-                   , focusFollowsMouse = myFocusFollowsMouse
-                   , XMonad.workspaces = myWorkspaces
-                   , keys = myKeys
-                   , logHook = myLogHook h
-                   , layoutHook = myLayouts
-                   }
+    nScreens    <- countScreens
+    hs          <- mapM (spawnPipe . xmobarCommand) [0 .. nScreens-1]
+    xmonad $ defaultConfig {
+        borderWidth             = 2,
+        workspaces              = withScreens nScreens (map show [1..5]),
+        terminal                = "urxvtc -e tmux -2 -new-session",
+        normalBorderColor       = dark,
+        focusedBorderColor      = bright,
+        modMask                 = mod4Mask,
+        keys                    = keyBindings,
+        layoutHook              = magnifierOff $ avoidStruts (GridRatio 0.9) ||| noBorders Full,
+        manageHook              = floatAll ["Gimp", "Wine"]
+                                  <+> (title =? "CGoban: Main Window" --> doF sinkFocus)
+                                  <+> (isFullscreen --> doFullFloat)
+                                  <+> fullscreenMPlayer
+                                  <+> manageDocks
+                                  <+> manageSpawn,
+        logHook                 = mapM_ dynamicLogWithPP $ zipWith pp hs [0..nScreens],
+        startupHook             = setWMName "LG3D" -- gotta keep this until all the machines I use have the version of openjdk that respects _JAVA_AWT_WM_NONREPARENTING`
+        }
+ 
+keyBindings conf = let m = modMask conf in fromList $ [
+    ((m                , xK_BackSpace  ), spawnHere "urxvtc -e tmux -2 -new-session"),
+    ((m                , xK_p          ), spawnHere launcher),
+    ((m .|. shiftMask  , xK_p          ), spawnHere termLauncher),
+    ((m .|. shiftMask  , xK_c          ), kill)",
+    ((m                , xK_q          ), restart "xmonad" True),
+    ((m .|. shiftMask  , xK_q          ), io (exitWith ExitSuccess)),
+    ((m                , xK_grave      ), sendMessage NextLayout),
+    ((m .|. shiftMask  , xK_grave      ), setLayout $ layoutHook conf),
+    ((m                , xK_o          ), sendMessage Toggle),
+    ((m                , xK_x          ), withFocused (windows . sink)),
+    ((m                , xK_Home       ), windows focusUp),
+    ((m .|. shiftMask  , xK_Home       ), windows swapUp),
+    ((m                , xK_End        ), windows focusDown),
+    ((m .|. shiftMask  , xK_End        ), windows swapDown),
+    ((m                , xK_a          ), windows focusMaster),
+    ((m .|. shiftMask  , xK_a          ), windows swapMaster),
+    ((m                , xK_Control_L  ), withScreen 0 view),
+    ((m .|. shiftMask  , xK_Control_L  ), withScreen 0 viewShift),
+    ((m                , xK_Alt_L      ), withScreen 1 view),
+    ((m .|. shiftMask  , xK_Alt_L      ), withScreen 1 viewShift),
+    ((m                , xK_u          ), centerMouse),
+    ((m .|. controlMask, xK_u          ), centerMouse),
+    ((m .|. mod1Mask   , xK_u          ), centerMouse),
+    ((m .|. shiftMask  , xK_u          ), statusBarMouse),
+    ((m                , xK_s          ), spawnHere "chromium-browser"),
+    ((m                , xK_n          ), spawnHere "gvim todo"),
+    ((m                , xK_t          ), spawnHere "mpc toggle"),
+    ((m                , xK_h          ), spawnHere "urxvt -e alsamixer"),
+    ((m                , xK_d          ), spawnHere "wyvern"),
+    ((m                , xK_l          ), spawnHere "urxvt -e sup"),
+    ((m                , xK_r          ), spawnHere "urxvt -e ncmpcpp"),
+    ((m                , xK_c          ), spawnHere "urxvt -e ghci"),
+    ((m                , xK_g          ), spawnHere "slock" >> spawnHere "kdesktop_lock --forcelock"),
+    ((m                , xK_f          ), spawnHere "gvim ~/.xmonad/xmonad.hs")
+--    ((0                , xK_F8         ), onChannels lowerVolumeChannels),
+--    ((0                , xK_F9         ), onChannels raiseVolumeChannels)
+    ] ++ [
+    ((m .|. e .|. i    , key           ), windows (onCurrentScreen f workspace))
+    | (key, workspace) <- zip [xK_1..xK_9] (workspaces' conf)
+    , (e, f)           <- [(0, view), (shiftMask, viewShift)]
+    , i                <- [0, controlMask, mod1Mask, controlMask .|. mod1Mask]
+    ]
+ 
+-- TODO: add control/alt mask to all keybindings
+ 
+xmobarCommand (S s) = unwords ["xmobar", "-x", show s, "-t", template s] where
+    template 0 = "%StdinReader%"
+    template _ = "%date%%StdinReader%"
+ 
+pp h s = marshallPP s defaultPP {
+    ppCurrent           = color "white",
+    ppVisible           = color "white",
+    ppHiddenNoWindows   = color dark,
+    ppUrgent            = color "red",
+    ppSep               = "",
+    ppOrder             = \(wss:layout:title:_) -> ["\NUL", title, "\NUL", wss],
+    ppOutput            = hPutStrLn h
+    }
+    where color c = xmobarColor c ""
