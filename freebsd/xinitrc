@@ -3,10 +3,10 @@ urxvtd &
 xrdb -nocpp -merge ~/.Xresources
 wallpaper &
 xset s off
-#export LANG=ja_JP.UTF-8 LLC_ALL=ja_JP.UTF-8
+export LANG=ja_JP.UTF-8 LLC_ALL=ja_JP.UTF-8
 #export LANG=ca_ES.ISO8859-1 LLC_ALL=ca_ES.ISO8859-1
 #export LANG=es_ES.ISO8859-1 LLC_ALL=es_ES.ISO8859-1
-export LANG=es_ES.UTF-8 LLC_ALL=es_ES.UTF-8
+#export LANG=es_ES.UTF-8 LLC_ALL=es_ES.UTF-8
 export GTK_IM_MODULE='uim'
 export QT_IM_MODULE='uim'
 export XMODIFIERS=@im='uim'
