@@ -73,7 +73,7 @@ main = do
         modMask                 = mod4Mask,
         keys                    = keyBindings,
         layoutHook              = magnifierOff $ avoidStruts (GridRatio 0.9) ||| noBorders Full,
-        manageHook              = floatAll ["Gimp", "Wine"]
+        manageHook              = floatAll ["Gimp", "Wine", "MPlayer"]
                                   <+> (title =? "CGoban: Main Window" --> doF sinkFocus)
                                   <+> (isFullscreen --> doFullFloat)
                                   <+> fullscreenMPlayer
@@ -87,7 +87,7 @@ keyBindings conf = let m = modMask conf in fromList $ [
     ((m                , xK_BackSpace  ), spawnHere "urxvtc -e tmux -2 -new-session"),
     ((m                , xK_p          ), spawnHere launcher),
     ((m .|. shiftMask  , xK_p          ), spawnHere termLauncher),
-    ((m .|. shiftMask  , xK_c          ), kill)",
+    ((m .|. shiftMask  , xK_c          ), kill),
     ((m                , xK_q          ), restart "xmonad" True),
     ((m .|. shiftMask  , xK_q          ), io (exitWith ExitSuccess)),
     ((m                , xK_grave      ), sendMessage NextLayout),
@@ -108,7 +108,7 @@ keyBindings conf = let m = modMask conf in fromList $ [
     ((m .|. controlMask, xK_u          ), centerMouse),
     ((m .|. mod1Mask   , xK_u          ), centerMouse),
     ((m .|. shiftMask  , xK_u          ), statusBarMouse),
-    ((m                , xK_s          ), spawnHere "chromium-browser"),
+    ((m                , xK_s          ), spawnHere "firefox"),
     ((m                , xK_n          ), spawnHere "gvim todo"),
     ((m                , xK_t          ), spawnHere "mpc toggle"),
     ((m                , xK_h          ), spawnHere "urxvt -e alsamixer"),
