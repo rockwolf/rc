@@ -8,20 +8,32 @@ import XMonad.Layout.IndependentScreens
  
  
 -- ||| Theme configuration
--- | Colors
-colorBlack, colorDarkGray, colorLightGray, colorRed, colorCyan, colorWhite :: [Char]
---TODO: better color values
-colorBlack           = "#000000"
-colorDarkGray        = "#222222"
-colorLightGray       = "#aaaaaa"
-colorLightBlue       = "#0066ff"
-colorWhite           = "#ffffff"
-colorRed             = "#ff0000"
-colorCyan            = "#00ffff"
-colorMagenta         = "#ff00fd"
-colorBlue            = "#003cfd"
-colorGreen           = "#00ff00"
-colorYellow          = "#fdfd00"
+-- | Colors (solarized color scheme)
+colorBlack, colorBrBlack      :: [Char]
+colorWhite, colorBrWhite      :: [Char]
+colorYellow, colorBrYellow    :: [Char]
+colorGreen, colorBrGreen      :: [Char]
+colorBlue, colorBrBlue        :: [Char]
+colorRed, colorBrRed          :: [Char]
+colorCyan, colorBrCyan        :: [Char]
+colorMagenta, colorBrMagenta  :: [Char]
+colorBlack           = "#002b36"
+colorBrBlack         = "#073642"
+colorWhite           = "#eee8d5"
+colorBrWhite         = "#fdf6e3"
+colorYellow          = "#b58900"
+colorBrYellow        = "#657b83"
+colorGreen           = "#859900"
+colorBrGreen         = "#586e75"
+colorBlue            = "#268bd2"
+colorBrBlue          = "#839496"
+colorRed             = "#dc322f"
+colorBrRed           = "#cb4b16"
+colorCyan            = "#2aa198"
+colorBrCyan          = "#93a1a1"
+colorMagenta         = "#d33682"
+colorBrMagenta       = "#6c71c4"
+
 -- | Fonts 
 barFont, barXFont    :: [Char]
 barFont              = "terminus"
