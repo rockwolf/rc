@@ -4,6 +4,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
+import XMonad.Layout.IndependentScreens
  
  
 -- ||| Theme configuration
@@ -27,6 +28,12 @@ barFont              = "terminus"
 barXFont             = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*"
 -- | Workspaces
 myWorkSpaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+-- | Applications
+myTerminal = "urxvtc -e tmux -2 -new-session"
+myScreenSaver = "slock"
+myScrot = "scrot"
+myScrotSelection = "sleep 0.2; scrot -s"
+myXmobar = "xmobar $HOME/.xmonad/xmobarrc"
  
 -- ||| Floating windows
 myManageHook = composeAll
@@ -36,11 +43,11 @@ myManageHook = composeAll
 
 -- ||| Main 
 main = do
-    xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
+    xmproc <- spawnPipe myXmobar
     xmonad $ defaultConfig
         { borderWidth = 2
         , workSpaces = withScreens nScreens(map show myWorkSpaces),
-        , terminal = "urxvtc -e tmux -2 -new-session"
+        , terminal = myTerminal
         , manageHook = manageDocks <+> myManageHook -- make sure to include myManageHook definition from above
                         <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
@@ -51,7 +58,7 @@ main = do
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
         } `additionalKeys`
         -- TODO: doesn't the mod4Mask below, need to be modMask?
-        [ ((mod4Mask .|. shiftMask, xK_z), spawn "slock")
-        , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
-        , ((0, xK_Print), spawn "scrot")
+        [ ((mod4Mask .|. shiftMask, xK_z), spawn myScreenSaver)
+        , ((controlMask, xK_Print), spawn myScrotSelection)
+        , ((0, xK_Print), spawn myScrot)
         ]
