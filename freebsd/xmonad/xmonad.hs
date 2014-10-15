@@ -70,13 +70,15 @@ main = do
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
         } `additionalKeys`
         -- TODO: doesn't the mod4Mask below, need to be modMask?
-        [ ((mod4Mask .|. shiftMask           , xK_z        ), spawn myScreenSaver)
-        , ((controlMask                      , xK_Print    ), spawn myScrotSelection)
-        , ((0                                , xK_Print    ), spawn myScrot)
-        , ((mod4Mask                         , xK_comma    ), withScreen 0 view)
-        , ((mod4Mask .|.                     , xK_comma    ), withScreen 0 viewShift)
-        , ((mod4Mask                         , xK_period   ), withScreen 1 view)
-        , ((mod4Mask .|.                     , xK_period   ), withScreen 1 viewShift)
-        , ((mod4Mask                         , xK_slash    ), withScreen 2 view)
-        , ((mod4Mask .|.                     , xK_slash    ), withScreen 2 viewShift)
+        [ ((mod4Mask .|. shiftMask           , xK_z           ), spawn myScreenSaver)
+        , ((controlMask                      , xK_Print       ), spawn myScrotSelection)
+        , ((0                                , xK_Print       ), spawn myScrot)
+        , ((mod4Mask                         , xK_comma       ), withScreen 0 view)
+        , ((mod4Mask .|.                     , xK_comma       ), withScreen 0 viewShift)
+        , ((mod4Mask                         , xK_period      ), withScreen 1 view)
+        , ((mod4Mask .|.                     , xK_period      ), withScreen 1 viewShift)
+        , ((mod4Mask                         , xK_slash       ), withScreen 2 view)
+        , ((mod4Mask .|.                     , xK_slash       ), withScreen 2 viewShift)
+        , ((mod4Mask                         , xK_bracketleft ), sendMessage (IncMasterN 1))
+        , ((mod4Mask                         , xK_bracketright), sendMessage (IncMasterN (-1)))
         ]
