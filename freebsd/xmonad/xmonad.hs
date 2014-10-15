@@ -6,7 +6,7 @@ import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
  
  
---||| Theme configuration
+-- ||| Theme configuration
 -- | Colors
 colorBlack, colorDarkGray, colorLightGray, colorRed, colorCyan, colorWhite :: [Char]
 --TODO: better color values
