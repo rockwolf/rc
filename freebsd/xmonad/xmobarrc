@@ -1,0 +1,27 @@
+Config { font = "xft:Liberation Mono:size=18"
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "#002b36"
+       , fgColor = "#eee8d5"
+       , position = Top
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [
+                    -- Run Network "re0" ["-L","0","-H","32",
+                    --                      "--normal","green","--high","red"] 10
+                    --, Run Cpu ["-L","3","-H","50",
+                    --           "--normal","green","--high","red"] 10
+                    --, Run Memory ["-t","Mem: <usedratio>%"] 10
+                    --, Run Swap [] 10
+                    Run Com "uname" ["-s","-r"] "" 36000
+                    , Run Date "%Y-%m-%d %H:%M:%S" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       --, template = "%cpu% | %memory% * %swap% | %re0% <fc=#00afaf>%date%</fc>| %uname%"
+       , template = "<fc=#00afaf>%date%</fc> | %uname%"
+       }

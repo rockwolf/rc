@@ -39,8 +39,8 @@ colorBlue            = "#268bd2"
 colorBrBlue          = "#839496"
 colorRed             = "#dc322f"
 colorBrRed           = "#cb4b16"
-colorCyan            = "#2aa198"
-colorBrCyan          = "#93a1a1"
+colorCyan            = "#93a1a1"
+colorBrCyan          = "#2aa198"
 colorMagenta         = "#d33682"
 colorBrMagenta       = "#6c71c4"
 
@@ -158,6 +158,8 @@ main = do
     xmproc <- spawnPipe myXmobar
     xmonad $ defaultConfig
         { borderWidth = 2
+        , normalBorderColor = colorWhite
+        , focusedBorderColor = colorBrCyan
         , workspaces = withScreens nScreens (map show myWorkSpaces)
         , terminal = myTerminal
         , manageHook = manageDocks <+> myManageHook -- make sure to include myManageHook definition from above
