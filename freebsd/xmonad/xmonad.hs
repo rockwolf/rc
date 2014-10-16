@@ -87,7 +87,7 @@ viewShift  i = view i . shift i
 -- | Keybindings
 myKeys conf = let m = modMask conf in M.fromList $ 
     [ ((m .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf) -- %! Launch terminal
-    , ((m,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"") -- %! Launch dmenu
+    , ((m,               xK_p     ), spawn "dmenu_run") -- %! Launch dmenu
     , ((m .|. shiftMask, xK_p     ), spawn "gmrun") -- %! Launch gmrun
     , ((m .|. shiftMask, xK_c     ), kill) -- %! Close the focused window
 
