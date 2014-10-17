@@ -78,7 +78,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "urxvtc", NULL };
+static const char *termcmd[]  = { "urxvtc -e tmux -2 new-session", NULL };
 static const char *warpcmd[]  = { "/usr/local/sh/warp", NULL };
 
 static Key keys[] = {
