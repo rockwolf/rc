@@ -81,12 +81,12 @@ set nu
 set splitbelow
 
 if has('gui_running')
-    set background=light
+    set background=dark
 else
     set background=dark
 endif
 
-let g:solarized_degrade=1
+let g:solarized_degrade=0
 colo solarized
 "colo reloaded
 

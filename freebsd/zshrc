@@ -27,7 +27,7 @@ unsetopt beep
 #exports
 export EDITOR="vi"
 export PATH=$PATH:/usr/local/sh:/usr/local/sh/freebsd:$HOME/src/bin:$HOME/nintai/prd/src/bin:$HOME/sh_
-export PATH=$PATH:$HOME/src/app
+export PATH=$PATH:$HOME/src/app:.cabal-sandbox/bin
 
 #aliases
 alias ll="ls -lhF"
@@ -43,6 +43,7 @@ alias pylint="pylint --include-ids=y"
 alias tidy="tidy4"
 alias anki="anki -b ~/.anki"
 alias less="less -c"
+alias gcc="gcc49"
 
 # bye bye zsh, helllooooo python
 #exec /usr/bin/ipython -noconfirm_exit -p sh -i -c "_prompt_title='`hostname`@`date +%Y-%m-%d`'"

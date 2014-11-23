@@ -2,332 +2,312 @@
 <playlist xmlns="http://xspf.org/ns/0/" version="1">
 <trackList>
 <track>
-	<location>../aud/metal/hackneyed/Hackneyed+-+Death+Prevails/02-hackneyed-gut_candy.mp3</location>
-	<title>02-hackneyed-gut_candy.mp3</title>
+	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+08+-+Beer+Pressure.mp3</location>
+	<title>Municipal Waste - The Art Of Partying - 08 - Beer Pressure.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Crucial+Unit+Split/10+municipal+waste+-+the+garbage+stomp+-+intro.wma</location>
-	<title>10 municipal waste - the garbage stomp - intro.wma</title>
+	<location>../aud/metal/deathangel/Death+Angel+-+The+Art+Of+Dying/02-5+Steps+Of+Freedom.mp3</location>
+	<title>02-5 Steps Of Freedom.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Crucial+Unit+Split/11+municipal+waste+-+wicked+fit.wma</location>
-	<title>11 municipal waste - wicked fit.wma</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Crucial+Unit+Split/12+municipal+waste+-+poser+disposer.wma</location>
-	<title>12 municipal waste - poser disposer.wma</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Crucial+Unit+Split/13+municipal+waste+-+chemical+artillery+-+the+toxic+survival.wma</location>
-	<title>13 municipal waste - chemical artillery - the toxic survival.wma</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Crucial+Unit+Split/14+municipal+waste+-+insurance+fraud.wma</location>
-	<title>14 municipal waste - insurance fraud.wma</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Crucial+Unit+Split/15+municipal+waste+-+scantron+clamathon+-+detention+mosh+session+pt.+2.wma</location>
-	<title>15 municipal waste - scantron clamathon - detention mosh session pt. 2.wma</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Crucial+Unit+Split/16+municipal+waste+-+born+to+party.wma</location>
-	<title>16 municipal waste - born to party.wma</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Crucial+Unit+Split/17+municipal+waste+-+abusement+park.wma</location>
-	<title>17 municipal waste - abusement park.wma</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Crucial+Unit+Split/18+municipal+waste+-+percys+trip+to+the+dentist.wma</location>
-	<title>18 municipal waste - percys trip to the dentist.wma</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Crucial+Unit+Split/19+municipal+waste+-+haunted+junkyard.wma</location>
-	<title>19 municipal waste - haunted junkyard.wma</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/01+intro+-+deathripper.mp3</location>
-	<title>01 intro - deathripper.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/01+intro-death+ripper.mp3</location>
-	<title>01 intro-death ripper.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/02+unleash+the+bastards.mp3</location>
-	<title>02 unleash the bastards.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/03+the+thing.mp3</location>
-	<title>03 the thing.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/04+blood+drive.mp3</location>
-	<title>04 blood drive.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/05+accelerated+vision.mp3</location>
-	<title>05 accelerated vision.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/06+guilty+of+being+tight.mp3</location>
-	<title>06 guilty of being tight.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/07+set+to+destruct.mp3</location>
-	<title>07 set to destruct.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/07+the+thrashin&apos;+of+the+christ.mp3</location>
-	<title>07 the thrashin&apos; of the christ.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/08+hazardous+mutation.mp3</location>
-	<title>08 hazardous mutation.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/09+nailed+casket.mp3</location>
-	<title>09 nailed casket.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/10+abusement+park.mp3</location>
-	<title>10 abusement park.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/11+black+ice.mp3</location>
-	<title>11 black ice.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/12+mind+eraser.mp3</location>
-	<title>12 mind eraser.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/13+terror+shark.mp3</location>
-	<title>13 terror shark.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/14+bang+over.mp3</location>
-	<title>14 bang over.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/14+set+to+destruct.mp3</location>
-	<title>14 set to destruct.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/15+bang+over.mp3</location>
-	<title>15 bang over.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Hazardous+Mutation/15+the+thrashin&apos;+of+the+christ.mp3</location>
-	<title>15 the thrashin&apos; of the christ.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Live+At+Lintfabriek+Kontich/01-municipal_waste-unknown_title-cor.mp3</location>
-	<title>01-municipal_waste-unknown_title-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Live+At+Lintfabriek+Kontich/02-municipal_waste-waste_em_all-cor.mp3</location>
-	<title>02-municipal_waste-waste_em_all-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Live+At+Lintfabriek+Kontich/03-municipal_waste-abusement_park-cor.mp3</location>
-	<title>03-municipal_waste-abusement_park-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Live+At+Lintfabriek+Kontich/04-municipal_waste-toxic_revolution-cor.mp3</location>
-	<title>04-municipal_waste-toxic_revolution-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Live+At+Lintfabriek+Kontich/05-municipal_waste-i_want_to_kill_the_president-cor.mp3</location>
-	<title>05-municipal_waste-i_want_to_kill_the_president-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Live+At+Lintfabriek+Kontich/06-municipal_waste-unknown_title-cor.mp3</location>
-	<title>06-municipal_waste-unknown_title-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Live+At+Lintfabriek+Kontich/07-municipal_waste-mutants_of_war-cor.mp3</location>
-	<title>07-municipal_waste-mutants_of_war-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Live+At+Lintfabriek+Kontich/08-municipal_waste-mountain_wizard-cor.mp3</location>
-	<title>08-municipal_waste-mountain_wizard-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Live+At+Lintfabriek+Kontich/09-municipal_waste-born_to_party-cor.mp3</location>
-	<title>09-municipal_waste-born_to_party-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Live+At+Lintfabriek+Kontich/10-municipal_waste-slow_death_(the_accused)-cor.mp3</location>
-	<title>10-municipal_waste-slow_death_(the_accused)-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Live+At+Lintfabriek+Kontich/11-municipal_waste-death_ripper-cor.mp3</location>
-	<title>11-municipal_waste-death_ripper-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Self-Titled/municipal+waste+-+municipal+waste+ep+-+01+-+thrashings+my+business...and+business+is+good.mp3</location>
-	<title>municipal waste - municipal waste ep - 01 - thrashings my business...and business is good.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Self-Titled/municipal+waste+-+municipal+waste+ep+-+02+-+detention+mosh+session.mp3</location>
-	<title>municipal waste - municipal waste ep - 02 - detention mosh session.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Self-Titled/municipal+waste+-+municipal+waste+ep+-+03+-+ratbite.mp3</location>
-	<title>municipal waste - municipal waste ep - 03 - ratbite.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Self-Titled/municipal+waste+-+municipal+waste+ep+-+04+-+rock+hatchet-knife.mp3</location>
-	<title>municipal waste - municipal waste ep - 04 - rock hatchet-knife.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Self-Titled/municipal+waste+-+municipal+waste+ep+-+05+-+floor+score.mp3</location>
-	<title>municipal waste - municipal waste ep - 05 - floor score.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Self-Titled/municipal+waste+-+municipal+waste+ep+-+06+-+cxmxd.mp3</location>
-	<title>municipal waste - municipal waste ep - 06 - cxmxd.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Tango+%26+Thrash/01-municipal_waste-escape_from_new_york_(intro)_-_big_trouble_in_little_china-cor.mp3</location>
-	<title>01-municipal_waste-escape_from_new_york_(intro)_-_big_trouble_in_little_china-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Tango+%26+Thrash/02-municipal_waste-captain_ron_(overboard)-cor.mp3</location>
-	<title>02-municipal_waste-captain_ron_(overboard)-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Tango+%26+Thrash/03-municipal_waste-backdraft-cor.mp3</location>
-	<title>03-municipal_waste-backdraft-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/Tango+%26+Thrash/04-municipal_waste-tango_and_thrash-cor.mp3</location>
-	<title>04-municipal_waste-tango_and_thrash-cor.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+01+-+Pre-Game.mp3</location>
-	<title>Municipal Waste - The Art Of Partying - 01 - Pre-Game.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+02+-+The+Art+Of+Partying.mp3</location>
-	<title>Municipal Waste - The Art Of Partying - 02 - The Art Of Partying.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+03+-+Headbanger+Face+Rip.mp3</location>
-	<title>Municipal Waste - The Art Of Partying - 03 - Headbanger Face Rip.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+04+-+Mental+Shock.mp3</location>
-	<title>Municipal Waste - The Art Of Partying - 04 - Mental Shock.mp3</title>
+	<location>../aud/metal/pantera/(1990)+Pantera+-+Cowboys+From+Hell/01+-+Cowboys+From+Hell.mp3</location>
+	<title>01 - Cowboys From Hell.mp3</title>
 </track>
 <track>
 	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+05+-+A.D.D.(Attention+Deficit+Destroyer).mp3</location>
 	<title>Municipal Waste - The Art Of Partying - 05 - A.D.D.(Attention Deficit Destroyer).mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+06+-+The+Inebriator.mp3</location>
-	<title>Municipal Waste - The Art Of Partying - 06 - The Inebriator.mp3</title>
+	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+04+-+Mental+Shock.mp3</location>
+	<title>Municipal Waste - The Art Of Partying - 04 - Mental Shock.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+07+-+Lunch+Hall+Food+Brawl.mp3</location>
-	<title>Municipal Waste - The Art Of Partying - 07 - Lunch Hall Food Brawl.mp3</title>
+	<location>../aud/metal/devildriver/DevilDriver/09+Swinging+The+Dead.mp3</location>
+	<title>09 Swinging The Dead.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+08+-+Beer+Pressure.mp3</location>
-	<title>Municipal Waste - The Art Of Partying - 08 - Beer Pressure.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+09+-+Chemically+Altered.mp3</location>
-	<title>Municipal Waste - The Art Of Partying - 09 - Chemically Altered.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+10+-+Sadistic+Magician.mp3</location>
-	<title>Municipal Waste - The Art Of Partying - 10 - Sadistic Magician.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+11+-+Open+Your+Mind.mp3</location>
-	<title>Municipal Waste - The Art Of Partying - 11 - Open Your Mind.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+12+-+Radioactive+Force.mp3</location>
-	<title>Municipal Waste - The Art Of Partying - 12 - Radioactive Force.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+13+-+Septic+Detonation.mp3</location>
-	<title>Municipal Waste - The Art Of Partying - 13 - Septic Detonation.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+14+-+Rigorous+Vengeance.mp3</location>
-	<title>Municipal Waste - The Art Of Partying - 14 - Rigorous Vengeance.mp3</title>
+	<location>../aud/metal/devildriver/DevilDriver/02+I+Could+Care+Less.mp3</location>
+	<title>02 I Could Care Less.mp3</title>
 </track>
 <track>
 	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+15+-+Born+To+Party.mp3</location>
 	<title>Municipal Waste - The Art Of Partying - 15 - Born To Party.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/01-municipal_waste-executioner.mp3</location>
-	<title>01-municipal_waste-executioner.mp3</title>
+	<location>../aud/metal/violator/Violator+%5b2004%5d+Violent+mosh+-+EP/02-thrash_maniacs-gw.mp3</location>
+	<title>02-thrash_maniacs-gw.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/02-municipal_waste-sweet_attack.mp3</location>
-	<title>02-municipal_waste-sweet_attack.mp3</title>
+	<location>../aud/metal/ironmaiden/Iron+Maiden+-+1980+-+Iron+Maiden/03+Running+Free.mp3</location>
+	<title>03 Running Free.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/03-municipal_waste-mutants_of_wa.mp3</location>
-	<title>03-municipal_waste-mutants_of_wa.mp3</title>
+	<location>../aud/metal/tankard/Tankard+-+(2000)+Kings+of+Beer/11+-+Tattoo+Coward.mp3</location>
+	<title>11 - Tattoo Coward.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/04-municipal_waste-knife_fight.mp3</location>
-	<title>04-municipal_waste-knife_fight.mp3</title>
+	<location>../aud/metal/pantera/(1992)+Pantera+-+Vulgar+Display+Of+Power/11+-+Hollow.mp3</location>
+	<title>11 - Hollow.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/05-municipal_waste-drunk_as_shit.mp3</location>
-	<title>05-municipal_waste-drunk_as_shit.mp3</title>
+	<location>../aud/metal/ironmaiden/Iron+Maiden+-+1985+-+Live+After+Death/Iron+Maiden+-+1985+-+Live+After+Death+-+CD+1/03-2+Minutes+To+Midnight.mp3</location>
+	<title>03-2 Minutes To Midnight.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/06-municipal_waste-death_prank.mp3</location>
-	<title>06-municipal_waste-death_prank.mp3</title>
+	<location>../aud/metal/pantera/(1990)+Pantera+-+Cowboys+From+Hell/12+-+The+Art+Of+Shredding.mp3</location>
+	<title>12 - The Art Of Shredding.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/07-municipal_waste-substitute_cr.mp3</location>
-	<title>07-municipal_waste-substitute_cr.mp3</title>
+	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+09+-+Chemically+Altered.mp3</location>
+	<title>Municipal Waste - The Art Of Partying - 09 - Chemically Altered.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/08-municipal_waste-waste__em_all.mp3</location>
-	<title>08-municipal_waste-waste__em_all.mp3</title>
+	<location>../aud/metal/griefofwar/Grief+Of+War+(JAP)/2005+-+A+Mounting+Crisis...+As+Their+Fury+Got+Released/09+-+Blood+Lust.mp3</location>
+	<title>09 - Blood Lust.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/09-municipal_waste-toxic_revolut.mp3</location>
-	<title>09-municipal_waste-toxic_revolut.mp3</title>
+	<location>../aud/metal/amonamarth/2004+-+Fate+Of+Norns/04+The+Pursuit+Of+Vikings.mp3</location>
+	<title>04 The Pursuit Of Vikings.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/10-municipal_waste-i_want_to_kil.mp3</location>
-	<title>10-municipal_waste-i_want_to_kil.mp3</title>
+	<location>../aud/metal/griefofwar/Grief+Of+War+(JAP)/2005+-+A+Mounting+Crisis...+As+Their+Fury+Got+Released/02+-+Rat+Race.mp3</location>
+	<title>02 - Rat Race.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/11-municipal_waste-thrash__don_t.mp3</location>
-	<title>11-municipal_waste-thrash__don_t.mp3</title>
+	<location>../aud/metal/dragonforce/DragonForce+-+2005+-+Inhuman+Rampage+-+Advance/DragonForce+-+01+-+Through+The+Fire+And+Flames.mp3</location>
+	<title>DragonForce - 01 - Through The Fire And Flames.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/12-municipal_waste-dropped_out.mp3</location>
-	<title>12-municipal_waste-dropped_out.mp3</title>
+	<location>../aud/metal/tankard/Tankard+-+(1992)+Stone+Cold+Sober+%5bRemastered%5d/05+-+Centerfold+(J.Geils+Band+Coverversion).mp3</location>
+	<title>05 - Centerfold (J.Geils Band Coverversion).mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/13-municipal_waste-blood_hunger.mp3</location>
-	<title>13-municipal_waste-blood_hunger.mp3</title>
+	<location>../aud/metal/tankard/Tankard+-+(2004)+Beast+of+Bourbon/09.+Fistful+Of+Love.mp3</location>
+	<title>09. Fistful Of Love.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/14-municipal_waste-jock_pit.mp3</location>
-	<title>14-municipal_waste-jock_pit.mp3</title>
+	<location>../aud/metal/galneryus/2005+-+Advance+To+the+Fall/01-Stillness+Dawn.mp3</location>
+	<title>01-Stillness Dawn.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/15-municipal_waste-the_mountain.mp3</location>
-	<title>15-municipal_waste-the_mountain.mp3</title>
+	<location>../aud/metal/poison/Poison+-+20+years+of+rock/11+-+Rock+n&apos;+Roll+All+Nite.mp3</location>
+	<title>11 - Rock n&apos; Roll All Nite.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/municipalwaste/Waste+Em+All/16-municipal_waste-untitled.mp3</location>
-	<title>16-municipal_waste-untitled.mp3</title>
+	<location>../aud/metal/violator/Violator+%5b2004%5d+Violent+mosh+-+EP/04-the_plague_never_dies-gw.mp3</location>
+	<title>04-the_plague_never_dies-gw.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/tankard/Tankard+-+(1990)+The+Meaning+of+Life/07+-+Space+Beer.mp3</location>
+	<title>07 - Space Beer.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+02+-+The+Art+Of+Partying.mp3</location>
+	<title>Municipal Waste - The Art Of Partying - 02 - The Art Of Partying.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/korpiklaani/Korpiklaani+-+Karkelo+(2009)+%5bMP3%40320Kbps%5d+%5bRock+City%5d+(UF)/01+-+Vodka+.mp3</location>
+	<title>01 - Vodka .mp3</title>
+</track>
+<track>
+	<location>../aud/metal/dangeroustoys/1989+-+Dangerous+Toys/03+-+Bones+In+The+Gutter.mp3</location>
+	<title>03 - Bones In The Gutter.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/griefofwar/Grief+Of+War+(JAP)/2005+-+A+Mounting+Crisis...+As+Their+Fury+Got+Released/06+-+Eternal+Curse.mp3</location>
+	<title>06 - Eternal Curse.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/griefofwar/Grief+Of+War+(JAP)/2005+-+A+Mounting+Crisis...+As+Their+Fury+Got+Released/01+-+Hatred+Burns.mp3</location>
+	<title>01 - Hatred Burns.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/violator/Violator+%5b2006%5d+Chemical+Assault/01-atomic_nightmare-fff.mp3</location>
+	<title>01-atomic_nightmare-fff.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/deathangel/Death+Angel+-+The+Art+Of+Dying/03-Thicker+Than+Blood.mp3</location>
+	<title>03-Thicker Than Blood.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/ironmaiden/Iron+Maiden+-+1981+-+Killers/03+Murders+In+The+Rue+Morgue.mp3</location>
+	<title>03 Murders In The Rue Morgue.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+06+-+The+Inebriator.mp3</location>
+	<title>Municipal Waste - The Art Of Partying - 06 - The Inebriator.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/griefofwar/Grief+of+War+-2009-+Worship/Grief+Of+War+-+Worship+-+02+-+Disorder.mp3</location>
+	<title>Grief Of War - Worship - 02 - Disorder.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/deathangel/Death+Angel+-+Fall+From+Grace/09-Guilty+Of+Innocence.mp3</location>
+	<title>09-Guilty Of Innocence.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/pantera/(1990)+Pantera+-+Cowboys+From+Hell/05+-+Cemetary+Gates.mp3</location>
+	<title>05 - Cemetary Gates.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/ironmaiden/Iron+Maiden+-+1988+-+Seventh+Son+Of+A+Seventh+Son/03+Can+I+Play+With+Madness.mp3</location>
+	<title>03 Can I Play With Madness.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/eluveitie/Eluveitie+-+Spirit+(2006)/06+-+The+Song+Of+Life.mp3</location>
+	<title>06 - The Song Of Life.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/ironmaiden/Iron+Maiden+-+1992+-+Fear+Of+The+Dark/02_-_From_Here_To_Eternity.mp3</location>
+	<title>02_-_From_Here_To_Eternity.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+12+-+Radioactive+Force.mp3</location>
+	<title>Municipal Waste - The Art Of Partying - 12 - Radioactive Force.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/griefofwar/Grief+of+War+-2009-+Worship/Grief+Of+War+-+Worship+-+08+-+Into+The+Void.mp3</location>
+	<title>Grief Of War - Worship - 08 - Into The Void.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/violator/Violator+%5b2006%5d+Chemical+Assault/10-after_nuclear_devastation-fff.mp3</location>
+	<title>10-after_nuclear_devastation-fff.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/ironmaiden/Iron+Maiden+-+1983+-+Piece+Of+Mind/05+The+Trooper.mp3</location>
+	<title>05 The Trooper.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/ironmaiden/Iron+Maiden+-+1982+-+The+Number+Of+The+Beast/06+Run+To+The+Hills.mp3</location>
+	<title>06 Run To The Hills.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+03+-+Headbanger+Face+Rip.mp3</location>
+	<title>Municipal Waste - The Art Of Partying - 03 - Headbanger Face Rip.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/prematory/Prematory-Were_the_Titans/4.Were_the_Titans.ogg</location>
+	<title>4.Were_the_Titans.ogg</title>
+</track>
+<track>
+	<location>../aud/metal/dangerdanger/Danger+Danger+-+1989+-+Danger+Danger/11+-+Live+It+Up.mp3</location>
+	<title>11 - Live It Up.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/greatwhite/11-Let+It+Rock/02+-+Great+White+-+Ain&apos;t+No+Way+To+Treat+A+Lady.mp3</location>
+	<title>02 - Great White - Ain&apos;t No Way To Treat A Lady.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/tankard/Tankard+-+(1989)+Alien+%5bEP%5d+%5bRemastered%5d/02+-+666+Packs.mp3</location>
+	<title>02 - 666 Packs.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/tankard/Tankard+-+(2002)+20th+Anniversary+B-day/09+-+New+Liver+Please.mp3</location>
+	<title>09 - New Liver Please.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/metalchurch/1991+-+THE+HUMAN+FACTOR/01+THE+HUMAN+FACTOR.mp3</location>
+	<title>01 THE HUMAN FACTOR.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+01+-+Pre-Game.mp3</location>
+	<title>Municipal Waste - The Art Of Partying - 01 - Pre-Game.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/pantera/(1990)+Pantera+-+Cowboys+From+Hell/09+-+Medicine+Man.mp3</location>
+	<title>09 - Medicine Man.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/dangerdanger/Danger+Danger+-+1989+-+Danger+Danger/03+-+Saturday+Nite.mp3</location>
+	<title>03 - Saturday Nite.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/ironmaiden/Iron+Maiden+-+1982+-+The+Number+Of+The+Beast/05+The+Number+Of+The+Beast.mp3</location>
+	<title>05 The Number Of The Beast.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/pantera/(1992)+Pantera+-+Vulgar+Display+Of+Power/10+-+By+Demons+Be+Driven.mp3</location>
+	<title>10 - By Demons Be Driven.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/deathangel/Death+Angel+-+Fall+From+Grace/01-Evil+Priest.mp3</location>
+	<title>01-Evil Priest.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/atthegates/07-Slaughter+Of+The+Soul+1995/04-Under+A+Serpent+Sun.mp3</location>
+	<title>04-Under A Serpent Sun.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/pantera/(1992)+Pantera+-+Vulgar+Display+Of+Power/04+-+Fucking+Hostile.mp3</location>
+	<title>04 - Fucking Hostile.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/hackneyed/Hackneyed+-+Death+Prevails/02-hackneyed-gut_candy.mp3</location>
+	<title>02-hackneyed-gut_candy.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/halestorm/Halestorm/Halestorm+(2009)/Halestorm+-+Halestorm+-+It&apos;s+Not+You.mp3</location>
+	<title>Halestorm - Halestorm - It&apos;s Not You.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/ironmaiden/Iron+Maiden+-+1993+-+A+Real+Live+One/Iron+Maiden+-+08+-+Bring+Your+Daughter...+To+The+Slaughter.mp3</location>
+	<title>Iron Maiden - 08 - Bring Your Daughter... To The Slaughter.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/tankard/Tankard+-+(2004)+Beast+of+Bourbon/04.+Die+With+A+Beer+in+Your+Hand.mp3</location>
+	<title>04. Die With A Beer in Your Hand.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+10+-+Sadistic+Magician.mp3</location>
+	<title>Municipal Waste - The Art Of Partying - 10 - Sadistic Magician.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/tankard/Tankard+-+(1989)+Alien+%5bEP%5d+%5bRemastered%5d/05+-+(Empty)+Tankard.mp3</location>
+	<title>05 - (Empty) Tankard.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+13+-+Septic+Detonation.mp3</location>
+	<title>Municipal Waste - The Art Of Partying - 13 - Septic Detonation.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/hackneyed/Hackneyed+-+Death+Prevails/04-hackneyed-axe_splatter.mp3</location>
+	<title>04-hackneyed-axe_splatter.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/korpiklaani/Korpiklaani-Tervaskanto-Bonus_DVD-2007-gF/02-korpiklaani-happy_little_boozer.mp3</location>
+	<title>02-korpiklaani-happy_little_boozer.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/tankard/Tankard+-+(1988)+The+Morning+After+%5bRemastered%5d/03+-+Shit-Faced.mp3</location>
+	<title>03 - Shit-Faced.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+11+-+Open+Your+Mind.mp3</location>
+	<title>Municipal Waste - The Art Of Partying - 11 - Open Your Mind.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/ironmaiden/Iron+Maiden+-+1983+-+Piece+Of+Mind/04+Die+With+Your+Boots+On.mp3</location>
+	<title>04 Die With Your Boots On.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/violator/Violator+%5b2006%5d+Chemical+Assault/09-the_plague_returns-fff.mp3</location>
+	<title>09-the_plague_returns-fff.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+14+-+Rigorous+Vengeance.mp3</location>
+	<title>Municipal Waste - The Art Of Partying - 14 - Rigorous Vengeance.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/municipalwaste/The+Art+Of+Partying/Municipal+Waste+-+The+Art+Of+Partying+-+07+-+Lunch+Hall+Food+Brawl.mp3</location>
+	<title>Municipal Waste - The Art Of Partying - 07 - Lunch Hall Food Brawl.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/devildriver/DevilDriver/07+Knee+Deep.mp3</location>
+	<title>07 Knee Deep.mp3</title>
+</track>
+<track>
+	<location>../aud/metal/fintroll/2004+-+Trollhammaren+-+EP/01+-+Finntroll+-+Trollhammaren.mp3</location>
+	<title>01 - Finntroll - Trollhammaren.mp3</title>
 </track>
 </trackList>
 </playlist>
