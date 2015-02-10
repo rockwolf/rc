@@ -23,7 +23,7 @@
 
 !-- transparency
 !-- note: transparency is not good for the eyes and works against these main solarized colors
-*fading: 250
+*fading: 150
 *transparent: true
 *shading: 100
 

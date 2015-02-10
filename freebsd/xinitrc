@@ -1,5 +1,5 @@
 setxkbmap us -variant colemak &
-urxvtd &
+#urxvtd &
 xrdb -nocpp -merge ~/.Xresources
 wallpaper &
 xset s off

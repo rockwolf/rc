@@ -4,7 +4,7 @@
 /* appearance */
 //static const char font[]            = "-*-sazanami gothic-*-*-*-*-12-*-*-*-*-*-*-*";
 //static const char font[]            = "-*-Inconsolata-medium-*-*-*-18-*-*-*-*-*-*-*";
-static const char font[]            = "Inconsolata 16";
+static const char font[]            = "Inconsolata 14";
 //solarized - dark
 static const char normbordercolor[] = "#002b36";
 static const char normbgcolor[]     = "#002b36";
@@ -78,7 +78,7 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 //static const char *termcmd[]  = { "urxvtc -e tmux -2 new-session", NULL };
-static const char *termcmd[]  = { "urxvtc", NULL };
+static const char *termcmd[]  = { "urxvt", NULL };
 static const char *warpcmd[]  = { "/usr/local/sh/warp", NULL };
 
 static Key keys[] = {
