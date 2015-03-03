@@ -1,4 +1,6 @@
 setxkbmap us -variant colemak &
+# TODO: clean this file up, put the exports in a seperate script: xinitrc_exports.sh
+# This way, I can start converting the scripts to fish.
 #urxvtd &
 xrdb -nocpp -merge ~/.Xresources
 wallpaper &

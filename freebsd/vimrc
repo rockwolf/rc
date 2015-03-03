@@ -179,6 +179,12 @@ set wildignore+=*.pyc
 " wgen -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/
 set nofoldenable
 
+" Folding
+" -------
+" Automatically save folding views at quit.
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
 " GPG stuff
 " ---------
 " Transparent editing of gpg encrypted files.

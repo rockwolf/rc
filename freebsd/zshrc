@@ -44,6 +44,7 @@ alias tidy="tidy4"
 alias anki="anki -b ~/.anki"
 alias less="less -c"
 alias gcc="gcc48"
+alias ghci="ghci -no-user-package-db -package-db .cabal-sandbox/x86_64-freebsd-ghc-7.8.3-packages.conf.d"
 
 # bye bye zsh, helllooooo python
 #exec /usr/bin/ipython -noconfirm_exit -p sh -i -c "_prompt_title='`hostname`@`date +%Y-%m-%d`'"
