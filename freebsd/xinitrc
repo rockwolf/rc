@@ -1,17 +1,13 @@
-setxkbmap us -variant colemak &
-# TODO: clean this file up, put the exports in a seperate script: xinitrc_exports.sh
-# This way, I can start converting the scripts to fish.
-#urxvtd &
-xrdb -nocpp -merge ~/.Xresources
-wallpaper &
-xset s off
-export LANG=ja_JP.UTF-8 LLC_ALL=ja_JP.UTF-8
-#export LANG=ca_ES.ISO8859-1 LLC_ALL=ca_ES.ISO8859-1
-#export LANG=es_ES.ISO8859-1 LLC_ALL=es_ES.ISO8859-1
-#export LANG=es_ES.UTF-8 LLC_ALL=es_ES.UTF-8
-export GTK_IM_MODULE='uim'
-export QT_IM_MODULE='uim'
-export XMODIFIERS=@im='uim'
-uim-xim &
-timetokyo &
-startwm
+
+################################################################################
+# Author: Andy Nagels
+# Date: 2015-03-04
+#
+# .xinitrc:
+# Settings, to be loaded when the X-server starts.
+################################################################################
+
+xinitrc_settigs_general.sh &
+xinitrc_settings_language.sh &
+xinitrc_custom_scripts.sh &
+startwm.sh
