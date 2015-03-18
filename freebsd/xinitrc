@@ -7,7 +7,7 @@
 # Settings, to be loaded when the X-server starts.
 ################################################################################
 
-xinitrc_settings_general.sh &
-xinitrc_settings_language.sh &
-xinitrc_custom_scripts.sh &
-startwm.sh
+xinitrc_settings_general.fish &
+xinitrc_settings_language.fish &
+xinitrc_custom_scripts.fish &
+startwm.fish
