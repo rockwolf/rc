@@ -16,6 +16,7 @@ Bundle 'L9'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'FuzzyFinder'
+Bundle 'Syntastic'
 call vundle#end()
 
 " Vim stuff
