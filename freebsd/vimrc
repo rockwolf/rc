@@ -17,6 +17,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'FuzzyFinder'
 Bundle 'Syntastic'
+" ghci interaction via tmux:
+Bundle 'jpalardy/vim-slime'
 call vundle#end()
 
 " Vim stuff
@@ -149,6 +151,15 @@ set noswapfile
 " Code completion
 set ofu=syntaxcomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+" Syntastic
+map <silent> <Leader>e :Errors<CR>
+map <Leader>s :SyntasticToggleMode<CR>
+let g:syntastic_auto_loc_list=1
+
+" vim-slime
+let g:slime_target = "tmux"
+let g:slime_paste_file = tempname()
 
 " Tasklist
 map <C-t> :TaskList<CR>
