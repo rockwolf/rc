@@ -2,6 +2,24 @@
 " Vim configuration file "
 """"""""""""""""""""""""""
 
+" Vundle setup
+" ----------
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+filetype plugin indent on
+
+" Let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+Bundle 'L9'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'FuzzyFinder'
+call vundle#end()
+
+" Vim stuff
+" ---------
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -117,9 +135,6 @@ set hlsearch
 set incsearch
 set smartcase
 
-filetype on
-filetype indent on
-filetype plugin on
 
 " Disable backup and swap files (they trigger too many events)
 " for file system watchers
@@ -127,19 +142,22 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Other
+" -----
+ 
 " Code completion
 set ofu=syntaxcomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " Tasklist
 map <C-t> :TaskList<CR>
-map T :TlistToggle<CR>
+map T :NERDTree<CR>
 
 " Better copy & paste
 " set pastetoggle=<F5>
 set clipboard=unnamed
 
-" Mapleader, vim waits for 1 sec to see if you press other keyr after this one
+" Mapleader, vim waits for 1 sec to see if you press other keys after this one
 " so you can create more shortcuts.
 let mapleader = ","
 
@@ -166,22 +184,15 @@ set wildignore+=*.pyc
 "set wildignore+=*_build/*
 "set wildignore+=*/coverage/*
 
-" IDE setup
-" ----------
-" Setup Pathogen to manage your plugins
-" mkdir -p ~/.vim/autoload ~/.vim/bundle
-" curl -so ~/.vim/autoload/pathogen.vim
-" https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/p
-"call pathogen#infect()
-
-" Python folding
-" mkdir -p ~/.vim/ftplugin
-" wgen -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/
-set nofoldenable
+" File tree
+" ---------
+" Set tree style to NerdTree style.
+let g:netrw_liststyle=3
 
 " Folding
 " -------
 " Automatically save folding views at quit.
+set nofoldenable
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
@@ -221,6 +232,6 @@ autocmd BufWritePost,FileWritePost *.gpg set nobin
 augroup END
 
 " Vimwiki
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+" let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 "Tell vim to recognize .md extension
-let g:vimwiki_ext2syntax = {'.md': 'markdown'}
+" let g:vimwiki_ext2syntax = {'.md': 'markdown'}

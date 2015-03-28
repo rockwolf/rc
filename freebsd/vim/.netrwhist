@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/mnt/data00/rockwolf/dev/website/nintai/src/css'
 let g:netrw_dirhist_2='/etc/rc.d'
 let g:netrw_dirhist_3='/mnt/data00/rockwolf/nintai/prd'
@@ -7,3 +7,5 @@ let g:netrw_dirhist_4='/mnt/data00/rockwolf/dev/haskell/ledgerplot'
 let g:netrw_dirhist_5='/mnt/data00/rockwolf/dev/rc'
 let g:netrw_dirhist_6='/usr/local/sh'
 let g:netrw_dirhist_7='/mnt/data00/rockwolf/dev/haskell/weightplot'
+let g:netrw_dirhist_8='/mnt/data00/rockwolf/nintai/prd/doc/ledger'
+let g:netrw_dirhist_9='/mnt/data00/rockwolf/dev/rc/freebsd'
