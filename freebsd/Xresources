@@ -23,16 +23,18 @@
 
 !-- transparency
 !-- note: transparency is not good for the eyes and works against these main solarized colors
-*fading: 150
+!-- note: keep that fading at 0, it's annoying (vim inactive colors become weird)
+*fading: 0
 *transparent: true
-*shading: 100
+*shading: 100 
 
 !!-- colorscheme
 !--- dark solarized theme
 *foreground: rgb:83/94/96
 *background: rgb:00/2b/36
-*tintColor: rgb:00/2b/36
-*fadeColor: rgb:83/94/96
+!*tintColor: rgb:00/2b/36
+*tintColor: white
+!*fadeColor: rgb:83/94/96
 
 !BLACK
 *color0:               #073642
