@@ -33,7 +33,8 @@
 *foreground: rgb:83/94/96
 *background: rgb:00/2b/36
 !*tintColor: rgb:00/2b/36
-*tintColor: white
+*tintColor: rgb:33/33/33
+!*tintColor: black
 !*fadeColor: rgb:83/94/96
 
 !BLACK
