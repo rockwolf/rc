@@ -196,6 +196,9 @@ set wildignore+=*.pyc
 "set wildignore+=*_build/*
 "set wildignore+=*/coverage/*
 
+" Allow . repetition on visual selection.
+vnoremap . :norm.<CR>
+
 " File tree
 " ---------
 " Set tree style to NerdTree style.
