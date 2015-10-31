@@ -10,4 +10,5 @@
 xinitrc_settings_general.fish &
 xinitrc_settings_language.fish &
 xinitrc_custom_scripts.fish &
+redshift &
 startwm.fish
