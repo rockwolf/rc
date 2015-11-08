@@ -4,14 +4,14 @@
 /* appearance */
 //static const char font[]            = "-*-sazanami gothic-*-*-*-*-12-*-*-*-*-*-*-*";
 //static const char font[]            = "-*-Inconsolata-medium-*-*-*-18-*-*-*-*-*-*-*";
-static const char font[]            = "Inconsolata 14";
+static const char font[]            = "Inconsolata 16";
 //solarized - dark
 static const char normbordercolor[] = "#002b36";
 static const char normbgcolor[]     = "#002b36";
-static const char normfgcolor[]     = "#fdf6e3";
-static const char selbordercolor[]  = "#fdf6e3";
+static const char normfgcolor[]     = "#85cc00";
+static const char selbordercolor[]  = "#85cc00";
 static const char selbgcolor[]      = "#002b36";
-static const char selfgcolor[]      = "#fdf6e3";
+static const char selfgcolor[]      = "#85ff00";
 //solarized - light
 /*static const char normbordercolor[] = "#ffffd7";
 static const char normbgcolor[]     = "#ffffd7";
@@ -35,7 +35,7 @@ static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = {"一", "二", "三", "四", "五", "六", "七", "八", "九", "十"};
+static const char *tags[] = {"~", "★", "☎", "☆", "卍", "♫"};
 
 static const Rule rules[] = {
     /* class      instance    title       tags mask     isfloating   monitor */
@@ -123,10 +123,10 @@ static Key keys[] = {
     TAGKEYS(                        XK_4,                      3)
     TAGKEYS(                        XK_5,                      4)
     TAGKEYS(                        XK_6,                      5)
-    TAGKEYS(                        XK_7,                      6)
-    TAGKEYS(                        XK_8,                      7)
-    TAGKEYS(                        XK_9,                      8)
-    TAGKEYS(                        XK_0,                      9)
+    //TAGKEYS(                        XK_7,                      6)
+    //TAGKEYS(                        XK_8,                      7)
+    //TAGKEYS(                        XK_9,                      8)
+    //TAGKEYS(                        XK_0,                      9)
     { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 

@@ -12,6 +12,7 @@
 !-- term behaviour
 *saveLines:3600
 *scrollBar: false
+*depth: 16
 
 !-- helps to not break urls in irssi
 *cutchars: "\"()'*<>[]{|}"
@@ -23,44 +24,44 @@
 
 !-- transparency
 !-- note: transparency is not good for the eyes and works against these main solarized colors
-!-- note: keep that fading at 0, it's annoying (vim inactive colors become weird)
+!-- note: keep that fading at 0, it is annoying (vim inactive colors become weird)
 *fading: 0
 *transparent: true
-*shading: 100 
+*shading: 60
 
-!!-- colorscheme
-!--- dark solarized theme
-*foreground: rgb:83/94/96
-*background: rgb:00/2b/36
-!*tintColor: rgb:00/2b/36
-*tintColor: rgb:33/33/33
-!*tintColor: black
-!*fadeColor: rgb:83/94/96
+!!!-- colorscheme
+!!--- dark solarized theme
+!*foreground: rgb:83/94/96
+!*background: rgb:00/2b/36
+!!*tintColor: rgb:00/2b/36
+!!*tintColor: rgb:33/33/33
+!*tintColor: white
+!!*fadeColor: rgb:83/94/96
 
-!BLACK
-*color0:               #073642
-*color8:               #002636
-!RED
-*color1:               #dc322f
-*color9:               #cb4b16
-!GREEN
-*color2:               #859900
-*color10:              #586e75
-!YELLOW
-*color3:               #b58900
-*color11:              #657b83
-!BLUE
-*color4:               #268bd2
-*color12:              #839496
-!MAGENTA
-*color5:               #d33682
-*color13:              #6c71c4
-!CYAN
-*color6:               #2aa198
-*color14:              #93a1a1
-!WHITE
-*color7:               #eee8d5
-*color15:              #fdf6e3
+!!BLACK
+!*color0:               #073642
+!*color8:               #002636
+!!RED
+!*color1:               #dc322f
+!*color9:               #cb4b16
+!!GREEN
+!*color2:               #859900
+!*color10:              #586e75
+!!YELLOW
+!*color3:               #b58900
+!*color11:              #657b83
+!!BLUE
+!*color4:               #268bd2
+!*color12:              #839496
+!!MAGENTA
+!*color5:               #d33682
+!*color13:              #6c71c4
+!!CYAN
+!*color6:               #2aa198
+!*color14:              #93a1a1
+!!WHITE
+!*color7:               #eee8d5
+!*color15:              #fdf6e3
 
 
 !!--- light solarized theme
@@ -94,3 +95,39 @@
 !!WHITE
 !*color7:                #1c1c1c
 !*color15:               #262626
+
+!!-- colorscheme
+!--- hacker theme
+*foreground: rgb:85/cc/00
+*background: rgb:00/2b/36
+!*tintColor: rgb:00/2b/36
+!*tintColor: rgb:33/33/33
+*tintColor: white
+!*fadeColor: rgb:83/94/96
+
+!BLACK
+*color0:               #073642
+*color8:               #002636
+!RED
+*color1:               #dc322f
+*color9:               #cb4b16
+!GREEN
+*color2:               #859900
+*color10:              #586e75
+!YELLOW
+*color3:               #b58900
+*color11:              #657b83
+!BLUE
+*color4:               #268bd2
+*color12:              #839496
+!MAGENTA
+*color5:               #d33682
+*color13:              #6c71c4
+!CYAN
+*color6:               #2aa198
+*color14:              #93a1a1
+!WHITE
+*color7:               #eee8d5
+*color15:              #fdf6e3
+
+
