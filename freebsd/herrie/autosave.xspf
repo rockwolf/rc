@@ -2,104 +2,36 @@
 <playlist xmlns="http://xspf.org/ns/0/" version="1">
 <trackList>
 <track>
-	<location>../aud/Pearl+Jam+The+Ultimate+Best+Of+Pearl+Jam+320+Kbps/10+Even+Flow.mp3</location>
-	<title>10 Even Flow.mp3</title>
+	<location>../aud/Ojos+de+Brujo+5+Albums+320kbps/2006+-+Techari/02+-+Sultanas+de+Merkaillo.mp3</location>
+	<title>02 - Sultanas de Merkaillo.mp3</title>
 </track>
 <track>
-	<location>../aud/Rock_Star_Soundtrack/07-Stand+Up.mp3</location>
-	<title>07-Stand Up.mp3</title>
+	<location>../aud/Ojos+de+Brujo+5+Albums+320kbps/2009+-+Aocana/02+-+Nueva+Vida.mp3</location>
+	<title>02 - Nueva Vida.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/nitro/Nitro+-+O.F.R/Nitro+-+O.F.R.+-+01+-+Freight+Train.mp3</location>
-	<title>Nitro - O.F.R. - 01 - Freight Train.mp3</title>
+	<location>../aud/Ojos+de+Brujo+5+Albums+320kbps/2009+-+Aocana/05+-+Rumba+del+Adios.mp3</location>
+	<title>05 - Rumba del Adios.mp3</title>
 </track>
 <track>
-	<location>../aud/rock/acdc/ACDC+-+12+-+Back+In+Black.mp3</location>
-	<title>ACDC - 12 - Back In Black.mp3</title>
+	<location>../aud/Ojos+de+Brujo+5+Albums+320kbps/2009+-+Aocana/08+-+Tocale+Ya.mp3</location>
+	<title>08 - Tocale Ya.mp3</title>
 </track>
 <track>
-	<location>../aud/rock/acdc/ACDC+-+05+-+Highway+To+Hell.mp3</location>
-	<title>ACDC - 05 - Highway To Hell.mp3</title>
+	<location>../aud/Ojos+de+Brujo+5+Albums+320kbps/2009+-+Aocana/01+-+Todos+Mortales.mp3</location>
+	<title>01 - Todos Mortales.mp3</title>
 </track>
 <track>
-	<location>../aud/Rock_Star_Soundtrack/02-Livin&apos;+The+Life.mp3</location>
-	<title>02-Livin&apos; The Life.mp3</title>
+	<location>../aud/Ojos+de+Brujo+5+Albums+320kbps/1999+-+Vengue/01+-+Na+en+la+Nevera.mp3</location>
+	<title>01 - Na en la Nevera.mp3</title>
 </track>
 <track>
-	<location>../aud/metal/dangerdanger/Danger+Danger+-+2000+-+The+Return+Of+The+Great+Gildersleeves/11+-+Walk+It+Like+Ya+Talk+It.mp3</location>
-	<title>11 - Walk It Like Ya Talk It.mp3</title>
+	<location>../aud/Ojos+de+Brujo+5+Albums+320kbps/1999+-+Vengue/03+-+Pa+la+Tierra.mp3</location>
+	<title>03 - Pa la Tierra.mp3</title>
 </track>
 <track>
-	<location>../aud/rock/gunsnroses/01+-+Guns+and+Roses+-+Welcome+to+the+Jungle.mp3</location>
-	<title>01 - Guns and Roses - Welcome to the Jungle.mp3</title>
-</track>
-<track>
-	<location>../aud/rock/gunsnroses/Guns+n&apos;+Roses+-+Paridise+City.mp3</location>
-	<title>Guns n&apos; Roses - Paridise City.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/runningwild/1989+Bad+To+The+Bone+(Single)/01-+Bad+To+The+Bone.mp3</location>
-	<title>01- Bad To The Bone.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/dangeroustoys/1989+-+Dangerous+Toys/03+-+Bones+In+The+Gutter.mp3</location>
-	<title>03 - Bones In The Gutter.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/magodeoz/2004+-+Belfast/02+Belfast.mp3</location>
-	<title>02 Belfast.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/slaughter/1995+-+Fear+No+Evil/02.+Get+Used+To+It.mp3</location>
-	<title>02. Get Used To It.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/warlock/Warlock/Albums+%5b320+kbps%5d/1986+-+True+As+Steel/02+-+Fight+For+Rock.mp3</location>
-	<title>02 - Fight For Rock.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/wasp/1984+W.A.S.P+(320)/08+On+Your+Knees.mp3</location>
-	<title>08 On Your Knees.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/warlock/Warlock/Albums+%5b320+kbps%5d/1987+-+Triumph+And+Agony/02+-+Three+Minute+Warning.mp3</location>
-	<title>02 - Three Minute Warning.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/wasp/1999+Helldorado+(192)/02+Helldorado.mp3</location>
-	<title>02 Helldorado.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/ironmaiden/Iron+Maiden+-+1982+-+The+Number+Of+The+Beast/05+The+Number+Of+The+Beast.mp3</location>
-	<title>05 The Number Of The Beast.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/metallica/09+Dyers+Eve.mp3</location>
-	<title>09 Dyers Eve.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/wasp/1987+Live...in+the+raw+(320)/W.A.S.P+-+02+I+Don&apos;t+Need+No+Doctor.mp3</location>
-	<title>W.A.S.P - 02 I Don&apos;t Need No Doctor.mp3</title>
-</track>
-<track>
-	<location>../aud/Rock_Star_Soundtrack/05-Blood+Pollution.mp3</location>
-	<title>05-Blood Pollution.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/vixen/1990+-+Rev+It+Up+(320)/11+-+Vixen+-+Wrecking+Ball.mp3</location>
-	<title>11 - Vixen - Wrecking Ball.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/vixen/1990+-+Rev+It+Up+(320)/07+-+Vixen+-+Bad+Reputation.mp3</location>
-	<title>07 - Vixen - Bad Reputation.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/winger/1988+-+Winger/08+-+Poison+Angel.mp3</location>
-	<title>08 - Poison Angel.mp3</title>
-</track>
-<track>
-	<location>../aud/metal/winger/1990+-+In+The+Heart+Of+The+Young/02+Winger+-+Loosen+Up.mp3</location>
-	<title>02 Winger - Loosen Up.mp3</title>
+	<location>../aud/Ojos+de+Brujo+5+Albums+320kbps/1999+-+Vengue/10+-+Palabras+Blancas.mp3</location>
+	<title>10 - Palabras Blancas.mp3</title>
 </track>
 </trackList>
 </playlist>
