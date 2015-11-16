@@ -29,22 +29,28 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
+# Start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# kill focused window
+# Kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
+# Start dmenu (a program launcher)
 bindsym $mod+p exec dmenu_run
 
-# change focus
+# Change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
+# Alternatively, you can use the cursor keys:
 bindsym $mod+ISO_Level3_Shift focus left
 bindsym $mod+Super_R focus down
 bindsym $mod+Print focus up
+
+# Applications to start, when i3 starts.
+# exec <myapplication>
+
+# Applications to start, when i3 (re)starts.
+exec_always --no-startup-id urxvtc
