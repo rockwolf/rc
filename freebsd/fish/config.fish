@@ -8,6 +8,7 @@ set PAGER /usr/local/bin/vimpager
 alias less $PAGER
 alias zless $PAGER
 alias t todo.sh
+alias branches "tig --all --simplify-by-decoration"
 
 # General settings
 fish_vi_key_bindings
