@@ -9,6 +9,7 @@ alias less $PAGER
 alias zless $PAGER
 alias t todo.sh
 alias branches "tig --all --simplify-by-decoration"
+alias binclock "tbclock -f -daeHHH -H 0 -M 0 -S 0 -T 0"
 
 # General settings
 fish_vi_key_bindings

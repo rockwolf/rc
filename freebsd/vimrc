@@ -2,24 +2,28 @@
 " Vim configuration file "
 """"""""""""""""""""""""""
 
+" Python support
+" --------------
+"let g:python_host_prog = '/usr/local/bin/python'
+
 " Vundle setup
 " ----------
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/plugged')
 filetype plugin indent on
 
 " Let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-Bundle 'L9'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'FuzzyFinder'
-Bundle 'Syntastic'
-" ghci interaction via tmux:
-Bundle 'jpalardy/vim-slime'
-call vundle#end()
+"Plug 'gmarik/vundle'
+Plug 'L9'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'FuzzyFinder'
+Plug 'Syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'bling/vim-airline'
+call plug#end()
 
 " Vim stuff
 " ---------
@@ -39,7 +43,6 @@ set history=50	" keep 50 lines of command line history
 set ruler	" show the cursor position all the time
 set showcmd	" display incomplete commands
 set incsearch	" do incremental searching
-
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -96,21 +99,6 @@ endif " has("autocmd")
 
 " User added stuff below
 
-" Look and feel
-" --------------
-set nu
-set splitbelow
-
-if has('gui_running')
-    set background=dark
-else
-    set background=dark
-endif
-
-let g:solarized_degrade=0
-colo solarized
-"colo reloaded
-
 set autochdir
 "set tw=79 " widh of document (used by gd)
 
@@ -147,7 +135,7 @@ set noswapfile
 
 " Other
 " -----
- 
+
 " Code completion
 set ofu=syntaxcomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -156,10 +144,6 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 map <silent> <Leader>e :Errors<CR>
 map <Leader>s :SyntasticToggleMode<CR>
 let g:syntastic_auto_loc_list=1
-
-" vim-slime
-let g:slime_target = "tmux"
-let g:slime_paste_file = tempname()
 
 " Tasklist
 map <C-t> :TaskList<CR>
@@ -250,3 +234,13 @@ augroup END
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 "Tell vim to recognize .md extension
 " let g:vimwiki_ext2syntax = {'.md': 'markdown'}
+
+" Look and feel
+" --------------
+set nu
+set splitbelow
+
+let g:solarized_degrade=0
+colo solarized
+"colo reloaded
+set background=dark

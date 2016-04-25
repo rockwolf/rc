@@ -27,7 +27,7 @@
 !-- note: keep that fading at 0, it is annoying (vim inactive colors become weird)
 *fading: 0
 *transparent: true
-*shading: 60
+*shading: 36
 
 !!!-- colorscheme
 !!--- dark solarized theme
@@ -106,8 +106,8 @@
 !*fadeColor: rgb:83/94/96
 
 !BLACK
-*color0:               #073642
-*color8:               #002636
+*color0:               #002636
+*color8:               #073642
 !RED
 *color1:               #dc322f
 *color9:               #cb4b16
