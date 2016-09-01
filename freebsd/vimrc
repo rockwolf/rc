@@ -23,6 +23,7 @@ Plug 'FuzzyFinder'
 Plug 'Syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
+Plug 'jpalardy/vim-slime'
 call plug#end()
 
 " Vim stuff
@@ -194,6 +195,22 @@ let g:netrw_liststyle=3
 set nofoldenable
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
+
+" Slime
+" -----
+" Note:
+" To use this, start tmux like this:
+" tmux new -s dev
+" C-b C-,
+" enter a name, e.g. sbcl
+" start sbcl
+" now in vim, you can select a paragraph with vip
+" and C-c C-c to send the text.
+" It will prompt for socket + pane, the first time.
+" Enter: "default" and "dev:"
+let g:slime_target = "tmux"
+let g:slime_paste_file = "$HOME/.slime_paste"
+
 
 " GPG stuff
 " ---------
