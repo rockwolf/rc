@@ -9,6 +9,8 @@
 #+quicklisp
 (progn
   (pushnew #P"/home/rockwolf/dev/ledgerexport-tax/"
+    ql:*local-project-directories*)
+  (pushnew #P"/home/rockwolf/dev/txt-to-pdf/"
     ql:*local-project-directories*))
 
 ;;; Check for --no-linedit command-line option.
