@@ -32,17 +32,19 @@ bar {
     status_command i3status
     position top
     colors {
-        focused_workspace       #000000 #00cc00 #000000 #5f8700
-        active_workspace        #000000 #000000 #00cc00 #5f8700
-        inactive_workspace      #000000 #000000 #00cc00 #5f8700
-        urgent_workspace        #000000 #000000 #00cc00 #5f8700
+        focused_workspace       #00cc00 #005500 #00cc00 #5f8700
+        active_workspace        #00cc00 #000000 #00cc00 #5f8700
+        inactive_workspace      #000000 #005500 #000000 #5f8700
+        urgent_workspace        #00cc00 #000000 #00cc00 #5f8700
+        background              #000000
+        separator               #00cc00
     }
 }
 
 # 2c5400
 # class                 border  backgr. text    indicator
-client.focused          #000000 #00cc00 #000000 #ffffd7
-client.unfocused        #00cc00 #000000 #00cc00 #ffffd7
+client.focused          #00cc00 #005500 #00cc00 #ffffd7
+client.unfocused        #000000 #005500 #000000 #ffffd7
 client.urgent           #000000 #000000 #00cc00 #ffffd7
 client.focused_inactive #000000 #000000 #00cc00 #ffffd7
 client.placeholder      #000000 #000000 #00cc00 #ffffd7
