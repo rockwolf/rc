@@ -2,12 +2,18 @@
 !-- To reload changes: xrdb -merge ~/.Xresources and start a new rxvt-unicode
 
 !-- font
-!*font: xft:Liberation Mono:pixelsize=12
-*xftAntialias: true
-*font: xft:inconsolata:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=18:antialias=true,hinting=true
-*boldFont: xft:inconsolata:bold:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=18:antialias=true,hinting=true
-*italicFont: xft:inconsolata:italic:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=18:antialias=true,hinting=true
-*bolditalicFont: xft:inconsolata:bold:italic:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=18:antialias=true,hinting=true
+!Emacs.FontBackend: xft
+Emacs.font: inconsolata:pixelsize=20:antialias=true:hinting=true
+!*font: xft:Liberation Mono:pixelsize=20
+!*boldFont: xft:Liberation Mono:pixelsize=20
+!*italicFont: xft:Liberation Mono:pixelsize=20
+!*boldItalicFont: xft:Liberation Mono:pixelsize=20
+
+!*xftAntialias: true
+*font: xft:inconsolata:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=20:antialias=true,hinting=true
+*boldFont: xft:inconsolata:bold:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=20:antialias=true,hinting=true
+*italicFont: xft:inconsolata:italic:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=20:antialias=true,hinting=true
+*bolditalicFont: xft:inconsolata:bold:italic:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=20:antialias=true,hinting=true
 
 !-- term behaviour
 *saveLines:3600

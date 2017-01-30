@@ -3,6 +3,7 @@ set PATH /usr/local/sh $PATH
 set PATH /home/rockwolf/src/bin $PATH
 set PATH /home/rockwolf/sh_ $PATH
 set PAGER /usr/local/bin/vimpager
+set APP_ENV development
 
 # Aliases
 alias less $PAGER
