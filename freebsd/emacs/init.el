@@ -23,6 +23,9 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; evil
+(evil-mode 1)
+
 ;; evil - cursor
 (setq evil-emacs-state-cursor '("red" box))
 (setq evil-normal-state-cursor '("green" box))
@@ -203,10 +206,20 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                         (evil-scroll-down nil)))
 
 ;; Move between windows.
-(global-set-key (kbd "K") 'windmove-up)
-(global-set-key (kbd "J") 'windmove-down)
-(global-set-key (kbd "H") 'windmove-left)
-(global-set-key (kbd "L") 'windmove-right)
+;(global-set-key (kbd "K") 'windmove-up)
+;(global-set-key (kbd "J") 'windmove-down)
+;(global-set-key (kbd "H") 'windmove-left)
+;(global-set-key (kbd "L") 'windmove-right)
+(evil-leader/set-key "0" 'select-window-0)
+(evil-leader/set-key "1" 'select-window-1)
+(evil-leader/set-key "2" 'select-window-2)
+(evil-leader/set-key "3" 'select-window-3)
+(evil-leader/set-key "4" 'select-window-4)
+(evil-leader/set-key "5" 'select-window-5)
+(evil-leader/set-key "6" 'select-window-6)
+(evil-leader/set-key "7" 'select-window-7)
+(evil-leader/set-key "8" 'select-window-8)
+(evil-leader/set-key "9" 'select-window-9)
 
 ;; No tabs for indentation, for crying out loud, emacs!
 (setq-default tab-width 4 indent-tabs-mode nil)
@@ -222,7 +235,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
  '(package-selected-packages
    (quote
-    (evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
+    (window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
