@@ -21,6 +21,7 @@
 
 ;; Look 'n Feel
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;; evil - cursor
 (setq evil-emacs-state-cursor '("red" box))
@@ -201,6 +202,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                         (interactive)
                         (evil-scroll-down nil)))
 
+;; Move between windows.
+(global-set-key (kbd "K") 'windmove-up)
+(global-set-key (kbd "J") 'windmove-down)
+(global-set-key (kbd "H") 'windmove-left)
+(global-set-key (kbd "L") 'windmove-right)
+
 ;; No tabs for indentation, for crying out loud, emacs!
 (setq-default tab-width 4 indent-tabs-mode nil)
 
@@ -212,9 +219,10 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
  '(package-selected-packages
    (quote
-    (helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
+    (evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
