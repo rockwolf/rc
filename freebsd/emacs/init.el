@@ -64,6 +64,12 @@
 (global-evil-leader-mode)
 (evil-leader/set-leader ",")
 
+;; evil - dired
+(evil-set-initial-state 'dired-mode 'normal)
+(evil-set-initial-state 'Buffer-menu-mode 'normal)
+(setq evil-emacs-state-modes (delq 'ibuffer-mode evil-emacs-state-modes))
+(setq evil-emacs-state-modes (delq 'dired-mode evil-emacs-state-modes))
+
 ;; accents - to make them work in gui mode
 (require 'iso-transl)
 
