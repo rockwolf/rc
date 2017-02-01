@@ -19,9 +19,19 @@
 (load-theme 'solarized-dark t)
 (color-theme-approximate-on)
 
+;; load-path
+; Add dir for custom scripts, like window-number.el
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
 ;; Look 'n Feel
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+
+;; evil - leader key
+(require 'evil-leader)
+(setq evil-leader/in-all-states 1)
+(global-evil-leader-mode)
+(evil-leader/set-leader ",")
 
 ;; evil
 (evil-mode 1)
@@ -58,11 +68,6 @@
 ;(define-key evil-insert-state-map (kbd "C-7") (lambda() (interactive) (elscreen-goto 7)))
 ;(define-key evil-insert-state-map (kbd "C-8") (lambda() (interactive) (elscreen-goto 8)))
 ;(define-key evil-insert-state-map (kbd "C-9") (lambda() (interactive) (elscreen-goto 9)))
-
-;; evil - leader key
-(setq evil-leader/in-all-states 1)
-(global-evil-leader-mode)
-(evil-leader/set-leader ",")
 
 ;; evil - dired
 (evil-set-initial-state 'dired-mode 'normal)
@@ -216,16 +221,21 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;(global-set-key (kbd "J") 'windmove-down)
 ;(global-set-key (kbd "H") 'windmove-left)
 ;(global-set-key (kbd "L") 'windmove-right)
-(evil-leader/set-key "0" 'select-window-0)
-(evil-leader/set-key "1" 'select-window-1)
-(evil-leader/set-key "2" 'select-window-2)
-(evil-leader/set-key "3" 'select-window-3)
-(evil-leader/set-key "4" 'select-window-4)
-(evil-leader/set-key "5" 'select-window-5)
-(evil-leader/set-key "6" 'select-window-6)
-(evil-leader/set-key "7" 'select-window-7)
-(evil-leader/set-key "8" 'select-window-8)
-(evil-leader/set-key "9" 'select-window-9)
+(require 'winum)
+(setq winum-keymap
+    (let ((map (make-sparse-keymap)))
+      (evil-leader/set-key "0" 'winum-select-window-0-or-10)
+      (evil-leader/set-key "1" 'winum-select-window-1)
+      (evil-leader/set-key "2" 'winum-select-window-2)
+      (evil-leader/set-key "3" 'winum-select-window-3)
+      (evil-leader/set-key "4" 'winum-select-window-4)
+      (evil-leader/set-key "5" 'winum-select-window-5)
+      (evil-leader/set-key "6" 'winum-select-window-6)
+      (evil-leader/set-key "7" 'winum-select-window-7)
+      (evil-leader/set-key "8" 'winum-select-window-8)
+      (evil-leader/set-key "9" 'winum-select-window-8)
+      map))
+(winum-mode)
 
 ;; No tabs for indentation, for crying out loud, emacs!
 (setq-default tab-width 4 indent-tabs-mode nil)
@@ -241,7 +251,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
  '(package-selected-packages
    (quote
-    (window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
+    (winum window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
