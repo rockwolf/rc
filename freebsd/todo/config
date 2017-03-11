@@ -3,12 +3,12 @@
 # Your todo.txt directory
 #export TODO_DIR="/Users/gina/Documents/todo"
 #export TODO_DIR=$(dirname "$0")
-export TODO_DIR="$HOME/vimwiki"
+export TODO_DIR="$HOME/doc"
 
 # Your todo/done/report.txt locations
-export TODO_FILE="$TODO_DIR/todo.md"
-export DONE_FILE="$TODO_DIR/todo_archive.md"
-export REPORT_FILE="$TODO_DIR/todo_report.md"
+export TODO_FILE="$TODO_DIR/todo.adoc"
+export DONE_FILE="$TODO_DIR/todo_archive.adoc"
+export REPORT_FILE="$TODO_DIR/todo_report.adoc"
 
 # You can customize your actions directory location
 #export TODO_ACTIONS_DIR="$HOME/.todo.actions.d"

@@ -6,6 +6,9 @@ source $HOME/mail/connection_gmail_thereisanewway
 # signature file
 set signature=$HOME/mail/signature_gmail_thereisanewway
 
+# Certificates
+set certificate_file=$HOME/mail/certificate_gmail_thereisanewway/ca.pem
+
 # general setup
 source $HOME/.mutt/mutt.general
 
@@ -29,19 +32,9 @@ set record="+[Gmail]/Sent Mail"
 unset record #gmail automatically saves it to the sent folder, we don't want duplicates
 #set trash="+[Gmail]/Lixeira"
 
-# Certificates
-set certificate_file=$HOME/mail/certificate_gmail_thereisanewway/ca.pem
-
 #colors
 #source ~/.mutt-colors-solarized-dark-256.muttrc
 #source ~/.config/mutt/mutt-colors-solarized-dark-16.muttrc
-
-# html mail, works with .mailcap in the home folder, to read html messages
-auto_view text/html
-set print_command="muttprint"
-
-# abook
-set query_command = "abook --mutt-query '%s'"
 
 # Pretty Good Privacy (PGP):
 set pgp_verify_sig=no                   #dont show pgp in pager

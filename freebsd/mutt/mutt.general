@@ -24,3 +24,11 @@ set pager_index_lines=6                 #show a mini-index in pager
 set menu_scroll
 set status_on_top                       #put status line at top
 set index_format="%4C %Z %{%b %d} %-16.16L  %s"
+
+# html mail, works with .mailcap in the home folder, to read html messages
+auto_view text/html
+set print_command="muttprint"
+
+# abook
+set query_command = "abook --mutt-query '%s'"
+

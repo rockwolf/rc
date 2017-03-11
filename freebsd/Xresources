@@ -1,6 +1,8 @@
 
 !-- To reload changes: xrdb -merge ~/.Xresources and start a new rxvt-unicode
 
+!-- Cursor
+XCursor.Theme: ATER
 !-- font
 !Emacs.FontBackend: xft
 Emacs.font: inconsolata:pixelsize=20:antialias=true:hinting=true

@@ -1,10 +1,16 @@
 ;; packages
-(setq package-archives '(
-  ("gnu" . "http://elpa.gnu.org/packages/")
-  ("org" . "http://orgmode.org/elpa/")
-  ("marmalade" . "https://marmalade-repo.org/packages/")
-  ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
-  ("melpa" . "http://melpa.milkbox.net/packages/")))
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("marmalade" . "https://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("org" . "http://orgmode.org/elpa/") t)
+(when (< emacs-major-version 24)
+  ; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
 (defun require-package (package)
@@ -92,9 +98,9 @@
        '(progn ,@body))))
 
 ;; evil - search highlighting
-(require 'evil-search-highlight-persist)
-(global-evil-search-highlight-persist t)
-(evil-leader/set-key "SPC" 'evil-search-highlight-persist-remove-all) ; clear search highlights
+;(require 'evil-search-highlight-persist)
+;(global-evil-search-highlight-persist t)
+;(evil-leader/set-key "SPC" 'evil-search-highlight-persist-remove-all) ; clear search highlights
 
 ;; Helm/Ctrl-P
 ;; helm settings (TAB in helm window for actions over selected items,
@@ -129,10 +135,10 @@
       bookmark-save-flag 1) ;; save after every change
 
 ;; Project explorer
-(require 'project-explorer)
-(after 'project-explorer
-  (setq pe/cache-directory "~/.emacs.d/cache/project_explorer")
-  (setq pe/omit-regex (concat pe/omit-regex "\\|single_emails")))
+;(require 'project-explorer)
+;(after 'project-explorer
+;  (setq pe/cache-directory "~/.emacs.d/cache/project_explorer")
+;  (setq pe/omit-regex (concat pe/omit-regex "\\|single_emails")))
 
 ;; Smooth scrolling
 (setq scroll-margin 5
@@ -249,9 +255,10 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
+ '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (winum window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
+    (## winum window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
