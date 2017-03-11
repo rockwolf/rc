@@ -21,6 +21,9 @@
       (package-refresh-contents))
     (package-install package)))
 
+;; calendar
+(setq calendar-week-start-day 1)
+
 ;; theme
 (load-theme 'solarized-dark t)
 (color-theme-approximate-on)
