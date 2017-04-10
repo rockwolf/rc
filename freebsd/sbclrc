@@ -8,6 +8,8 @@
 ;;; The following was added, to allow ql:quickload on own projects.
 #+quicklisp
 (progn
+  (pushnew #P"/home/rockwolf/dev/speed-dial/"
+    ql:*local-project-directories*)
   (pushnew #P"/home/rockwolf/dev/ledgerexport-tax/"
     ql:*local-project-directories*)
   (pushnew #P"/home/rockwolf/dev/txt-to-pdf/"

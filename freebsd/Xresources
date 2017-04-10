@@ -35,7 +35,7 @@ Emacs.font: inconsolata:pixelsize=20:antialias=true:hinting=true
 !-- note: keep that fading at 0, it is annoying (vim inactive colors become weird)
 *fading: 0
 *transparent: true
-*shading: 36
+*shading: 16
 
 !!-- colorscheme
 !--- dark solarized theme
