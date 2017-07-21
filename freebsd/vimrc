@@ -24,7 +24,7 @@ Plug 'Syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
 "Plug 'jpalardy/vim-slime'
-Plug 'kovisoft/slimv'
+"Plug 'kovisoft/slimv'
 call plug#end()
 
 " Vim stuff
@@ -211,7 +211,6 @@ autocmd BufWinEnter *.* silent loadview
 " Enter: "default" and "dev:"
 let g:slime_target = "tmux"
 let g:slime_paste_file = "$HOME/.slime_paste"
-
 
 " GPG stuff
 " ---------

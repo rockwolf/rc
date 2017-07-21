@@ -12,6 +12,8 @@ alias less $PAGER
 alias zless $PAGER
 alias t todo.sh
 alias ls "ls -F"
+alias urxvt "urxvt -e tmux"
+alias urxvtc "urxvtc -e tmux"
 alias branches "tig --all --simplify-by-decoration"
 alias binclock "tbclock -f -daeHHH -H 0 -M 0 -S 0 -T 0"
 alias timidity "timidity -c /usr/local/share/timidity/timidity.cfg-eawplus"
