@@ -17,6 +17,7 @@ alias urxvtc "urxvtc -e tmux"
 alias branches "tig --all --simplify-by-decoration"
 alias binclock "tbclock -f -daeHHH -H 0 -M 0 -S 0 -T 0"
 alias timidity "timidity -c /usr/local/share/timidity/timidity.cfg-eawplus"
+alias doas "doas -u root"
 
 # General settings
 fish_user_key_bindings
