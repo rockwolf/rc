@@ -4,7 +4,7 @@ set -x PATH /home/rockwolf/src/bin $PATH
 set -x PATH /home/rockwolf/sh_ $PATH
 set -x PAGER /usr/bin/less
 set -x APP_ENV development
-set -x EDITOR /usr/local/bin/nvim
+set -x EDITOR /usr/local/bin/vim
 set -x LSCOLORS xxxxxxxxxxx # Use default fg color for everything. This should disable the colors.
 
 # Aliases
@@ -17,6 +17,7 @@ alias urxvtc "urxvtc -e tmux"
 alias branches "tig --all --simplify-by-decoration"
 alias binclock "tbclock -f -daeHHH -H 0 -M 0 -S 0 -T 0"
 alias timidity "timidity -c /usr/local/share/timidity/timidity.cfg-eawplus"
+alias sbcl "rlwrap sbcl" # sbcl has no readline history support, but with rlwrap we can simulate it.
 
 # General settings
 fish_user_key_bindings
