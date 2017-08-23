@@ -26,7 +26,6 @@ font pango:inconsolata 18
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-
 # i3bar configuration
 bar {
     status_command i3status
@@ -61,6 +60,10 @@ workspace 7 output DVI-I-1
 workspace 8 output DVI-I-1
 workspace 9 output DVI-I-1
 workspace 0 output DVI-I-1
+
+# disable title bars
+new_window none
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
