@@ -25,8 +25,7 @@
 (setq calendar-week-start-day 1)
 
 ;; theme
-(load-theme 'solarized-dark t)
-(color-theme-approximate-on)
+(load-theme 'solarized t)
 
 ;; load-path
 ; Add dir for custom scripts, like window-number.el
@@ -35,6 +34,10 @@
 ;; Look 'n Feel
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+
+;; neotree
+(require 'neotree)
+(global-set-key (kbd "M-t") 'neotree-toggle)
 
 ;; evil - leader key
 (require 'evil-leader)
@@ -261,7 +264,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (## winum window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
+    (neotree ## winum window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
