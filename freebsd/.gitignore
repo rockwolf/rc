@@ -1,5 +1,9 @@
 fish/fish_history
 vim/bundle/*
+vim/autoload
+vim/colors
+vim/plugged
+vim/view
 elinks/cookies
 elinks/globhist
 elinks/searchhist
