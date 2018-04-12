@@ -46,7 +46,7 @@ set busy_level4="7"   # level3 color
 
 
 # first day of the week is Sunday
-set week_starts_monday="false"
+set week_starts_monday="true"
 
 # 12/24 hour time settings
 set schedule_12_hour="false"
