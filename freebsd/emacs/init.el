@@ -1,16 +1,15 @@
 ;; packages
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives
-             '("marmalade" . "https://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("org" . "http://orgmode.org/elpa/") t)
-(when (< emacs-major-version 24)
-  ; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+  (when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
 
 (defun require-package (package)
@@ -199,10 +198,10 @@ scroll-step 1)
 (global-flycheck-mode t)
 
 ; flycheck errors on a tooltip (doesnt work on console)
-(when (display-graphic-p (selected-frame))
-  (eval-after-load 'flycheck
-    '(custom-set-variables
-      '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages))))
+;(when (display-graphic-p (selected-frame))
+;  (eval-after-load 'flycheck
+;    '(custom-set-variables
+;      '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages))))
 
 ;; ESC escapes, instead of needing to press it 3 times.
 ;; esc quits
@@ -233,10 +232,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                         (evil-scroll-down nil)))
 
 ;; Move between windows.
-;(global-set-key (kbd "K") 'windmove-up)
-;(global-set-key (kbd "J") 'windmove-down)
-;(global-set-key (kbd "H") 'windmove-left)
-;(global-set-key (kbd "L") 'windmove-right)
+; Vim-based movement between windows and frames
+(global-set-key (kbd "M-k") 'windmove-up)
+(global-set-key (kbd "M-j") 'windmove-down)
+(global-set-key (kbd "M-h") 'windmove-left)
+(global-set-key (kbd "M-l") 'windmove-right)
+; leader+num based movement between windows and frames
 (require 'winum)
 (setq winum-keymap
     (let ((map (make-sparse-keymap)))
@@ -257,6 +258,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq-default tab-width 4 indent-tabs-mode nil)
 
 ;; Matching parens
+(show-paren-mode 1)
 
 ;; Automatically added
 (custom-set-variables
@@ -268,7 +270,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (neotree ## winum window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
+    (paredit ranger neotree ## winum window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
