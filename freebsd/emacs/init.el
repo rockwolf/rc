@@ -260,6 +260,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; Matching parens
 (show-paren-mode 1)
 
+;; Ledger
+(autoload 'ledger-mode "ledger-mode" "A major mode for ledger" t)
+(add-to-list 'auto-mode-alist '("\\.dat$" . ledger-mode))
+; Note: ledger-init-file-name is set in custom-set-variables,
+; because it can't handle .ledgerrc being a symlink.
+
 ;; Automatically added
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -268,9 +274,10 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  ;; If there is more than one, they won't work right.
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
  '(inhibit-startup-screen t)
+ '(ledger-init-file-name "~/dev/rc/freebsd/ledgerrc")
  '(package-selected-packages
    (quote
-    (paredit ranger neotree ## winum window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
+    (flycheck-ledger ledger-mode paredit ranger neotree ## winum window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
