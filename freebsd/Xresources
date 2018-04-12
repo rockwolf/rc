@@ -39,8 +39,9 @@ Emacs.font: inconsolata:pixelsize=20:antialias=true:hinting=true
 
 !!-- colorscheme
 !--- dark solarized theme
-*foreground: rgb:83/94/96
-*background: rgb:00/2b/36
+*foreground: #eee8d5
+*background: #859900
+!#002636
 !*tintColor: rgb:00/2b/36
 !*tintColor: rgb:33/33/33
 *tintColor: white
@@ -59,7 +60,9 @@ Emacs.font: inconsolata:pixelsize=20:antialias=true:hinting=true
 *color3:               #b58900
 *color11:              #657b83
 !BLUE
-*color4:               #268bd2
+!*color4:               #268bd2
+!*color12:              #839496
+*color4:               #839496
 *color12:              #839496
 !MAGENTA
 *color5:               #d33682
