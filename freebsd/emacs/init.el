@@ -35,6 +35,10 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; Line numbers
+(global-linum-mode t)
+(setq linum-format "%d ")
+
 ;; neotree
 (require 'neotree)
 (global-set-key (kbd "M-t") 'neotree-toggle)
