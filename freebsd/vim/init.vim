@@ -1,0 +1,1 @@
+/mnt/data00/rockwolf/dev/rc/freebsd/vimrc
