@@ -4,13 +4,6 @@
 !-- Cursor
 XCursor.Theme: ATER
 !-- font
-!Emacs.FontBackend: xft
-Emacs.font: inconsolata:pixelsize=20:antialias=true:hinting=true
-!*font: xft:Liberation Mono:pixelsize=20
-!*boldFont: xft:Liberation Mono:pixelsize=20
-!*italicFont: xft:Liberation Mono:pixelsize=20
-!*boldItalicFont: xft:Liberation Mono:pixelsize=20
-
 !*xftAntialias: true
 *font: xft:inconsolata:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=20:antialias=true,hinting=true
 *boldFont: xft:inconsolata:bold:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=20:antialias=true,hinting=true
