@@ -2,3 +2,9 @@ fish/fish_history
 vim/bundle/*
 elinks/cookies
 elinks/globhist
+elinks/searchhist
+awb/*.cache
+herrie/autosave.xspf
+emacs/init.el~
+.emacs
+.emacs~
