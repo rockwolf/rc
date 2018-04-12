@@ -21,11 +21,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'FuzzyFinder'
 Plug 'Syntastic'
-Plug 'tpope/vim-fugitive'
-Plug 'powerline/powerline'
-"Plug 'bling/vim-airline'
-"Plug 'jpalardy/vim-slime'
+"Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'jpalardy/vim-slime'
 "Plug 'kovisoft/slimv'
+Plug 'kovisoft/paredit'
+Plug 'junegunn/rainbow_parentheses.vim'
 call plug#end()
 
 " Vim stuff
@@ -195,8 +196,8 @@ let g:netrw_liststyle=3
 " -------
 " Automatically save folding views at quit.
 set nofoldenable
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+"autocmd BufWinLeave *.* mkview
+"autocmd BufWinEnter *.* silent loadview
 
 " Slime
 " -----
@@ -210,43 +211,52 @@ autocmd BufWinEnter *.* silent loadview
 " and C-c C-c to send the text.
 " It will prompt for socket + pane, the first time.
 " Enter: "default" and "dev:"
+" To use with started tmux session and default values:
+" start vim
+" C-b C-", to split the window
+" C-b j, to go to the bottom pane
+" start sbcl
+" C-b k, to go back to the first pane
+" vip to select paragraph, C-c C-c to send the text
+" The default values specified below, will send it to the bottom pane.
 let g:slime_target = "tmux"
 let g:slime_paste_file = "$HOME/.slime_paste"
+let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
 
-" GPG stuff
-" ---------
-" Transparent editing of gpg encrypted files.
-" By Wouter Hanegraaff
-augroup encrypted
-au!
-" First make sure nothing is written to ~/.viminfo while editing
-" an encrypted file.
-autocmd BufReadPre,FileReadPre *.gpg set viminfo=
-" We don't want a swap file, as it writes unencrypted data to disk
-autocmd BufReadPre,FileReadPre *.gpg set noswapfile
-" Switch to binary mode to read the encrypted file
-autocmd BufReadPre,FileReadPre *.gpg set bin
-autocmd BufReadPre,FileReadPre *.gpg let ch_save = &ch|set ch=2
-autocmd BufReadPre,FileReadPre *.gpg let shsave=&sh
-autocmd BufReadPre,FileReadPre *.gpg let &sh='sh'
-autocmd BufReadPre,FileReadPre *.gpg let ch_save = &ch|set ch=2
-autocmd BufReadPost,FileReadPost *.gpg '[,']!gpg --decrypt --default-recipient-self 2> /dev/null
-autocmd BufReadPost,FileReadPost *.gpg let &sh=shsave
-" Switch to normal mode for editing
-autocmd BufReadPost,FileReadPost *.gpg set nobin
-autocmd BufReadPost,FileReadPost *.gpg let &ch = ch_save|unlet ch_save
-autocmd BufReadPost,FileReadPost *.gpg execute ":doautocmd BufReadPost " . expand("%:r")
-" Convert all text to encrypted text before writing
-autocmd BufWritePre,FileWritePre *.gpg set bin
-autocmd BufWritePre,FileWritePre *.gpg let shsave=&sh
-autocmd BufWritePre,FileWritePre *.gpg let &sh='sh'
-autocmd BufWritePre,FileWritePre *.gpg '[,']!gpg --encrypt --default-recipient-self 2>/dev/null
-autocmd BufWritePre,FileWritePre *.gpg let &sh=shsave
-" Undo the encryption so we are back in the normal text, directly
-" after the file has been written.
-autocmd BufWritePost,FileWritePost *.gpg silent u
-autocmd BufWritePost,FileWritePost *.gpg set nobin
-augroup END
+"" GPG stuff
+"" ---------
+"" Transparent editing of gpg encrypted files.
+"" By Wouter Hanegraaff
+"augroup encrypted
+"au!
+"" First make sure nothing is written to ~/.viminfo while editing
+"" an encrypted file.
+"autocmd BufReadPre,FileReadPre *.gpg set viminfo=
+"" We don't want a swap file, as it writes unencrypted data to disk
+"autocmd BufReadPre,FileReadPre *.gpg set noswapfile
+"" Switch to binary mode to read the encrypted file
+"autocmd BufReadPre,FileReadPre *.gpg set bin
+"autocmd BufReadPre,FileReadPre *.gpg let ch_save = &ch|set ch=2
+"autocmd BufReadPre,FileReadPre *.gpg let shsave=&sh
+"autocmd BufReadPre,FileReadPre *.gpg let &sh='sh'
+"autocmd BufReadPre,FileReadPre *.gpg let ch_save = &ch|set ch=2
+"autocmd BufReadPost,FileReadPost *.gpg '[,']!gpg --decrypt --default-recipient-self 2> /dev/null
+"autocmd BufReadPost,FileReadPost *.gpg let &sh=shsave
+"" Switch to normal mode for editing
+"autocmd BufReadPost,FileReadPost *.gpg set nobin
+"autocmd BufReadPost,FileReadPost *.gpg let &ch = ch_save|unlet ch_save
+"autocmd BufReadPost,FileReadPost *.gpg execute ":doautocmd BufReadPost " . expand("%:r")
+"" Convert all text to encrypted text before writing
+"autocmd BufWritePre,FileWritePre *.gpg set bin
+"autocmd BufWritePre,FileWritePre *.gpg let shsave=&sh
+"autocmd BufWritePre,FileWritePre *.gpg let &sh='sh'
+"autocmd BufWritePre,FileWritePre *.gpg '[,']!gpg --encrypt --default-recipient-self 2>/dev/null
+"autocmd BufWritePre,FileWritePre *.gpg let &sh=shsave
+"" Undo the encryption so we are back in the normal text, directly
+"" after the file has been written.
+"autocmd BufWritePost,FileWritePost *.gpg silent u
+"autocmd BufWritePost,FileWritePost *.gpg set nobin
+"augroup END
 
 " Vimwiki
 " Note: disabled, because it does not support asciidoc.
@@ -260,6 +270,12 @@ set nu
 set splitbelow
 
 let g:solarized_degrade=0
-colo solarized_nofrills
 "colo reloaded
 set background=dark
+colo solarized_nofrills
+
+" Activation based on file type
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType lisp,clojure,scheme RainbowParentheses
+augroup END
