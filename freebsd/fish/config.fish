@@ -18,6 +18,9 @@ alias branches "tig --all --simplify-by-decoration"
 alias binclock "tbclock -f -daeHHH -H 0 -M 0 -S 0 -T 0"
 alias timidity "timidity -c /usr/local/share/timidity/timidity.cfg-eawplus"
 alias sbcl "rlwrap sbcl" # sbcl has no readline history support, but with rlwrap we can simulate it.
+alias gprolog "rlwrap gprolog" # gprolog has no readline history support, but with rlwrap we can simulate it.
+alias swipl "rlwrap swipl" # swipl has no readline history support, but with rlwrap we can simulate it.
+alias vim "nvim"
 
 # General settings
 fish_user_key_bindings
