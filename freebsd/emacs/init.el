@@ -33,6 +33,7 @@
 ;; Look 'n Feel
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; Line numbers
 (global-linum-mode t)
@@ -265,6 +266,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (add-to-list 'auto-mode-alist '("\\.dat$" . ledger-mode))
 ; Note: ledger-init-file-name is set in custom-set-variables,
 ; because it can't handle .ledgerrc being a symlink.
+(global-set-key (kbd "C-c f") 'ledger-mode-clean-buffer)
 
 ;; Automatically added
 (custom-set-variables
@@ -283,4 +285,14 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(ledger-font-other-face ((t (:foreground "#eee8d5" :weight normal))))
+ '(ledger-font-payee-pending-face ((t (:foreground "#2aa198" :weight normal))))
+ '(ledger-font-payee-uncleared-face ((t (:foreground "#eee8d5" :weight normal))))
+ '(ledger-font-pending-face ((t (:foreground "#2aa198" :weight normal))))
+ '(ledger-font-periodic-xact-face ((t (:foreground "#2aa198" :weight normal))))
+ '(ledger-font-posting-account-face ((t (:foreground "#eee8d5"))))
+ '(ledger-font-posting-amount-cleared-face ((t (:inherit ledger-font-posting-amount-face))))
+ '(ledger-font-posting-amount-face ((t (:foreground "#2aa198"))))
+ '(ledger-font-posting-amount-pending-face ((t (:inherit ledger-font-posting-amount-face))))
+ '(ledger-font-posting-date-face ((t (:foreground "#93a1a1"))))
+ '(ledger-font-xact-pending-face ((t (:foreground "#93a1a1" :weight normal)))))
