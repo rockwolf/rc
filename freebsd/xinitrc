@@ -11,4 +11,6 @@ xinitrc_settings_general.fish &
 xinitrc_settings_language.fish &
 xinitrc_custom_scripts.fish &
 redshift &
-startwm.fish
+#exec stumpwm
+#exec ssh-agent stumpwm
+exec ssh-agent i3
