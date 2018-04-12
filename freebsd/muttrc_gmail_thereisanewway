@@ -33,7 +33,7 @@ unset record #gmail automatically saves it to the sent folder, we don't want dup
 #set trash="+[Gmail]/Lixeira"
 
 #colors
-#source ~/.mutt-colors-solarized-dark-256.muttrc
+#source ~/.mutt/mutt-colors-solarized-dark-256.muttrc
 #source ~/.config/mutt/mutt-colors-solarized-dark-16.muttrc
 
 # Pretty Good Privacy (PGP):

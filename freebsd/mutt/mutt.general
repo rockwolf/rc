@@ -32,3 +32,5 @@ set print_command="muttprint"
 # abook
 set query_command = "abook --mutt-query '%s'"
 
+# colors
+color index red default ~P  # set default background color
