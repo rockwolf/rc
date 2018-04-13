@@ -25,6 +25,8 @@
 
 ;; theme
 (load-theme 'solarized t)
+(set-frame-parameter nil 'background-mode 'dark)
+(set-terminal-parameter nil 'background-mode 'dark)
 
 ;; load-path
 ; Add dir for custom scripts, like window-number.el
@@ -295,7 +297,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#fdf6e3" :foreground "#657b83" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 112 :width normal :foundry "outline" :family "Inconsolata"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 112 :width normal :foundry "outline" :family "Inconsolata"))))
  '(ledger-font-other-face ((t (:foreground "#eee8d5" :weight normal))))
  '(ledger-font-payee-cleared-face ((t (:inherit ledger-font-posting-account-face))))
  '(ledger-font-payee-pending-face ((t (:foreground "#2aa198" :weight normal))))
