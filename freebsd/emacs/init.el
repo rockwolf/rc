@@ -270,17 +270,17 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ; because it can't handle .ledgerrc being a symlink.
 (global-set-key (kbd "C-c f") 'ledger-mode-clean-buffer)
 ; Alignment is 52 by default, but I have long account names.
-(ledger-post-amount-alignment-column 128)
+(setq ledger-post-amount-alignment-column 80)
 
 ;; Org mode
 ; Display images
-(org-display-inline-images t)
-(org-redisplay-inline-images t)
-(org-startup-with-inline-images "inlineimages")
+(setq org-display-inline-images t)
+(setq org-redisplay-inline-images t)
+(setq org-startup-with-inline-images "inlineimages")
 
 ;; Dokuwiki
-(dokuwiki-xml-rpc-url "http://localhost:8800/lib/exe/xmlrpc.php")
-(dokuwiki-login-user-name "anagels")
+(setq dokuwiki-xml-rpc-url "http://localhost:8800/lib/exe/xmlrpc.php")
+(setq dokuwiki-login-user-name "anagels")
 
 ;; Automatically added
 (custom-set-variables
