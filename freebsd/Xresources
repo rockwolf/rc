@@ -4,6 +4,8 @@
 !-- Cursor
 XCursor.Theme: ATER
 !-- font
+Emacs.FontBackend: xft
+Emacs.font: inconsolata:pixelsize=20:antialias=true:hinting=true
 !*xftAntialias: true
 *font: xft:inconsolata:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=20:antialias=true,hinting=true
 *boldFont: xft:inconsolata:bold:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=20:antialias=true,hinting=true
