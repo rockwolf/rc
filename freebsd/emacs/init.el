@@ -33,9 +33,16 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; Look 'n Feel
+; interface
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
+; font
+(set-default-font "inconsolata-16")
+(add-to-list 'default-frame-alist '(font . "inconsolata-16"))
+(set-face-attribute 'default t :font "inconsolata-16")
+(set-face-attribute 'default nil :font "inconsolata-16")
+(set-frame-font "inconsolata-16" nil t)
 
 ;; Line numbers
 (global-linum-mode t)
@@ -299,7 +306,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 112 :width normal :foundry "outline" :family "Inconsolata"))))
  '(ledger-font-other-face ((t (:foreground "#eee8d5" :weight normal))))
  '(ledger-font-payee-cleared-face ((t (:inherit ledger-font-posting-account-face))))
  '(ledger-font-payee-pending-face ((t (:foreground "#2aa198" :weight normal))))
