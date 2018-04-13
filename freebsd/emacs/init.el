@@ -268,6 +268,16 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ; because it can't handle .ledgerrc being a symlink.
 (global-set-key (kbd "C-c f") 'ledger-mode-clean-buffer)
 
+;; Org mode
+; Display images
+(setq org-display-inline-images t)
+(setq org-redisplay-inline-images t)
+(setq org-startup-with-inline-images "inlineimages")
+
+;; Dokuwiki
+(setq dokuwiki-xml-rpc-url "http://localhost:8800/lib/exe/xmlrpc.php")
+(setq dokuwiki-login-user-name "anagels")
+
 ;; Automatically added
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -279,12 +289,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  '(ledger-init-file-name "~/dev/rc/freebsd/ledgerrc")
  '(package-selected-packages
    (quote
-    (flycheck-ledger ledger-mode paredit ranger neotree ## winum window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
+    (dokuwiki-mode dokuwiki org-link-minor-mode flycheck-ledger ledger-mode paredit ranger neotree ## winum window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#fdf6e3" :foreground "#657b83" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 112 :width normal :foundry "outline" :family "Inconsolata"))))
  '(ledger-font-other-face ((t (:foreground "#eee8d5" :weight normal))))
  '(ledger-font-payee-cleared-face ((t (:inherit ledger-font-posting-account-face))))
  '(ledger-font-payee-pending-face ((t (:foreground "#2aa198" :weight normal))))
