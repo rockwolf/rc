@@ -276,6 +276,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ; Note: ledger-init-file-name is set in custom-set-variables,
 ; because it can't handle .ledgerrc being a symlink.
 (global-set-key (kbd "C-c f") 'ledger-mode-clean-buffer)
+(global-set-key (kbd "C-c r") 'ledger-post-align-postings)
 ; Alignment is 52 by default, but I have long account names.
 (setq ledger-post-amount-alignment-column 80)
 
