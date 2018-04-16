@@ -267,8 +267,10 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; No tabs for indentation, for crying out loud, emacs!
 (setq-default tab-width 4 indent-tabs-mode nil)
 
-;; Matching parens
+;; Fancy parens, etc.
 (show-paren-mode 1)
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Ledger
 (autoload 'ledger-mode "ledger-mode" "A major mode for ledger" t)
@@ -285,6 +287,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq org-display-inline-images t)
 (setq org-redisplay-inline-images t)
 (setq org-startup-with-inline-images "inlineimages")
+
+;; Slime
+; Note: slime-helper install
+; via (ql:quickload "quicklisp-slime-helper")
+(setq inferior-lisp-program "sbcl")
+(slime-setup '(slime-company))
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
 
 ;; Dokuwiki
 (setq dokuwiki-xml-rpc-url "http://localhost:8800/lib/exe/xmlrpc.php")
