@@ -1,0 +1,8 @@
+= xmodmaprc
+
+Author: Andy Nagels
+Date: 2018-04-17
+Xmodmaprc: To clear the mod4 modifier and set it 
+to the left Super_L key only. This is needed
+for StumpWM, to be able to use it as a prefix key.
+Called from /usr/local/sh/xinitrc_custom_scripts.fish
