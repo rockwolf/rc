@@ -7,7 +7,10 @@
 (in-package :stumpwm)
 
 ;; change the prefix key to something else
-;(set-prefix-key (kbd "s"))
+(set-prefix-key (kbd "F20"))
+
+;; Loadrc binding
+(define-key *root-map* (kbd "R") "loadrc")
 
 ;; Turn on the modeline
 (if (not (head-mode-line (current-head)))
@@ -18,7 +21,7 @@
 
 ;; Show time, cpu usage and network traffic in the modeline
 (setf *screen-mode-line-format*
-      (list '(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t)) " | %t | %c | %l | [^B%n^b] %W"))
+      (list `(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t)) " | %t | %c | %l | [^B%n^b] %W"))
 
 ;; prompt the user for an interactive command. The first arg is an
 ;; optional initial contents.
@@ -40,37 +43,37 @@
               "gnewbg 7"
               "gnewbg 8"
               "gnewbg 9"
-              "gnewbg 10")
+              "gnewbg 0")
 
 ;; Window movement
-(define-key *top-map* (kbd "s-k") "move-focus up")
-(define-key *top-map* (kbd "s-j") "move-focus down")
-(define-key *top-map* (kbd "s-h") "move-focus left")
-(define-key *top-map* (kbd "s-l") "move-focus right")
-(define-key *top-map* (kbd "s-K") "move-window up")
-(define-key *top-map* (kbd "s-J") "move-window down")
-(define-key *top-map* (kbd "s-H") "move-window left")
-(define-key *top-map* (kbd "s-L") "move-window right")
+(define-key *root-map* (kbd "k") "move-focus up")
+(define-key *root-map* (kbd "j") "move-focus down")
+(define-key *root-map* (kbd "h") "move-focus left")
+(define-key *root-map* (kbd "l") "move-focus right")
+(define-key *root-map* (kbd "K") "move-window up")
+(define-key *root-map* (kbd "J") "move-window down")
+(define-key *root-map* (kbd "H") "move-window left")
+(define-key *root-map* (kbd "L") "move-window right")
 ;; Splitting
-(define-key *top-map* (kbd "C-s-h") "hsplit")
-(define-key *top-map* (kbd "C-s-v") "vsplit")
+(define-key *root-map* (kbd "C-h") "hsplit")
+(define-key *root-map* (kbd "C-v") "vsplit")
 ;; Workspace movement
-(define-key *top-map* (kbd "s-1") "gselect 1")
-(define-key *top-map* (kbd "s-2") "gselect 2")
-(define-key *top-map* (kbd "s-3") "gselect 3")
-(define-key *top-map* (kbd "s-4") "gselect 4")
-(define-key *top-map* (kbd "s-5") "gselect 5")
-(define-key *top-map* (kbd "s-6") "gselect 6")
-(define-key *top-map* (kbd "s-7") "gselect 7")
-(define-key *top-map* (kbd "s-8") "gselect 8")
-(define-key *top-map* (kbd "s-9") "gselect 9")
-(define-key *top-map* (kbd "s-10") "gselect 10")
+(define-key *root-map* (kbd "1") "gselect 1")
+(define-key *root-map* (kbd "2") "gselect 2")
+(define-key *root-map* (kbd "3") "gselect 3")
+(define-key *root-map* (kbd "4") "gselect 4")
+(define-key *root-map* (kbd "5") "gselect 5")
+(define-key *root-map* (kbd "6") "gselect 6")
+(define-key *root-map* (kbd "7") "gselect 7")
+(define-key *root-map* (kbd "8") "gselect 8")
+(define-key *root-map* (kbd "9") "gselect 9")
+(define-key *root-map* (kbd "0") "gselect 10")
 ;; Rofi
-(define-key *top-map* (kbd "s-p") (concatenate 'string "exec rofi -font " "inconsolata 16" " -show run"))
+(define-key *root-map* (kbd "p") (concatenate 'string "exec rofi -font " "inconsolata 16" " -show run"))
 ;; Lock screen
-(define-key *top-map* (kbd "s-X") "exec xlock")
+(define-key *root-map* (kbd "X") "exec xlock")
 ;; Terminal
-(define-key *top-map* (kbd "S-s-RET") "exec urxvtc")
+(define-key *root-map* (kbd "S-RET") "exec urxvtc")
 
 ;; Web jump (works for Google and Imdb)
 (defmacro make-web-jump (name prefix)
@@ -81,9 +84,9 @@
 (make-web-jump "duckduckgo" "firefox https://duckduckgo.com/?q=")
 (make-web-jump "imdb" "firefox http://www.imdb.com/find?q=")
 
-;; C-t M-s is a terrble binding, but you get the idea.
-(define-key *root-map* (kbd "C-d") "duckduckgo")
-(define-key *root-map* (kbd "C-i") "imdb")
+;; Search the web, imdb
+(define-key *top-map* (kbd "C-d") "duckduckgo")
+(define-key *top-map* (kbd "C-i") "imdb")
 
 ;; Message window font
 (set-font "inconsolata-16")
