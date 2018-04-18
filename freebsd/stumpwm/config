@@ -6,6 +6,11 @@
 
 (in-package :stumpwm)
 
+;; Prepare xmodmap for Super_L binding to F20
+(run-shell-command "xmodmap -e \"clear mod4\"")
+(run-shell-command "xmodmap -e \"add mod4\"")
+(run-shell-command "xmodmap -e \"keycode 127 = F20\"")
+
 ;; change the prefix key to something else
 (set-prefix-key (kbd "F20"))
 
@@ -63,6 +68,10 @@
 ;; Splitting
 (define-key *root-map* (kbd "C-h") "hsplit")
 (define-key *root-map* (kbd "C-v") "vsplit")
+;; Kill
+(define-key *root-map* (kbd "Q") "kill")
+;; Remove
+(define-key *root-map* (kbd "K") "remove")
 ;; Workspace movement
 (define-key *root-map* (kbd "1") "gselect 1")
 (define-key *root-map* (kbd "2") "gselect 2")
@@ -75,7 +84,7 @@
 (define-key *root-map* (kbd "9") "gselect 9")
 (define-key *root-map* (kbd "0") "gselect 10")
 ;; Rofi
-(define-key *root-map* (kbd "p") (concatenate 'string "exec rofi -font " "inconsolata 16" " -show run"))
+(define-key *root-map* (kbd "p") "exec rofi -font \"inconsolata 16\" -show run")
 ;; Lock screen
 (define-key *root-map* (kbd "X") "exec xlock")
 ;; Terminal
