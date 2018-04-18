@@ -33,6 +33,12 @@
 ;; Focus follows mouse
 (setf *mouse-focus-policy* :sloppy) ;; :click, :ignore, :sloppy
 
+;; Message window gravity
+(setq *message-window-gravity* :center)
+
+;; Input window gravity
+(setq *input-window-gravity* :center)
+
 ;; Virtual desktops (groups)
 (run-commands "gnewbg 1"
               "gnewbg 2"
