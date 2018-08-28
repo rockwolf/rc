@@ -287,7 +287,11 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq org-display-inline-images t)
 (setq org-redisplay-inline-images t)
 (setq org-startup-with-inline-images "inlineimages")
-(setq org-link-frame-setup '((file . find-file)))
+(setq org-link-frame-setup '((vm . vm-visit-folder-other-frame)
+ (vm-imap . vm-visit-imap-folder-other-frame)
+ (gnus . org-gnus-no-new-news)
+ (file . find-file)
+ (wl . wl-other-frame)))
 
 ;; Slime
 ; Note: slime-helper install
