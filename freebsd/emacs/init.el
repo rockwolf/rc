@@ -287,6 +287,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq org-display-inline-images t)
 (setq org-redisplay-inline-images t)
 (setq org-startup-with-inline-images "inlineimages")
+; Note: The below changes the size of the inline images to 1/3 of the width of the document
+(setq org-image-actual-width (/ (display-pixel-width) 3))
 (setq org-link-frame-setup '((vm . vm-visit-folder-other-frame)
  (vm-imap . vm-visit-imap-folder-other-frame)
  (gnus . org-gnus-no-new-news)
