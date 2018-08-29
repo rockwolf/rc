@@ -309,6 +309,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq dokuwiki-xml-rpc-url "http://localhost:8800/lib/exe/xmlrpc.php")
 (setq dokuwiki-login-user-name "anagels")
 
+;; Shift + TAB
+; This does not work on terminal emacsclient -nw, when ran
+; inside a tmux session.
+; Solution found here:
+; https://stackoverflow.com/questions/3518846/shift-tab-produces-cryptic-error-in-emacs
+(add-hook 'term-setup-hook '(lambda () (define-key function-key-map "\e[Z" [backtab])))
+
 ;; Automatically added
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
