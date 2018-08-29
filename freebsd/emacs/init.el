@@ -56,6 +56,10 @@
 (global-set-key (kbd "M-t") 'neotree-toggle)
 
 ;; evil - leader key
+; Note:
+; Regain TAB functionality,
+; must be called before activating evil-mode.
+(setq evil-want-C-i-jump nil) 
 (require 'evil-leader)
 (setq evil-leader/in-all-states 1)
 (global-evil-leader-mode)
