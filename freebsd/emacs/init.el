@@ -27,6 +27,9 @@
 (load-theme 'solarized t)
 (set-frame-parameter nil 'background-mode 'dark)
 (set-terminal-parameter nil 'background-mode 'dark)
+(add-to-list 'default-frame-alist '(background-color . "black"))
+(set-frame-parameter (selected-frame) 'alpha '(0 . 0))
+(add-to-list 'default-frame-alist '(alpha 0 0))
 
 ;; load-path
 ; Add dir for custom scripts, like window-number.el
