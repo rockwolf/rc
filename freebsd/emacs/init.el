@@ -301,6 +301,14 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  (gnus . org-gnus-no-new-news)
  (file . find-file)
  (wl . wl-other-frame)))
+(require 'cl)
+(defun zin/org-open-other-window ()
+  "Jump to bookmark in another frame. See `bookmark-jump' for more."
+  (interactive)
+  (let ((org-link-frame-setup (acons 'file 'find-file-other-window org-link-frame-setup)))
+    (org-open-at-point)))
+(global-set-key (kbd "C-c 5 C-o") 'zin/org-open-other-window)
+
 
 ;; Slime
 ; Note: slime-helper install
