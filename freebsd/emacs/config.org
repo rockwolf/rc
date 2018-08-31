@@ -1,0 +1,381 @@
+* calendar
+#+BEGIN_SRC emacs-lisp
+(setq calendar-week-start-day 1)
+#+END_SRC
+
+* load-path
+; Add dir for custom scripts, like window-number.el
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+#+END_SRC
+
+* Look 'n Feel
+** theme
+#+BEGIN_SRC emacs-lisp
+(load-theme 'solarized t)
+(set-frame-parameter nil 'background-mode 'light)
+(set-terminal-parameter nil 'background-mode 'light)
+;(add-to-list 'default-frame-alist '(background-color . "white"))
+;(set-frame-parameter (selected-frame) 'alpha '(0 . 0))
+;(add-to-list 'default-frame-alist '(alpha 0 0))
+#+END_SRC
+
+** interface
+#+BEGIN_SRC emacs-lisp
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+#+END_SRC
+
+** font
+#+BEGIN_SRC emacs-lisp
+(set-default-font "inconsolata-16")
+(add-to-list 'default-frame-alist '(font . "inconsolata-16"))
+(set-face-attribute 'default t :font "inconsolata-16")
+(set-face-attribute 'default nil :font "inconsolata-16")
+(set-frame-font "inconsolata-16" nil t)
+#+END_SRC
+
+** Line numbers
+#+BEGIN_SRC emacs-lisp
+(global-linum-mode t)
+(setq linum-format "%d ")
+#+END_SRC
+
+* neotree
+#+BEGIN_SRC emacs-lisp
+(require 'neotree)
+(global-set-key (kbd "M-t") 'neotree-toggle)
+#+END_SRC
+
+* evil-mode
+** evil - leader key
+#+BEGIN_SRC emacs-lisp
+; Note:
+; Regain TAB functionality,
+; must be called before activating evil-mode.
+(setq evil-want-C-i-jump nil) 
+(require 'evil-leader)
+(setq evil-leader/in-all-states 1)
+(global-evil-leader-mode)
+(evil-leader/set-leader ",")
+#+END_SRC
+
+** evil
+#+BEGIN_SRC emacs-lisp
+(evil-mode 1)
+#+END_SRC
+
+** evil - cursor
+#+BEGIN_SRC emacs-lisp
+(setq evil-emacs-state-cursor '("red" box))
+(setq evil-normal-state-cursor '("green" box))
+(setq evil-visual-state-cursor '("orange" box))
+(setq evil-insert-state-cursor '("red" bar))
+(setq evil-replace-state-cursor '("red" bar))
+(setq evil-operator-state-cursor '("red" hollow))
+#+END_SRC
+
+** evil - tab behaviour #gt
+#+BEGIN_SRC emacs-lisp
+(global-evil-tabs-mode t)
+;(define-key evil-normal-state-map (kbd "C-0") (lambda() (interactive) (elscreen-goto 0)))
+;(define-key evil-normal-state-map (kbd "C- ") (lambda() (interactive) (elscreen-goto 0)))
+;(define-key evil-normal-state-map (kbd "C-1") (lambda() (interactive) (elscreen-goto 1)))
+;(define-key evil-normal-state-map (kbd "C-2") (lambda() (interactive) (elscreen-goto 2)))
+;(define-key evil-normal-state-map (kbd "C-3") (lambda() (interactive) (elscreen-goto 3)))
+;(define-key evil-normal-state-map (kbd "C-4") (lambda() (interactive) (elscreen-goto 4)))
+;(define-key evil-normal-state-map (kbd "C-5") (lambda() (interactive) (elscreen-goto 5)))
+;(define-key evil-normal-state-map (kbd "C-6") (lambda() (interactive) (elscreen-goto 6)))
+;(define-key evil-normal-state-map (kbd "C-7") (lambda() (interactive) (elscreen-goto 7)))
+;(define-key evil-normal-state-map (kbd "C-8") (lambda() (interactive) (elscreen-goto 8)))
+;(define-key evil-normal-state-map (kbd "C-9") (lambda() (interactive) (elscreen-goto 9)))
+;(define-key evil-insert-state-map (kbd "C-0") (lambda() (interactive) (elscreen-goto 0)))
+;(define-key evil-insert-state-map (kbd "C- ") (lambda() (interactive) (elscreen-goto 0)))
+;(define-key evil-insert-state-map (kbd "C-1") (lambda() (interactive) (elscreen-goto 1)))
+;(define-key evil-insert-state-map (kbd "C-2") (lambda() (interactive) (elscreen-goto 2)))
+;(define-key evil-insert-state-map (kbd "C-3") (lambda() (interactive) (elscreen-goto 3)))
+;(define-key evil-insert-state-map (kbd "C-4") (lambda() (interactive) (elscreen-goto 4)))
+;(define-key evil-insert-state-map (kbd "C-5") (lambda() (interactive) (elscreen-goto 5)))
+;(define-key evil-insert-state-map (kbd "C-6") (lambda() (interactive) (elscreen-goto 6)))
+;(define-key evil-insert-state-map (kbd "C-7") (lambda() (interactive) (elscreen-goto 7)))
+;(define-key evil-insert-state-map (kbd "C-8") (lambda() (interactive) (elscreen-goto 8)))
+;(define-key evil-insert-state-map (kbd "C-9") (lambda() (interactive) (elscreen-goto 9)))
+#+END_SRC
+
+** evil - dired
+#+BEGIN_SRC emacs-lisp
+(evil-set-initial-state 'dired-mode 'normal)
+(evil-set-initial-state 'Buffer-menu-mode 'normal)
+(setq evil-emacs-state-modes (delq 'ibuffer-mode evil-emacs-state-modes))
+(setq evil-emacs-state-modes (delq 'dired-mode evil-emacs-state-modes))
+#+END_SRC
+
+** accents - to make them work in gui mode
+#+BEGIN_SRC emacs-lisp
+(require 'iso-transl)
+#+END_SRC
+
+** After macro
+#+BEGIN_SRC emacs-lisp
+;; "after" macro definition
+(if (fboundp 'with-eval-after-load)
+    (defmacro after (feature &rest body)
+      "After FEATURE is loaded, evaluate BODY."
+      (declare (indent defun))
+      `(with-eval-after-load ,feature ,@body))
+  (defmacro after (feature &rest body)
+    "After FEATURE is loaded, evaluate BODY."
+    (declare (indent defun))
+    `(eval-after-load ,feature
+       '(progn ,@body))))
+#+END_SRC
+
+** evil - search highlighting
+#+BEGIN_SRC emacs-lisp
+;(require 'evil-search-highlight-persist)
+;(global-evil-search-highlight-persist t)
+;(evil-leader/set-key "SPC" 'evil-search-highlight-persist-remove-all) ; clear search highlights
+#+END_SRC
+
+* Helm/Ctrl-P
+#+BEGIN_SRC emacs-lisp
+;; helm settings (TAB in helm window for actions over selected items,
+;; C-SPC to select items)
+(require 'helm-config)
+(require 'helm-misc)
+(require 'helm-projectile)
+(require 'helm-locate)
+(setq helm-quick-update t)
+(setq helm-bookmark-show-location t)
+(setq helm-buffers-fuzzy-matching t)
+(global-set-key (kbd "M-x") 'helm-M-x);; 
+
+(after 'projectile
+  (require 'helm-projectile))
+(global-set-key (kbd "M-x") 'helm-M-x)
+
+(defun helm-my-buffers ()
+  (interactive)
+  (let ((helm-ff-transformer-show-only-basename nil))
+  (helm-other-buffer '(helm-c-source-buffers-list
+                       helm-c-source-elscreen
+                       helm-c-source-projectile-files-list
+                       helm-c-source-ctags
+                       helm-c-source-recentf
+                       helm-c-source-locate)
+                     "*helm-my-buffers*")))
+#+END_SRC
+
+* Save bookmarks
+#+BEGIN_SRC emacs-lisp
+(setq bookmark-default-file "~/.emacs.d/bookmarks"
+      bookmark-save-flag 1) ;; save after every change
+#+END_SRC
+
+* Project explorer
+#+BEGIN_SRC emacs-lisp
+;(require 'project-explorer)
+;(after 'project-explorer
+;  (setq pe/cache-directory "~/.emacs.d/cache/project_explorer")
+;  (setq pe/omit-regex (concat pe/omit-regex "\\|single_emails")))
+#+END_SRC
+
+* Behaviour
+** Smooth scrolling
+#+BEGIN_SRC emacs-lisp
+(setq scroll-margin 5
+      scroll-conservatively 9999
+      scroll-step 1)
+#+END_SRC
+
+** Don't make automatic backups
+#+BEGIN_SRC emacs-lisp
+(setq make-backup-files nil)
+#+END_SRC
+
+** Remember current position
+#+BEGIN_SRC emacs-lisp
+(setq save-place-file "~/.emacs.d/saveplace")
+(setq-default save-place t)
+(require 'saveplace)
+#+END_SRC
+
+* Powerline
+** Enable powerline + settings
+#+BEGIN_SRC emacs-lisp
+(require 'powerline)
+(powerline-evil-vim-color-theme)
+(display-time-mode t)
+#+END_SRC
+
+** Diminish, removes minor modes from the powerline
+#+BEGIN_SRC emacs-lisp
+(require 'diminish)
+(diminish 'visual-line-mode)
+(after 'autopair (diminish 'autopair-mode))
+(after 'undo-tree (diminish 'undo-tree-mode))
+(after 'auto-complete (diminish 'auto-complete-mode))
+(after 'projectile (diminish 'projectile-mode))
+(after 'yasnippet (diminish 'yas-minor-mode))
+(after 'guide-key (diminish 'guide-key-mode))
+(after 'eldoc (diminish 'eldoc-mode))
+(after 'smartparens (diminish 'smartparens-mode))
+(after 'company (diminish 'company-mode))
+(after 'elisp-slime-nav (diminish 'elisp-slime-nav-mode))
+(after 'git-gutter+ (diminish 'git-gutter+-mode))
+(after 'magit (diminish 'magit-auto-revert-mode))
+(after 'hs-minor-mode (diminish 'hs-minor-mode))
+(after 'color-identifiers-mode (diminish 'color-identifiers-mode))
+#+END_SRC
+
+** Flycheck
+#+BEGIN_SRC emacs-lisp
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+(after 'flycheck
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (setq flycheck-checkers (delq 'emacs-lisp-checkdoc flycheck-checkers))
+  (setq flycheck-checkers (delq 'html-tidy flycheck-checkers))
+  (setq flycheck-standard-error-navigation nil))
+
+(global-flycheck-mode t)
+
+; flycheck errors on a tooltip (doesnt work on console)
+;(when (display-graphic-p (selected-frame))
+;  (eval-after-load 'flycheck
+;    '(custom-set-variables
+;      '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages))))
+#+END_SRC
+
+** ESC escapes, instead of needing to press it 3 times.
+#+BEGIN_SRC emacs-lisp
+(defun minibuffer-keyboard-quit ()
+  "Abort recursive edit.
+In Delete Selection mode, if the mark is active, just deactivate it;
+then it takes a second \\[keyboard-quit] to abort the minibuffer."
+  (interactive)
+  (if (and delete-selection-mode transient-mark-mode mark-active)
+      (setq deactivate-mark  t)
+    (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
+    (abort-recursive-edit)))
+(define-key evil-normal-state-map [escape] 'keyboard-quit)
+(define-key evil-visual-state-map [escape] 'keyboard-quit)
+(define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+(global-set-key [escape] 'evil-exit-emacs-state)
+#+END_SRC
+
+** Scroll window with ctrl-j/ctrl-k
+#+BEGIN_SRC emacs-lisp
+(define-key evil-normal-state-map (kbd "C-k") (lambda ()
+                    (interactive)
+                    (evil-scroll-up nil)))
+(define-key evil-normal-state-map (kbd "C-j") (lambda ()
+                        (interactive)
+                        (evil-scroll-down nil)))
+#+END_SRC
+
+** Vim-like folding
+#+BEGIN_SRC emacs-lisp
+(evil-vimish-fold-mode 1)
+#+END_SRC
+
+** Vim-based movement between windows and frames
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "M-k") 'windmove-up)
+(global-set-key (kbd "M-j") 'windmove-down)
+(global-set-key (kbd "M-h") 'windmove-left)
+(global-set-key (kbd "M-l") 'windmove-right)
+; leader+num based movement between windows and frames
+(require 'winum)
+(setq winum-keymap
+    (let ((map (make-sparse-keymap)))
+      (evil-leader/set-key "0" 'winum-select-window-0-or-10)
+      (evil-leader/set-key "1" 'winum-select-window-1)
+      (evil-leader/set-key "2" 'winum-select-window-2)
+      (evil-leader/set-key "3" 'winum-select-window-3)
+      (evil-leader/set-key "4" 'winum-select-window-4)
+      (evil-leader/set-key "5" 'winum-select-window-5)
+      (evil-leader/set-key "6" 'winum-select-window-6)
+      (evil-leader/set-key "7" 'winum-select-window-7)
+      (evil-leader/set-key "8" 'winum-select-window-8)
+      (evil-leader/set-key "9" 'winum-select-window-8)
+      map))
+(winum-mode)
+#+END_SRC
+
+** No tabs for indentation, for crying out loud, emacs!
+#+BEGIN_SRC emacs-lisp
+(setq-default tab-width 4 indent-tabs-mode nil)
+#+END_SRC
+
+** Shift + TAB
+; This does not work on terminal emacsclient -nw, when ran
+; inside a tmux session.
+; Solution found here:
+; https://stackoverflow.com/questions/3518846/shift-tab-produces-cryptic-error-in-emacs
+#+BEGIN_SRC emacs-lisp
+(add-hook 'term-setup-hook '(lambda () (define-key function-key-map "\e[Z" [backtab])))
+#+END_SRC
+
+** Fancy parens, etc.
+#+BEGIN_SRC emacs-lisp
+(show-paren-mode 1)
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+#+END_SRC
+
+* Ledger
+#+BEGIN_SRC emacs-lisp
+(autoload 'ledger-mode "ledger-mode" "A major mode for ledger" t)
+(add-to-list 'auto-mode-alist '("\\.dat$" . ledger-mode))
+; Note: ledger-init-file-name is set in custom-set-variables,
+; because it can't handle .ledgerrc being a symlink.
+(global-set-key (kbd "C-c f") 'ledger-mode-clean-buffer)
+(global-set-key (kbd "C-c r") 'ledger-post-align-postings)
+; Alignment is 52 by default, but I have long account names.
+(setq ledger-post-amount-alignment-column 80)
+#+END_SRC
+
+* Org mode
+#+BEGIN_SRC emacs-lisp
+; Display images
+(setq org-display-inline-images t)
+(setq org-redisplay-inline-images t)
+(setq org-startup-with-inline-images "inlineimages")
+; Note: The below changes the size of the inline images to 1/3 of the width of the document
+(setq org-image-actual-width (/ (display-pixel-width) 3))
+(setq org-link-frame-setup '((vm . vm-visit-folder-other-frame)
+ (vm-imap . vm-visit-imap-folder-other-frame)
+ (gnus . org-gnus-no-new-news)
+ (file . find-file)
+ (wl . wl-other-frame)))
+
+(require 'cl)
+(defun zin/org-open-other-window ()
+  "Jump to bookmark in another frame. See `bookmark-jump' for more."
+  (interactive)
+  (let ((org-link-frame-setup (acons 'file 'find-file-other-window org-link-frame-setup)))
+    (org-open-at-point)))
+(global-set-key (kbd "C-c 5 C-o") 'zin/org-open-other-window)
+#+END_SRC
+
+* Slime
+#+BEGIN_SRC emacs-lisp
+; Note: slime-helper install
+; via (ql:quickload "quicklisp-slime-helper")
+;(setq inferior-lisp-program "sbcl")
+;(slime-setup '(slime-company))
+;(load (expand-file-name "~/quicklisp/slime-helper.el"))
+#+END_SRC
+
+* Dokuwiki
+#+BEGIN_SRC emacs-lisp
+(setq dokuwiki-xml-rpc-url "http://localhost:8800/lib/exe/xmlrpc.php")
+(setq dokuwiki-login-user-name "anagels")
+#+END_SRC
