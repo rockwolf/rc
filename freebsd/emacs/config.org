@@ -379,3 +379,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq dokuwiki-xml-rpc-url "http://localhost:8800/lib/exe/xmlrpc.php")
 (setq dokuwiki-login-user-name "anagels")
 #+END_SRC
+
+* Writeroom
+#+BEGIN_SRC emacs-lisp
+(setq writeroom-width 120)
+#+END_SRC
