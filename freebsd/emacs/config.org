@@ -357,6 +357,11 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  (file . find-file)
  (wl . wl-other-frame)))
 
+* Rust
+(require 'rust-mode)
+(add-hook 'rust-mode-hook
+  (lambda () (setq indent-tabs-mode nil)))
+
 (require 'cl)
 (defun zin/org-open-other-window ()
   "Jump to bookmark in another frame. See `bookmark-jump' for more."
