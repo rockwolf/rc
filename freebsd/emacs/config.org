@@ -39,8 +39,10 @@
 
 ** Line numbers
 #+BEGIN_SRC emacs-lisp
-(global-linum-mode t)
-(setq linum-format "%d ")
+;(global-linum-mode t)
+;(setq linum-format "%d ")
+(when (version<= "26.0.50" emacs-version)
+  (global-display-line-numbers-mode))
 #+END_SRC
 
 * neotree
