@@ -7,8 +7,11 @@ vim/view
 elinks/cookies
 elinks/globhist
 elinks/searchhist
+elinks/gotohist
 awb/*.cache
 herrie/autosave.xspf
 emacs/init.el~
 .emacs
 .emacs~
+nvim/plugged
+nvim/view

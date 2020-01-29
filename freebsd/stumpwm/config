@@ -7,12 +7,17 @@
 (in-package :stumpwm)
 
 ;; Prepare xmodmap for Super_L binding to F20
-(run-shell-command "xmodmap -e \"clear mod4\"")
-(run-shell-command "xmodmap -e \"add mod4\"")
-(run-shell-command "xmodmap -e \"keycode 127 = F20\"")
+; TODO: the binding disappeared suddenly...
+; This is unreliable. Find another way to fix it,
+; e.g. with top-map.
+;(run-shell-command "xmodmap -e \"clear mod4\"")
+;(run-shell-command "xmodmap -e \"add mod4 = Super_L\"")
+; TODO: sometimes its 127????
+;(run-shell-command "xmodmap -e \"keycode 127 = F20\"")
+;(run-shell-command "xmodmap -e \"keycode 115 = F20\"")
 
 ;; change the prefix key to something else
-(set-prefix-key (kbd "F20"))
+(set-prefix-key (kbd ""))
 
 ;; Loadrc binding
 (define-key *root-map* (kbd "R") "loadrc")
@@ -82,7 +87,7 @@
 (define-key *root-map* (kbd "7") "gselect 7")
 (define-key *root-map* (kbd "8") "gselect 8")
 (define-key *root-map* (kbd "9") "gselect 9")
-(define-key *root-map* (kbd "0") "gselect 10")
+(define-key *root-map* (kbd "0") "gselect 0")
 ;; Rofi
 (define-key *root-map* (kbd "p") "exec rofi -font \"inconsolata 16\" -show run")
 ;; Lock screen

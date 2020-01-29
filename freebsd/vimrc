@@ -1,36 +1,46 @@
 """"""""""""""""""""""""""
-" Vim configuration file "
+" Author: Andy Nagels
+" Date: 2020-01-28
+"
+" Vim configuration file
 """"""""""""""""""""""""""
 
+"-------------------------
 " Python support
-" --------------
+"-------------------------
+
 "let g:python_host_prog = '/usr/local/bin/python'
 
-" Vundle setup
-" ----------
-set nocompatible
-filetype off
+"-------------------------
+" Plug setup
+"-------------------------
+
 "set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.vim/plugged')
 filetype plugin indent on
-
-" Let Vundle manage Vundle
-"Plug 'gmarik/vundle'
-Plug 'L9'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-scripts/L9'
 Plug 'scrooloose/nerdtree'
-Plug 'kien/ctrlp.vim'
-Plug 'FuzzyFinder'
-Plug 'Syntastic'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+Plug 'tiagofumo/vim-nerdtree-syntax-higlight'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-scripts/FuzzyFinder'
+Plug 'vim-scripts/Syntastic'
 "Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
-Plug 'jpalardy/vim-slime'
+"Plug 'jpalardy/vim-slime'
 "Plug 'kovisoft/slimv'
 Plug 'kovisoft/paredit'
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'jceb/vim-orgmode'
 call plug#end()
 
+"-------------------------
 " Vim stuff
-" ---------
+"-------------------------
+
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -40,13 +50,14 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+filetype off
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
 set history=50	" keep 50 lines of command line history
 set ruler	" show the cursor position all the time
 set showcmd	" display incomplete commands
-set incsearch	" do incremental searching
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -106,23 +117,23 @@ endif " has("autocmd")
 set autochdir
 "set tw=79 " widh of document (used by gd)
 
-" don't use tabs, but spaces
+"-------------------------
+" Shiftwidth settings
+"-------------------------
+
+"don't use tabs, but spaces
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set shiftround
-
 set backspace=indent,eol,start
 set wildmenu
 set smarttab
 
-" Gui look'n feel
-" ---------------
-"set guioptions +=lrbmT
-"set guioptions -=lrbmT
-"set guifont=Gohufont\ 14
-set guifont=Inconsolata\ 18
+"-------------------------
+" Search sensitivity
+"-------------------------
 
 " Make search case insensitive
 set ignorecase
@@ -130,6 +141,9 @@ set hlsearch
 set incsearch
 set smartcase
 
+"-------------------------
+" Backup and swap files
+"-------------------------
 
 " Disable backup and swap files (they trigger too many events)
 " for file system watchers
@@ -137,29 +151,31 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-" Other
-" -----
-
+"-------------------------
 " Code completion
+"-------------------------
+
 set ofu=syntaxcomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
+"-------------------------
 " Syntastic
+"-------------------------
+
 map <silent> <Leader>e :Errors<CR>
 map <Leader>s :SyntasticToggleMode<CR>
 let g:syntastic_auto_loc_list=1
 
-" Tasklist
-map <C-t> :TaskList<CR>
-map T :NERDTree<CR>
-
+"-------------------------
 " Better copy & paste
+"-------------------------
+
 " set pastetoggle=<F5>
 set clipboard=unnamed
 
-" Mapleader, vim waits for 1 sec to see if you press other keys after this one
-" so you can create more shortcuts.
-let mapleader = ","
+"-------------------------
+" Easy moving
+"-------------------------
 
 " Easier moving between tabs
 " the below is a leaderkey example
@@ -178,29 +194,51 @@ map <c-h> <c-w>h
 vnoremap < <gv
 vnoremap > >gv
 
+"-------------------------
 " Settings for ctrlp (plugin for easy opening of files
+"-------------------------
+
 let g:ctrlp_max_height = 30
 set wildignore+=*.pyc
 "set wildignore+=*_build/*
 "set wildignore+=*/coverage/*
 
+"-------------------------
+" Leader, . repetition
+"-------------------------
+
 " Allow . repetition on visual selection.
 vnoremap . :norm.<CR>
+" Mapleader, vim waits for 1 sec to see if you press other keys after this one
+" so you can create more shortcuts.
+let mapleader = ","
 
-" File tree
-" ---------
+"-------------------------
+" File tree + NERDTree
+"-------------------------
+
+map <C-t> :TaskList<CR>
+map T :NERDTree<CR>
 " Set tree style to NerdTree style.
 let g:netrw_liststyle=3
 
+"-------------------------
 " Folding
-" -------
+"-------------------------
 " Automatically save folding views at quit.
-set nofoldenable
+"set nofoldenable
 "autocmd BufWinLeave *.* mkview
 "autocmd BufWinEnter *.* silent loadview
+augroup remember_folds
+    autocmd!
+    autocmd BufWinLeave * mkview
+    autocmd BufWinEnter * silent! loadview
+augroup END
 
+"-------------------------
 " Slime
-" -----
+"-------------------------
+
 " Note:
 " To use this, start tmux like this:
 " tmux new -s dev
@@ -223,8 +261,10 @@ let g:slime_target = "tmux"
 let g:slime_paste_file = "$HOME/.slime_paste"
 let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
 
-"" GPG stuff
-"" ---------
+"-------------------------
+" GPG stuff
+"-------------------------
+
 "" Transparent editing of gpg encrypted files.
 "" By Wouter Hanegraaff
 "augroup encrypted
@@ -258,22 +298,35 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
 "autocmd BufWritePost,FileWritePost *.gpg set nobin
 "augroup END
 
+"-------------------------
 " Vimwiki
+"-------------------------
+
 " Note: disabled, because it does not support asciidoc.
 "let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'asciidoc', 'ext': '.adoc'}]
 "Tell vim to recognize .md extension
 "let g:vimwiki_ext2syntax = {'.adoc': 'asciidoc'}
 
+"-------------------------
 " Look and feel
-" --------------
+"-------------------------
+
+"set guioptions +=lrbmT
+set guioptions-=m
+set guioptions-=T
+"set guifont=Gohufont\ 14
+set guifont=Inconsolata\ 14
 set nu
 set splitbelow
-
 let g:solarized_degrade=0
-"colo reloaded
 set background=dark
-colo solarized_nofrills
+colo solarized
 
+"-------------------------
+" Rainbow-parentheses
+"-------------------------
+
+" Note: Must come after the themes.
 " Activation based on file type
 augroup rainbow_lisp
   autocmd!

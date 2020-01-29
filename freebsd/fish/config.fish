@@ -2,6 +2,7 @@
 set -x PATH /usr/local/sh $PATH
 set -x PATH /home/rockwolf/src/bin $PATH
 set -x PATH /home/rockwolf/sh_ $PATH
+set -x PATH /home/rockwolf/.cargo/bin $PATH
 set -x PAGER /usr/bin/less
 set -x APP_ENV development
 set -x EDITOR /usr/local/bin/vim
@@ -21,6 +22,7 @@ alias sbcl "rlwrap sbcl" # sbcl has no readline history support, but with rlwrap
 alias gprolog "rlwrap gprolog" # gprolog has no readline history support, but with rlwrap we can simulate it.
 alias swipl "rlwrap swipl" # swipl has no readline history support, but with rlwrap we can simulate it.
 alias vim "nvim"
+alias vscode "code-oss"
 
 # General settings
 fish_user_key_bindings

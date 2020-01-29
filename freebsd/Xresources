@@ -7,10 +7,12 @@ XCursor.Theme: ATER
 Emacs.FontBackend: xft
 Emacs.font: inconsolata-16
 !*xftAntialias: true
-*font: xft:inconsolata:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=20:antialias=true,hinting=true
-*boldFont: xft:inconsolata:bold:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=20:antialias=true,hinting=true
-*italicFont: xft:inconsolata:italic:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=20:antialias=true,hinting=true
-*bolditalicFont: xft:inconsolata:bold:italic:pixelsize=20:antialias=true:hinting=true,xft:Liberation Mono:pixelsize=20:antialias=true,hinting=true
+!*font.FontBackend: xft
+!*font: inconsolata-16
+*font: xft:inconsolata:pixelsize=20:antialias=true:hinting=true
+*boldFont: xft:inconsolata:bold:pixelsize=20:antialias=true:hinting=true
+*italicFont: xft:inconsolata:italic:pixelsize=20:antialias=true:hinting=true
+*bolditalicFont: xft:inconsolata:bold:italic:pixelsize=20:antialias=true:hinting=true
 
 !-- term behaviour
 *saveLines:3600
@@ -32,19 +34,23 @@ Emacs.font: inconsolata-16
 *transparent: true
 *shading: 36
 
-!!-- colorscheme
+!-- colorscheme
 !--- dark solarized theme
 *foreground: #eee8d5
-*background: #859900
+*background: #073642
 !#002636
 !*tintColor: rgb:00/2b/36
 !*tintColor: rgb:33/33/33
-*tintColor: white
+!*tintColor: white
 !*fadeColor: rgb:83/94/96
 
 !BLACK
-*color0:               #073642
-*color8:               #002636
+!*color0:               #359900
+!*color8:              #086e75
+!*color0:               #5e5845
+!*color8:              #6d6653
+*color0:               #002636
+*color8:               #073642
 !RED
 *color1:               #dc322f
 *color9:               #cb4b16
@@ -101,7 +107,7 @@ Emacs.font: inconsolata-16
 !!WHITE
 !*color7:                #1c1c1c
 !*color15:               #262626
-
+!
 !!!-- colorscheme
 !!--- hacker theme
 !*foreground: rgb:85/cc/00

@@ -16,6 +16,8 @@
            ql:*local-project-directories*)
   (pushnew #P"/home/rockwolf/dev/area91-cl/"
            ql:*local-project-directories*)
+  (pushnew #P"/home/rockwolf/dev/area91-gui-cl/"
+           ql:*local-project-directories*)
   (pushnew #P "/home/rockwolf/dev/ledgerplot-cl/"
            ql:*local-project-directories*)
   (pushnew #P "/home/rockwolf/dev/clgplot/"
