@@ -36,6 +36,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'kovisoft/paredit'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'jceb/vim-orgmode'
+Plug 'Chiel92/vim-autoformat'
 call plug#end()
 
 "-------------------------
@@ -298,6 +299,13 @@ let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
 "autocmd BufWritePost,FileWritePost *.gpg silent u
 "autocmd BufWritePost,FileWritePost *.gpg set nobin
 "augroup END
+
+"-------------------------
+" Autoformat
+"-------------------------
+let g:formatdef_rustfmt = '"rustfmt"'
+let g:formatters_rust = ['rustfmt']
+au BufWrite * :Autoformat
 
 "-------------------------
 " Vimwiki
