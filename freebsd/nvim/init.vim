@@ -16,16 +16,17 @@
 "-------------------------
 
 "set rtp+=~/.vim/bundle/Vundle.vim
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 filetype plugin indent on
+Plug 'junegunn/vim-plug'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-scripts/L9'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-Plug 'tiagofumo/vim-nerdtree-syntax-higlight'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/FuzzyFinder'
 Plug 'vim-scripts/Syntastic'
 "Plug 'tpope/vim-fugitive'
