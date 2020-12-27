@@ -2,7 +2,7 @@
 
 set sendmail="/usr/sbin/sendmail"
 set editor=$EDITOR
-set locale="utf8"
+#set locale="utf8"
 set charset=utf-8
 set indent_string="> " # Quoting mails with this string.
 set attribution="* %n <%a> [%{%Y-%m-%d %H:%M:%S %Z}]:\n"
