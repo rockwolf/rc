@@ -34,46 +34,85 @@ Emacs.font: inconsolata-16
 *transparent: true
 *shading: 36
 
-!-- colorscheme
-!--- dark solarized theme
-*foreground: #eee8d5
-*background: #073642
-!#002636
-!*tintColor: rgb:00/2b/36
-!*tintColor: rgb:33/33/33
-!*tintColor: white
-!*fadeColor: rgb:83/94/96
+*background:            #002b36
+*foreground:            #eee8d5
+*fadeColor:             #586e75
+*cursorColor:           #93a1a1
+*pointerColorBackground:#586e75
+*pointerColorForeground:#93a1a1
 
-!BLACK
-!*color0:               #359900
-!*color8:              #086e75
-!*color0:               #5e5845
-!*color8:              #6d6653
-*color0:               #002636
-*color8:               #073642
-!RED
-*color1:               #dc322f
-*color9:               #cb4b16
-!GREEN
-*color2:               #859900
-*color10:              #586e75
-!YELLOW
-*color3:               #b58900
-*color11:              #657b83
-!BLUE
-!*color4:               #268bd2
+!! black dark/light
+*color0:                #073642
+*color8:                #002b36
+
+!! red dark/light
+*color1:                #dc322f
+*color9:                #cb4b16
+
+!! green dark/light
+*color2:                #859900
+*color10:               #586e75
+
+!! yellow dark/light
+*color3:                #b58900
+*color11:               #657b83
+
+!! blue dark/light
+*color4:                #268bd2
+*color12:               #839496
+
+!! magenta dark/light
+*color5:                #d33682
+*color13:               #6c71c4
+
+!! cyan dark/light
+*color6:                #2aa198
+*color14:               #93a1a1
+
+!! white dark/light
+*color7:                #eee8d5
+*color15:               #fdf6e3
+
+!!-- colorscheme
+!!--- dark solarized theme
+!*foreground: #eee8d5
+!*background: #073642
+!!#002636
+!!*tintColor: rgb:00/2b/36
+!!*tintColor: rgb:33/33/33
+!!*tintColor: white
+!!*fadeColor: rgb:83/94/96
+!
+!!BLACK
+!!*color0:               #359900
+!!*color8:              #086e75
+!!*color0:               #5e5845
+!!*color8:              #6d6653
+!*color0:               #002636
+!*color8:               #073642
+!!RED
+!*color1:               #dc322f
+!*color9:               #cb4b16
+!!GREEN
+!*color2:               #859900
+!*color10:              #586e75
+!!YELLOW
+!*color3:               #b58900
+!*color11:              #657b83
+!!BLUE
+!!*color4:               #268bd2
+!!*color12:              #839496
+!*color4:               #839496
 !*color12:              #839496
-*color4:               #839496
-*color12:              #839496
-!MAGENTA
-*color5:               #d33682
-*color13:              #6c71c4
-!CYAN
-*color6:               #2aa198
-*color14:              #93a1a1
-!WHITE
-*color7:               #eee8d5
-*color15:              #fdf6e3
+!!MAGENTA
+!*color5:               #d33682
+!*color13:              #6c71c4
+!!CYAN
+!*color6:               #2aa198
+!*color14:              #93a1a1
+!!WHITE
+!*color7:               #eee8d5
+!*color15:              #fdf6e3
 
 
 !!--- light solarized theme
@@ -142,4 +181,23 @@ Emacs.font: inconsolata-16
 !*color7:               #eee8d5
 !*color15:              #fdf6e3
 
-
+!!! Rofi config
+rofi.location:          0
+rofi.color-enabled:     true
+!                       'background', 'border'
+rofi.color-window:      argb:ff002b36, argb:ff39ff14
+! State:                'bg',          'fg',   'bgalt',       'hlbg',        'hlfg'
+rofi.color-normal:      argb:ff002b36, #009900, argb:ff002b36, argb:ff002b36, argb:ff39ff14
+rofi.color-urgent:      argb:ff002b36, #ff0000, argb:ff002b36, argb:ff002b36, argb:ff39ff14
+rofi.color-active:      argb:ff002b36, #009900, argb:ff002b36, argb:ff002b36, argb:ff39ff14
+rofi.separator-style:   dash
+rofi.fullscreen:        true
+rofi.padding:           130
+rofi.hide-scrollbar:    true
+rofi.line-margin:       5
+rofi.fake-transparency: false
+rofi.yoffset:           0
+rofi.xoffset:           0
+rofi.width:             1440
+rofi.opacity:           90
+rofi.font:              Inconsolata 12
