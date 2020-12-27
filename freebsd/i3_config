@@ -29,63 +29,50 @@ font pango:inconsolata 18
 # i3bar configuration
 bar {
     id bar-1
-    status_command i3status --config ~/.config/i3status/config_1
-    position top
-    colors {
-        focused_workspace       #5f8700 #000000 #5f8700 #5f8700
-        active_workspace        #000000 #000000 #5f8700 #5f8700
-        inactive_workspace      #000000 #000000 #eee8d5 #5f8700
-        urgent_workspace        #000000 #000000 #eee8d5 #5f8700
-        background              #eee8d6
-        #separator               #ccc6b3
-        #focused_workspace       #000000 #859900 #eee8d5 #000000
-        #active_workspace        #000000 #000000 #859900 #000000
-        #inactive_workspace      #000000 #859900 #000000 #000000
-        #urgent_workspace        #859900 #000000 #859900 #000000
-        #background              #000000
-        #separator               #ccc6b3
-        statusline              #000000
-    }
-    #tray_output DVI-I-0
+        status_command i3status --config ~/.config/i3status/config_1
+        position top
+        colors {
+            background #002b36
+                focused_workspace       #39ff14 #002b36 #39ff14 #39ff14
+                inactive_workspace      #007700 #001a25 #007700 #5f8700
+                active_workspace        #39ff14 #001a25 #007700 #5f8700
+                urgent_workspace        #ff0000 #900000 #eee8d5 #900000
+                statusline              #009900
+                separator               #39ff14
+        }
+#tray_output DVI-I-0
     workspace_buttons yes
-    output DVI-I-0
-    hidden_state hide
-    mode dock
+        output DVI-I-0
+        hidden_state hide
+        mode dock
 }
 bar {
     id bar-2
-    status_command i3status
-    position top
-    colors {
-        focused_workspace       #5f8700 #000000 #5f8700 #5f8700
-        active_workspace        #000000 #000000 #5f8700 #5f8700
-        inactive_workspace      #000000 #000000 #eee8d5 #5f8700
-        urgent_workspace        #000000 #000000 #eee8d5 #5f8700
-        background              #eee8d6
-        separator               #ccc6b3
-        statusline              #000000
-#        focused_workspace       #000000 #859900 #eee8d5 #000000
-#        active_workspace        #000000 #000000 #859900 #000000
-#        inactive_workspace      #000000 #859900 #000000 #000000
-#        urgent_workspace        #859900 #000000 #859900 #000000
-#        background              #000000
-#        separator               #ccc6b3
-#        statusline              #eee8d5
-    }
+        status_command i3status
+        position top
+        colors {
+            background #002b36
+                focused_workspace       #39ff14 #002b36 #39ff14 #39ff14
+                inactive_workspace      #007700 #001a25 #007700 #5f8700
+                active_workspace        #39ff14 #001a25 #007700 #5f8700
+                urgent_workspace        #ff0000 #900000 #eee8d5 #900000
+                statusline              #009900
+                separator               #39ff14
+        }
     tray_output DVI-I-1
-    workspace_buttons yes
-    output DVI-I-1
-    hidden_state hide
-    mode dock
+        workspace_buttons yes
+        output DVI-I-1
+        hidden_state hide
+        mode dock
 }
 
 # 2c5400
 # class                 border  backgr. text    indicator
-client.focused          #eee8d5 #000000 #eee8d5 #ffffd7
-client.unfocused        #000000 #000000 #eee8d5 #ffffd7
-client.urgent           #000000 #000000 #eee8d5 #ffffd7
-client.focused_inactive #000000 #000000 #eee8d5 #ffffd7
-client.placeholder      #000000 #000000 #eee8d5 #ffffd7
+client.focused          #39ff14 #002b36 #39ff14 #00ffd7
+client.unfocused        #007700 #002b36 #007700 #ffffd7
+client.urgent           #ff0000 #900000 #007700 #ffffd7
+client.focused_inactive #39ff14 #002b36 #007700 #ffffd7
+client.placeholder      #002b36 #002b36 #007700 #00ffd7
 
 
 # workspaces
@@ -203,24 +190,24 @@ bindsym $mod+Control+Shift+q exec "i3-nagbar -t warning -m 'System failure. Do y
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+# These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $left       resize shrink width 10 px or 10 ppt
+# Pressing left will shrink the window’s width.
+# Pressing right will grow the window’s width.
+# Pressing up will shrink the window’s height.
+# Pressing down will grow the window’s height.
+    bindsym $left       resize shrink width 10 px or 10 ppt
         bindsym $down       resize grow height 10 px or 10 ppt
         bindsym $up         resize shrink height 10 px or 10 ppt
         bindsym $right      resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
+# same bindings, but for the arrow keys
         bindsym Left        resize shrink width 10 px or 10 ppt
         bindsym Down        resize grow height 10 px or 10 ppt
         bindsym Up          resize shrink height 10 px or 10 ppt
         bindsym Right       resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
+# back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -245,8 +232,8 @@ bindsym XF86AudioPrev exec playerctl previous
 # Application bound to keys
 bindsym $mod+Shift+Return exec urxvtc -e tmux
 bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $mod+Return exec 
-bindsym $mod+Shift+x exec i3lock -u -i "$HOME/img/wallpaper/maria_protect.png"
+#bindsym $mod+Return exec
+bindsym $mod+Shift+x exec i3lock -u -i "$HOME/img/wallpaper/fire-eagle.png"
 #bindsym $mod+p exec dmenu_run
 bindsym $mod+p exec rofi -font "Inconsolata 14" -show run
 
