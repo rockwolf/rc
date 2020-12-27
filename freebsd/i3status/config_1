@@ -1,0 +1,28 @@
+general {
+        output_format = "i3bar"
+        colors = false
+        color_good = "#00ff00"
+        color_degraded = "#00ffff"
+        color_bad = "#ff0000"
+        interval = 5
+}
+
+order += "ethernet re0"
+order += "tztime local"
+#order += "tztime Australia/Melbourne"
+
+
+ethernet re0 {
+        # if you use %speed, i3status requires the cap_net_admin capability
+        format_up = "%ip"
+        format_down = "down"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
+
+tztime Australia/Melbourne {
+        format = "%Y-%m-%d %H:%M:%S %Z"
+        timezone = "Australia/Melbourne"
+}
