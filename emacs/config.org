@@ -390,7 +390,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;(setq dokuwiki-login-user-name "anagels")
 #+END_SRC
 * Git-bash
-+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp
 (cond
  ((string-equal system-type "windows-nt") ; Microsoft Windows
   (progn
