@@ -5,10 +5,10 @@
  ;; If there is more than one, they won't work right.
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
  '(inhibit-startup-screen t)
- '(ledger-init-file-name "~/dev/rc/freebsd/ledgerrc")
+ '(ledger-init-file-name "~/dev/rc/ledgerrc")
  '(package-selected-packages
    (quote
-    (rust-mode writeroom-mode evil-vimish-fold slime dokuwiki-mode dokuwiki org-link-minor-mode flycheck-ledger ledger-mode paredit ranger neotree ## winum window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
+    (evil rust-mode writeroom-mode evil-vimish-fold slime dokuwiki-mode dokuwiki org-link-minor-mode flycheck-ledger ledger-mode paredit ranger neotree ## winum window-number evil-nerd-commenter helm evil-tabs powerline helm-projectile flycheck evil-search-highlight-persist evil-leader color-theme-solarized))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
