@@ -6,7 +6,7 @@ set -x PATH /home/rockwolf/sh_ $PATH
 set -x PATH /home/rockwolf/.cargo/bin $PATH
 set -x PAGER /usr/bin/less
 set -x APP_ENV development
-set -x EDITOR /usr/local/bin/emacs
+set -x EDITOR /usr/local/bin/nvim
 set -x LSCOLORS xxxxxxxxxxx # Use default fg color for everything. This should disable the colors.
 
 # Aliases
@@ -22,7 +22,7 @@ alias timidity "timidity -c /usr/local/share/timidity/timidity.cfg-eawplus"
 alias sbcl "rlwrap sbcl" # sbcl has no readline history support, but with rlwrap we can simulate it.
 alias gprolog "rlwrap gprolog" # gprolog has no readline history support, but with rlwrap we can simulate it.
 alias swipl "rlwrap swipl" # swipl has no readline history support, but with rlwrap we can simulate it.
-alias vim "emacs"
+alias vim "nvim"
 alias vscode "code-oss"
 
 # General settings
