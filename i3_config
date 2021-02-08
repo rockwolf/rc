@@ -40,8 +40,8 @@ bar {
                 statusline              #009900
                 separator               #39ff14
         }
-#tray_output DVI-I-0
-    workspace_buttons yes
+    tray_output DVI-I-0
+        workspace_buttons yes
         output DVI-I-0
         hidden_state hide
         mode dock
@@ -233,7 +233,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+Return exec urxvtc -e tmux
 bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec
-bindsym $mod+Shift+x exec i3lock -u -i "$HOME/img/wallpaper/fire-eagle.png"
+bindsym $mod+Shift+x exec i3lock -u -i "$HOME/img/wallpaper/tauriel.jpg"
 #bindsym $mod+p exec dmenu_run
 bindsym $mod+p exec rofi -font "Inconsolata 14" -show run
 
