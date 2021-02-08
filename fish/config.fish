@@ -1,5 +1,6 @@
 # Exports
 set -x PATH /usr/local/sh $PATH
+set -x PATH /home/rockwolf/dev/sh $PATH
 set -x PATH /home/rockwolf/src/bin $PATH
 set -x PATH /home/rockwolf/sh_ $PATH
 set -x PATH /home/rockwolf/.cargo/bin $PATH

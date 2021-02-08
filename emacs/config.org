@@ -30,7 +30,6 @@
 
 ** font
 #+BEGIN_SRC emacs-lisp
-(set-default-font "inconsolata-16")
 (add-to-list 'default-frame-alist '(font . "inconsolata-16"))
 (set-face-attribute 'default t :font "inconsolata-16")
 (set-face-attribute 'default nil :font "inconsolata-16")
@@ -201,7 +200,7 @@
 ** Remember current position
 #+BEGIN_SRC emacs-lisp
 (setq save-place-file "~/.emacs.d/saveplace")
-(setq-default save-place t)
+(setq-default save-placemode t)
 (require 'saveplace)
 #+END_SRC
 
