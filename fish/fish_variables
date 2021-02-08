@@ -1,5 +1,12 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export GTK_IM_MODULE:fcitx
+SETUVAR --export LANG:en_US\x2eUTF\x2d8
+SETUVAR --export LC_ALL:en_US\x2eUTF\x2d8
+SETUVAR --export LC_CTYPE:en_US\x2eUTF\x2d8
+SETUVAR --export LLC_ALL:en_US\x2eUTF\x2d8
+SETUVAR --export QT_IM_MODULE:xim
+SETUVAR --export XMODIFIERS:\x40im\x3dfcitx
 SETUVAR __fish_initialized:3100
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
