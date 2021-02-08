@@ -29,7 +29,7 @@ font pango:inconsolata 18
 # i3bar configuration
 bar {
     id bar-1
-        status_command i3status --config ~/.config/i3status/config_1
+        status_command i3status --config ~/.config/i3status/config
         position top
         colors {
             background #002b36
@@ -46,25 +46,25 @@ bar {
         hidden_state hide
         mode dock
 }
-bar {
-    id bar-2
-        status_command i3status
-        position top
-        colors {
-            background #002b36
-                focused_workspace       #39ff14 #002b36 #39ff14 #39ff14
-                inactive_workspace      #007700 #001a25 #007700 #5f8700
-                active_workspace        #39ff14 #001a25 #007700 #5f8700
-                urgent_workspace        #ff0000 #900000 #eee8d5 #900000
-                statusline              #009900
-                separator               #39ff14
-        }
-    tray_output DVI-I-1
-        workspace_buttons yes
-        output DVI-I-1
-        hidden_state hide
-        mode dock
-}
+#bar {
+#    id bar-2
+#        status_command i3status
+#        position top
+#        colors {
+#            background #002b36
+#                focused_workspace       #39ff14 #002b36 #39ff14 #39ff14
+#                inactive_workspace      #007700 #001a25 #007700 #5f8700
+#                active_workspace        #39ff14 #001a25 #007700 #5f8700
+#                urgent_workspace        #ff0000 #900000 #eee8d5 #900000
+#                statusline              #009900
+#                separator               #39ff14
+#        }
+#    tray_output DVI-I-1
+#        workspace_buttons yes
+#        output DVI-I-1
+#        hidden_state hide
+#        mode dock
+#}
 
 # 2c5400
 # class                 border  backgr. text    indicator
