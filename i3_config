@@ -213,7 +213,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+Return exec urxvtc -e tmux
 bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec
-bindsym $mod+Shift+x exec i3lock -u -i "$HOME/img/wallpaper/tauriel.jpg"
+bindsym $mod+Shift+x exec i3lock -u -i "$HOME/img/wallpaper/tauriel.png"
 #bindsym $mod+p exec dmenu_run
 bindsym $mod+p exec rofi -font "Inconsolata 14" -show run
 
