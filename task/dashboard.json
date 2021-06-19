@@ -1,0 +1,17 @@
+{
+	"session" : "task-dashboard",
+	"window"  : "view",
+
+	"auto-attach" : true,
+
+	"layout" : {
+		 "v:~:l3" : [
+			{ "h:~:p50:p33" : [
+				"task todo",
+				"*!",
+				"task completed"
+			] },
+			"task active"
+		]
+	}
+}
