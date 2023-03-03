@@ -12,10 +12,10 @@
 * Look 'n Feel
 ** theme
 #+BEGIN_SRC emacs-lisp
-(load-theme 'solarized-dark t)
+(load-theme 'gruvbox-dark-hard t)
 (set-frame-parameter nil 'background-mode 'dark)
 (set-terminal-parameter nil 'background-mode 'dark)
-(enable-theme 'solarized-dark)
+(enable-theme 'gruvbox-dark-hard)
 ;(add-to-list 'default-frame-alist '(background-color . "black"))
 ;(set-frame-parameter (selected-frame) 'alpha '(0 . 0))
 ;(add-to-list 'default-frame-alist '(alpha 0 0))
@@ -26,10 +26,12 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 #+END_SRC
 
 ** font
 #+BEGIN_SRC emacs-lisp
+;(set-default-font "inconsolata-16")
 (add-to-list 'default-frame-alist '(font . "inconsolata-16"))
 (set-face-attribute 'default t :font "inconsolata-16")
 (set-face-attribute 'default nil :font "inconsolata-16")
@@ -38,10 +40,21 @@
 
 ** Line numbers
 #+BEGIN_SRC emacs-lisp
-;(global-linum-mode t)
-;(setq linum-format "%d ")
-(when (version<= "26.0.50" emacs-version)
-  (global-display-line-numbers-mode))
+(global-linum-mode t)
+(setq linum-format "%d ")
+#+END_SRC
+
+** bullets
+#+BEGIN_SRC emacs-lisp
+(require 'org-bullets)
+(setq org-bullets-face-name (quote org-bullet-face))
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+#+END_SRC
+
+** line-wrapping
+#+BEGIN_SRC emacs-lisp
+(global-visual-line-mode t)
+(set-display-table-slot standard-display-table 'wrap ?\ )
 #+END_SRC
 
 * neotree
@@ -49,6 +62,12 @@
 (require 'neotree)
 (global-set-key (kbd "M-t") 'neotree-toggle)
 (setq neo-window-fixed-size nil)
+(setq default-directory "~/doc/personal/wiki")
+#+END_SRC
+
+* magit
+#+BEGIN_SRC emacs-lisp
+(require 'magit)
 #+END_SRC
 
 * evil-mode
@@ -58,6 +77,7 @@
 ; Regain TAB functionality,
 ; must be called before activating evil-mode.
 (setq evil-want-C-i-jump nil) 
+(setq evil-want-C-u-delete t) ; To fix error with magit
 (require 'evil-leader)
 (setq evil-leader/in-all-states 1)
 (global-evil-leader-mode)
@@ -141,6 +161,12 @@
 ;(evil-leader/set-key "SPC" 'evil-search-highlight-persist-remove-all) ; clear search highlights
 #+END_SRC
 
+** evil-collection
+#+BEGIN_SRC emacs-lisp
+(setq evil-want-integration t)
+(evil-collection-init)
+#+END_SRC
+
 * Helm/Ctrl-P
 #+BEGIN_SRC emacs-lisp
 ;; helm settings (TAB in helm window for actions over selected items,
@@ -152,7 +178,7 @@
 (setq helm-quick-update t)
 (setq helm-bookmark-show-location t)
 (setq helm-buffers-fuzzy-matching t)
-(global-set-key (kbd "M-x") 'helm-M-x);; 
+(global-set-key (kbd "M-x") 'helm-M-x) 
 
 (after 'projectile
   (require 'helm-projectile))
@@ -200,7 +226,7 @@
 ** Remember current position
 #+BEGIN_SRC emacs-lisp
 (setq save-place-file "~/.emacs.d/saveplace")
-(setq-default save-placemode t)
+(setq-default save-place-mode t)
 (require 'saveplace)
 #+END_SRC
 
@@ -323,7 +349,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ; Solution found here:
 ; https://stackoverflow.com/questions/3518846/shift-tab-produces-cryptic-error-in-emacs
 #+BEGIN_SRC emacs-lisp
-(add-hook 'term-setup-hook '(lambda () (define-key function-key-map "\e[Z" [backtab])))
+;(add-hook 'term-setup-hook '(lambda () (define-key function-key-map "\e[Z" [backtab])))
 #+END_SRC
 
 ** Fancy parens, etc.
@@ -352,7 +378,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq org-redisplay-inline-images t)
 (setq org-startup-with-inline-images "inlineimages")
 ; Note: The below changes the size of the inline images to 1/3 of the width of the document
-(setq org-image-actual-width (/ (display-pixel-width) 3))
+;(setq org-image-actual-width (/ (display-pixel-width) 3))
+(setq org-image-actual-width nil)
 (setq org-link-frame-setup '((vm . vm-visit-folder-other-frame)
  (vm-imap . vm-visit-imap-folder-other-frame)
  (gnus . org-gnus-no-new-news)
@@ -368,12 +395,33 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (global-set-key (kbd "C-c 5 C-o") 'zin/org-open-other-window)
 #+END_SRC
 
+* Org agenda
+#+BEGIN_SRC emacs-lisp
+;(setq org-agenda-files
+;    '("~/doc/wiki/todo.org"))
+;(setq org-todo-keywords
+;    '((sequence "TODO(t)" "IN_PROGRESS(p)" "|" "DONE(d!)")))
+;
+; (setq org-refile-targets
+;    '(("~/doc/wiki/doc/personal/archived.org" :maxlevel . 1)
+;      ("~/doc/wiki/doc/ppw/archived.org" :maxlevel . 1)
+;      ("~/doc/wiki/doc/nintai/archived.org" :maxlevel . 1)))
+;
+; (setq org-agenda-custom-commands
+;   '(("p" "In progress"
+;     ((todo "IN_PROGRESS"
+;        ((org-agenda-overriding-header "In progress")))))))
+;; Save Org buffers after refiling!
+;(advice-add 'org-refile :after 'org-save-all-org-buffers)
+#+END_SRC
+
 * Rust
 #+BEGIN_SRC emacs-lisp
 (require 'rust-mode)
 (add-hook 'rust-mode-hook
   (lambda () (setq indent-tabs-mode nil)))
 #+END_SRC
+
 * Slime
 #+BEGIN_SRC emacs-lisp
 ; Note: slime-helper install
@@ -388,6 +436,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;(setq dokuwiki-xml-rpc-url "http://localhost:8800/lib/exe/xmlrpc.php")
 ;(setq dokuwiki-login-user-name "anagels")
 #+END_SRC
+
 * Git-bash
 #+BEGIN_SRC emacs-lisp
 (cond
@@ -399,4 +448,23 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     (defun git-bash() (interactive)
       (call-interactively 'shell))
 )))
+#+END_SRC
+
+* Org-roam
+#+BEGIN_SRC emacs-lisp
+(require 'org-roam)
+(global-set-key (kbd "C-c n l") 'org-roam-buffer-toggle)
+(global-set-key (kbd "C-c n f") 'org-roam-node-find)
+(global-set-key (kbd "C-c n g") 'org-roam-graph)
+(global-set-key (kbd "C-c n i") 'org-roam-node-insert)
+(global-set-key (kbd "C-c n c") 'org-roam-capture)
+(global-set-key (kbd "C-c n j") 'org-roam-capture-today) ;; Dailies
+(setq org-roam-directory (file-truename "~/doc/personal/wiki/doc/pkm"))
+(org-roam-setup)
+#+END_SRC
+
+
+* ssh-agency
+#+BEGIN_SRC emacs-lisp
+(setenv "SSH_ASKPASS" "git-gui--askpass")
 #+END_SRC
