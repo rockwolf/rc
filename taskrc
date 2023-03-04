@@ -30,7 +30,7 @@ include /usr/local/share/taskwarrior/rc/solarized-dark-256.theme
 #include /usr/local/share/taskwarrior/rc/no-color.theme
 
 # User added
-rc.hooks=off
+rc.verbose=off
 rc.verbose=hook
 report.todo.description=Tasks TODO
 report.todo.labels=id,project,description,urgency
