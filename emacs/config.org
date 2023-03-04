@@ -328,9 +328,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ** Fancy parens, etc.
 #+BEGIN_SRC emacs-lisp
-(show-paren-mode 1)
-(require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+;(show-paren-mode 1)
+;(require 'rainbow-delimiters)
+;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 #+END_SRC
 
 * Ledger
