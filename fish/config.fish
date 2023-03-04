@@ -14,6 +14,8 @@ alias less $PAGER
 alias zless $PAGER
 alias t todo.sh
 alias ls "ls -F"
+alias mv "mv -v"
+alias cp "cp -v"
 alias urxvt "urxvt -e tmux"
 alias urxvtc "urxvtc -e tmux"
 alias branches "tig --all --simplify-by-decoration"
@@ -22,7 +24,7 @@ alias timidity "timidity -c /usr/local/share/timidity/timidity.cfg-eawplus"
 alias sbcl "rlwrap sbcl" # sbcl has no readline history support, but with rlwrap we can simulate it.
 alias gprolog "rlwrap gprolog" # gprolog has no readline history support, but with rlwrap we can simulate it.
 alias swipl "rlwrap swipl" # swipl has no readline history support, but with rlwrap we can simulate it.
-alias vim "nvim"
+alias vim "emacsclient -c"
 alias vscode "code-oss"
 
 # General settings
