@@ -1,4 +1,149 @@
+<<<<<<< HEAD
 * Helper methods
+=======
+* calendar
+#+BEGIN_SRC emacs-lisp
+(setq calendar-week-start-day 1)
+#+END_SRC
+
+* load-path
+; Add dir for custom scripts, like window-number.el
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+#+END_SRC
+
+* Look 'n Feel
+** theme
+#+BEGIN_SRC emacs-lisp
+(load-theme 'gruvbox-dark-hard t)
+(set-frame-parameter nil 'background-mode 'dark)
+(set-terminal-parameter nil 'background-mode 'dark)
+(enable-theme 'gruvbox-dark-hard)
+;(add-to-list 'default-frame-alist '(background-color . "black"))
+;(set-frame-parameter (selected-frame) 'alpha '(0 . 0))
+;(add-to-list 'default-frame-alist '(alpha 0 0))
+#+END_SRC
+
+** interface
+#+BEGIN_SRC emacs-lisp
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+#+END_SRC
+
+** font
+#+BEGIN_SRC emacs-lisp
+;(set-default-font "inconsolata-16")
+(add-to-list 'default-frame-alist '(font . "inconsolata-16"))
+(set-face-attribute 'default t :font "inconsolata-16")
+(set-face-attribute 'default nil :font "inconsolata-16")
+(set-frame-font "inconsolata-16" nil t)
+#+END_SRC
+
+** Line numbers
+#+BEGIN_SRC emacs-lisp
+(global-linum-mode t)
+(setq linum-format "%d ")
+#+END_SRC
+
+** bullets
+#+BEGIN_SRC emacs-lisp
+(require 'org-bullets)
+(setq org-bullets-face-name (quote org-bullet-face))
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+#+END_SRC
+
+** line-wrapping
+#+BEGIN_SRC emacs-lisp
+(global-visual-line-mode t)
+(set-display-table-slot standard-display-table 'wrap ?\ )
+#+END_SRC
+
+* neotree
+#+BEGIN_SRC emacs-lisp
+(require 'neotree)
+(global-set-key (kbd "M-t") 'neotree-toggle)
+(setq neo-window-fixed-size nil)
+(setq default-directory "~/")
+#+END_SRC
+
+* magit
+#+BEGIN_SRC emacs-lisp
+(require 'magit)
+#+END_SRC
+
+* evil-mode
+** evil - leader key
+#+BEGIN_SRC emacs-lisp
+; Note:
+; Regain TAB functionality,
+; must be called before activating evil-mode.
+(setq evil-want-keybinding nil)
+(setq evil-want-C-i-jump nil)
+(setq evil-want-C-u-delete t) ; To fix error with magit
+(require 'evil-leader)
+(setq evil-leader/in-all-states 1)
+(global-evil-leader-mode)
+(evil-leader/set-leader ",")
+#+END_SRC
+
+** evil
+#+BEGIN_SRC emacs-lisp
+(evil-mode 1)
+#+END_SRC
+
+** evil - cursor
+#+BEGIN_SRC emacs-lisp
+(setq evil-emacs-state-cursor '("red" box))
+(setq evil-normal-state-cursor '("green" box))
+(setq evil-visual-state-cursor '("orange" box))
+(setq evil-insert-state-cursor '("red" bar))
+(setq evil-replace-state-cursor '("red" bar))
+(setq evil-operator-state-cursor '("red" hollow))
+#+END_SRC
+
+** evil - tab behaviour #gt
+#+BEGIN_SRC emacs-lisp
+(global-evil-tabs-mode t)
+;(define-key evil-normal-state-map (kbd "C-0") (lambda() (interactive) (elscreen-goto 0)))
+;(define-key evil-normal-state-map (kbd "C- ") (lambda() (interactive) (elscreen-goto 0)))
+;(define-key evil-normal-state-map (kbd "C-1") (lambda() (interactive) (elscreen-goto 1)))
+;(define-key evil-normal-state-map (kbd "C-2") (lambda() (interactive) (elscreen-goto 2)))
+;(define-key evil-normal-state-map (kbd "C-3") (lambda() (interactive) (elscreen-goto 3)))
+;(define-key evil-normal-state-map (kbd "C-4") (lambda() (interactive) (elscreen-goto 4)))
+;(define-key evil-normal-state-map (kbd "C-5") (lambda() (interactive) (elscreen-goto 5)))
+;(define-key evil-normal-state-map (kbd "C-6") (lambda() (interactive) (elscreen-goto 6)))
+;(define-key evil-normal-state-map (kbd "C-7") (lambda() (interactive) (elscreen-goto 7)))
+;(define-key evil-normal-state-map (kbd "C-8") (lambda() (interactive) (elscreen-goto 8)))
+;(define-key evil-normal-state-map (kbd "C-9") (lambda() (interactive) (elscreen-goto 9)))
+;(define-key evil-insert-state-map (kbd "C-0") (lambda() (interactive) (elscreen-goto 0)))
+;(define-key evil-insert-state-map (kbd "C- ") (lambda() (interactive) (elscreen-goto 0)))
+;(define-key evil-insert-state-map (kbd "C-1") (lambda() (interactive) (elscreen-goto 1)))
+;(define-key evil-insert-state-map (kbd "C-2") (lambda() (interactive) (elscreen-goto 2)))
+;(define-key evil-insert-state-map (kbd "C-3") (lambda() (interactive) (elscreen-goto 3)))
+;(define-key evil-insert-state-map (kbd "C-4") (lambda() (interactive) (elscreen-goto 4)))
+;(define-key evil-insert-state-map (kbd "C-5") (lambda() (interactive) (elscreen-goto 5)))
+;(define-key evil-insert-state-map (kbd "C-6") (lambda() (interactive) (elscreen-goto 6)))
+;(define-key evil-insert-state-map (kbd "C-7") (lambda() (interactive) (elscreen-goto 7)))
+;(define-key evil-insert-state-map (kbd "C-8") (lambda() (interactive) (elscreen-goto 8)))
+;(define-key evil-insert-state-map (kbd "C-9") (lambda() (interactive) (elscreen-goto 9)))
+#+END_SRC
+
+** evil - dired
+#+BEGIN_SRC emacs-lisp
+(evil-set-initial-state 'dired-mode 'normal)
+(evil-set-initial-state 'Buffer-menu-mode 'normal)
+(setq evil-emacs-state-modes (delq 'ibuffer-mode evil-emacs-state-modes))
+(setq evil-emacs-state-modes (delq 'dired-mode evil-emacs-state-modes))
+#+END_SRC
+
+** accents - to make them work in gui mode
+#+BEGIN_SRC emacs-lisp
+(require 'iso-transl)
+#+END_SRC
+
+>>>>>>> ef4e4bc (Changes for evy.)
 ** After macro
 #+BEGIN_SRC emacs-lisp
 ;; "after" macro definition
@@ -154,7 +299,7 @@
 * Evil-mode
 ** Evil/Evil-collection
 #+BEGIN_SRC emacs-lisp
-  (setq evil-want-keybinding nil) 
+  (setq evil-want-keybinding nil)
   (setq evil-want-integration t)
   (require 'evil)
   (evil-mode 1)
@@ -169,7 +314,7 @@
 ; Note:
 ; Regain TAB functionality,
 ; must be called before activating evil-mode.
-(setq evil-want-C-i-jump nil) 
+(setq evil-want-C-i-jump nil)
 (setq evil-want-C-u-delete t) ; To fix error with magit
 (require 'evil-leader)
 (setq evil-leader/in-all-states 1)
@@ -350,7 +495,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   (setq helm-quick-update t)
   (setq helm-bookmark-show-location t)
   (setq helm-buffers-fuzzy-matching t)
-  (global-set-key (kbd "M-x") 'helm-M-x) 
+  (global-set-key (kbd "M-x") 'helm-M-x)
 
   (after 'projectile
     (require 'helm-projectile))
@@ -493,7 +638,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 * Overrides
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C--") 'pop-tag-mark) 
+  (global-set-key (kbd "C--") 'pop-tag-mark)
   (global-set-key (kbd "C-]") 'xref-find-definitions)
-  (global-set-key (kbd "C-S-o") 'helm-find-files) 
+  (global-set-key (kbd "C-S-o") 'helm-find-files)
 #+END_SRC
