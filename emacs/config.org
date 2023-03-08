@@ -463,8 +463,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (org-roam-setup)
 #+END_SRC
 
-
 * ssh-agency
 #+BEGIN_SRC emacs-lisp
 (setenv "SSH_ASKPASS" "git-gui--askpass")
+#+END_SRC
+
+* overrides
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C--") 'xref-pop-marker-stack)
+(global-set-key (kbd "C-S o") 'helm-find-files)
 #+END_SRC
