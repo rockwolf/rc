@@ -12,7 +12,16 @@ elinks/gotohist
 awb/*.cache
 herrie/autosave.xspf
 emacs/init.el~
+emacs/config.el
+emacs/elpa
+emacs/eshell
+emacs/transient
+emacs/*.data
 .emacs
 .emacs~
 nvim/plugged
 nvim/view
+emacs/\#*
+\#*
+*~ 
+task/*.data
