@@ -18,5 +18,5 @@
     (sb-thread:make-thread
      (lambda ()
        (run-shell-command (if program
-			      (format nil "urxvtc ~ A" program)
+			      (format nil "urxvtc ~A" program)
 			      "urxvtc")))))
