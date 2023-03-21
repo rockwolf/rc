@@ -1,144 +1,4 @@
-* calendar
-#+BEGIN_SRC emacs-lisp
-(setq calendar-week-start-day 1)
-#+END_SRC
-
-* load-path
-; Add dir for custom scripts, like window-number.el
-#+BEGIN_SRC emacs-lisp
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-#+END_SRC
-
-* Look 'n Feel
-** theme
-#+BEGIN_SRC emacs-lisp
-(load-theme 'gruvbox-dark-hard t)
-(set-frame-parameter nil 'background-mode 'dark)
-(set-terminal-parameter nil 'background-mode 'dark)
-(enable-theme 'gruvbox-dark-hard)
-;(add-to-list 'default-frame-alist '(background-color . "black"))
-;(set-frame-parameter (selected-frame) 'alpha '(0 . 0))
-;(add-to-list 'default-frame-alist '(alpha 0 0))
-#+END_SRC
-
-** interface
-#+BEGIN_SRC emacs-lisp
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(menu-bar-mode -1)
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-#+END_SRC
-
-** font
-#+BEGIN_SRC emacs-lisp
-;(set-default-font "inconsolata-16")
-(add-to-list 'default-frame-alist '(font . "inconsolata-16"))
-(set-face-attribute 'default t :font "inconsolata-16")
-(set-face-attribute 'default nil :font "inconsolata-16")
-(set-frame-font "inconsolata-16" nil t)
-#+END_SRC
-
-** Line numbers
-#+BEGIN_SRC emacs-lisp
-(global-linum-mode t)
-(setq linum-format "%d ")
-#+END_SRC
-
-** bullets
-#+BEGIN_SRC emacs-lisp
-(require 'org-bullets)
-(setq org-bullets-face-name (quote org-bullet-face))
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-#+END_SRC
-
-** line-wrapping
-#+BEGIN_SRC emacs-lisp
-(global-visual-line-mode t)
-(set-display-table-slot standard-display-table 'wrap ?\ )
-#+END_SRC
-
-* neotree
-#+BEGIN_SRC emacs-lisp
-(require 'neotree)
-(global-set-key (kbd "M-t") 'neotree-toggle)
-(setq neo-window-fixed-size nil)
-(setq default-directory "~/doc/personal/wiki")
-#+END_SRC
-
-* magit
-#+BEGIN_SRC emacs-lisp
-(require 'magit)
-#+END_SRC
-
-* evil-mode
-** evil - leader key
-#+BEGIN_SRC emacs-lisp
-; Note:
-; Regain TAB functionality,
-; must be called before activating evil-mode.
-(setq evil-want-C-i-jump nil) 
-(setq evil-want-C-u-delete t) ; To fix error with magit
-(require 'evil-leader)
-(setq evil-leader/in-all-states 1)
-(global-evil-leader-mode)
-(evil-leader/set-leader ",")
-#+END_SRC
-
-** evil
-#+BEGIN_SRC emacs-lisp
-(evil-mode 1)
-#+END_SRC
-
-** evil - cursor
-#+BEGIN_SRC emacs-lisp
-(setq evil-emacs-state-cursor '("red" box))
-(setq evil-normal-state-cursor '("green" box))
-(setq evil-visual-state-cursor '("orange" box))
-(setq evil-insert-state-cursor '("red" bar))
-(setq evil-replace-state-cursor '("red" bar))
-(setq evil-operator-state-cursor '("red" hollow))
-#+END_SRC
-
-** evil - tab behaviour #gt
-#+BEGIN_SRC emacs-lisp
-(global-evil-tabs-mode t)
-;(define-key evil-normal-state-map (kbd "C-0") (lambda() (interactive) (elscreen-goto 0)))
-;(define-key evil-normal-state-map (kbd "C- ") (lambda() (interactive) (elscreen-goto 0)))
-;(define-key evil-normal-state-map (kbd "C-1") (lambda() (interactive) (elscreen-goto 1)))
-;(define-key evil-normal-state-map (kbd "C-2") (lambda() (interactive) (elscreen-goto 2)))
-;(define-key evil-normal-state-map (kbd "C-3") (lambda() (interactive) (elscreen-goto 3)))
-;(define-key evil-normal-state-map (kbd "C-4") (lambda() (interactive) (elscreen-goto 4)))
-;(define-key evil-normal-state-map (kbd "C-5") (lambda() (interactive) (elscreen-goto 5)))
-;(define-key evil-normal-state-map (kbd "C-6") (lambda() (interactive) (elscreen-goto 6)))
-;(define-key evil-normal-state-map (kbd "C-7") (lambda() (interactive) (elscreen-goto 7)))
-;(define-key evil-normal-state-map (kbd "C-8") (lambda() (interactive) (elscreen-goto 8)))
-;(define-key evil-normal-state-map (kbd "C-9") (lambda() (interactive) (elscreen-goto 9)))
-;(define-key evil-insert-state-map (kbd "C-0") (lambda() (interactive) (elscreen-goto 0)))
-;(define-key evil-insert-state-map (kbd "C- ") (lambda() (interactive) (elscreen-goto 0)))
-;(define-key evil-insert-state-map (kbd "C-1") (lambda() (interactive) (elscreen-goto 1)))
-;(define-key evil-insert-state-map (kbd "C-2") (lambda() (interactive) (elscreen-goto 2)))
-;(define-key evil-insert-state-map (kbd "C-3") (lambda() (interactive) (elscreen-goto 3)))
-;(define-key evil-insert-state-map (kbd "C-4") (lambda() (interactive) (elscreen-goto 4)))
-;(define-key evil-insert-state-map (kbd "C-5") (lambda() (interactive) (elscreen-goto 5)))
-;(define-key evil-insert-state-map (kbd "C-6") (lambda() (interactive) (elscreen-goto 6)))
-;(define-key evil-insert-state-map (kbd "C-7") (lambda() (interactive) (elscreen-goto 7)))
-;(define-key evil-insert-state-map (kbd "C-8") (lambda() (interactive) (elscreen-goto 8)))
-;(define-key evil-insert-state-map (kbd "C-9") (lambda() (interactive) (elscreen-goto 9)))
-#+END_SRC
-
-** evil - dired
-#+BEGIN_SRC emacs-lisp
-(evil-set-initial-state 'dired-mode 'normal)
-(evil-set-initial-state 'Buffer-menu-mode 'normal)
-(setq evil-emacs-state-modes (delq 'ibuffer-mode evil-emacs-state-modes))
-(setq evil-emacs-state-modes (delq 'dired-mode evil-emacs-state-modes))
-#+END_SRC
-
-** accents - to make them work in gui mode
-#+BEGIN_SRC emacs-lisp
-(require 'iso-transl)
-#+END_SRC
-
+* Helper methods
 ** After macro
 #+BEGIN_SRC emacs-lisp
 ;; "after" macro definition
@@ -154,63 +14,77 @@
        '(progn ,@body))))
 #+END_SRC
 
-** evil - search highlighting
+* Load-path
+; Add dir for custom scripts, like window-number.el
 #+BEGIN_SRC emacs-lisp
-;(require 'evil-search-highlight-persist)
-;(global-evil-search-highlight-persist t)
-;(evil-leader/set-key "SPC" 'evil-search-highlight-persist-remove-all) ; clear search highlights
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 #+END_SRC
 
-** evil-collection
+* Calendar
 #+BEGIN_SRC emacs-lisp
-(setq evil-want-integration t)
-(evil-collection-init)
+(setq calendar-week-start-day 1)
 #+END_SRC
 
-* Helm/Ctrl-P
+* Look 'n feel
+** Theme
 #+BEGIN_SRC emacs-lisp
-;; helm settings (TAB in helm window for actions over selected items,
-;; C-SPC to select items)
-(require 'helm-config)
-(require 'helm-misc)
-(require 'helm-projectile)
-(require 'helm-locate)
-(setq helm-quick-update t)
-(setq helm-bookmark-show-location t)
-(setq helm-buffers-fuzzy-matching t)
-(global-set-key (kbd "M-x") 'helm-M-x) 
-
-(after 'projectile
-  (require 'helm-projectile))
-(global-set-key (kbd "M-x") 'helm-M-x)
-
-(defun helm-my-buffers ()
-  (interactive)
-  (let ((helm-ff-transformer-show-only-basename nil))
-  (helm-other-buffer '(helm-c-source-buffers-list
-                       helm-c-source-elscreen
-                       helm-c-source-projectile-files-list
-                       helm-c-source-ctags
-                       helm-c-source-recentf
-                       helm-c-source-locate)
-                     "*helm-my-buffers*")))
+(load-theme 'gruvbox-dark-hard t)
+(set-frame-parameter nil 'background-mode 'dark)
+(set-terminal-parameter nil 'background-mode 'dark)
+(enable-theme 'gruvbox-dark-hard)
+;(add-to-list 'default-frame-alist '(background-color . "black"))
+;(set-frame-parameter (selected-frame) 'alpha '(0 . 0))
+;(add-to-list 'default-frame-alist '(alpha 0 0))
 #+END_SRC
 
-* Save bookmarks
+** Interface
+#+BEGIN_SRC emacs-lisp
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+#+END_SRC
+
+** Font
+#+BEGIN_SRC emacs-lisp
+;(set-default-font "inconsolata-16")
+(add-to-list 'default-frame-alist '(font . "inconsolata-12"))
+(set-face-attribute 'default t :font "inconsolata-12")
+(set-face-attribute 'default nil :font "inconsolata-12")
+(set-frame-font "inconsolata-16" nil t)
+#+END_SRC
+
+** Line numbers
+#+BEGIN_SRC emacs-lisp
+(global-linum-mode t)
+(setq linum-format "%d ")
+#+END_SRC
+
+** Bullets
+#+BEGIN_SRC emacs-lisp
+(require 'org-bullets)
+(setq org-bullets-face-name (quote org-bullet-face))
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+#+END_SRC
+
+* Behaviour
+** Line-wrapping
+#+BEGIN_SRC emacs-lisp
+(global-visual-line-mode t)
+(set-display-table-slot standard-display-table 'wrap ?\ )
+#+END_SRC
+
+** Accents - to make them work in gui mode
+#+BEGIN_SRC emacs-lisp
+(require 'iso-transl)
+#+END_SRC
+
+** Save bookmarks
 #+BEGIN_SRC emacs-lisp
 (setq bookmark-default-file "~/.emacs.d/bookmarks"
       bookmark-save-flag 1) ;; save after every change
 #+END_SRC
 
-* Project explorer
-#+BEGIN_SRC emacs-lisp
-;(require 'project-explorer)
-;(after 'project-explorer
-;  (setq pe/cache-directory "~/.emacs.d/cache/project_explorer")
-;  (setq pe/omit-regex (concat pe/omit-regex "\\|single_emails")))
-#+END_SRC
-
-* Behaviour
 ** Smooth scrolling
 #+BEGIN_SRC emacs-lisp
 (setq scroll-margin 5
@@ -228,14 +102,6 @@
 (setq save-place-file "~/.emacs.d/saveplace")
 (setq-default save-place-mode t)
 (require 'saveplace)
-#+END_SRC
-
-* Powerline
-** Enable powerline + settings
-#+BEGIN_SRC emacs-lisp
-(require 'powerline)
-(powerline-evil-vim-color-theme)
-(display-time-mode t)
 #+END_SRC
 
 ** Diminish, removes minor modes from the powerline
@@ -278,6 +144,82 @@
 ;      '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages))))
 #+END_SRC
 
+* Evil-mode
+ * Dired
+#+BEGIN_SRC emacs-lisp
+(add-hook 'dired 'evil-normal-state) ; Fix for evil-normal-state not activating
+#+END_SRC
+
+** Evil/Evil-collection
+#+BEGIN_SRC emacs-lisp
+  (setq evil-want-keybinding nil) 
+  (setq evil-want-integration t)
+  (require 'evil)
+  (evil-mode 1)
+  ;; Use visual line motions even outside of visual-line-mode buffers
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+  (evil-set-initial-state 'dired-mode 'normal)
+  (evil-collection-init)
+#+END_SRC
+
+** Evil - leader key
+#+BEGIN_SRC emacs-lisp
+; Note:
+; Regain TAB functionality,
+; must be called before activating evil-mode.
+(setq evil-want-C-i-jump nil) 
+(setq evil-want-C-u-delete t) ; To fix error with magit
+(require 'evil-leader)
+(setq evil-leader/in-all-states 1)
+(global-evil-leader-mode)
+(evil-leader/set-leader ",")
+#+END_SRC
+
+** Evil - cursor
+#+BEGIN_SRC emacs-lisp
+(setq evil-emacs-state-cursor '("red" box))
+(setq evil-normal-state-cursor '("green" box))
+(setq evil-visual-state-cursor '("orange" box))
+(setq evil-insert-state-cursor '("red" bar))
+(setq evil-replace-state-cursor '("red" bar))
+(setq evil-operator-state-cursor '("red" hollow))
+#+END_SRC
+
+** Evil - tab behaviour #gt
+#+BEGIN_SRC emacs-lisp
+(global-evil-tabs-mode t)
+;(define-key evil-normal-state-map (kbd "C-0") (lambda() (interactive) (elscreen-goto 0)))
+;(define-key evil-normal-state-map (kbd "C- ") (lambda() (interactive) (elscreen-goto 0)))
+;(define-key evil-normal-state-map (kbd "C-1") (lambda() (interactive) (elscreen-goto 1)))
+;(define-key evil-normal-state-map (kbd "C-2") (lambda() (interactive) (elscreen-goto 2)))
+;(define-key evil-normal-state-map (kbd "C-3") (lambda() (interactive) (elscreen-goto 3)))
+;(define-key evil-normal-state-map (kbd "C-4") (lambda() (interactive) (elscreen-goto 4)))
+;(define-key evil-normal-state-map (kbd "C-5") (lambda() (interactive) (elscreen-goto 5)))
+;(define-key evil-normal-state-map (kbd "C-6") (lambda() (interactive) (elscreen-goto 6)))
+;(define-key evil-normal-state-map (kbd "C-7") (lambda() (interactive) (elscreen-goto 7)))
+;(define-key evil-normal-state-map (kbd "C-8") (lambda() (interactive) (elscreen-goto 8)))
+;(define-key evil-normal-state-map (kbd "C-9") (lambda() (interactive) (elscreen-goto 9)))
+;(define-key evil-insert-state-map (kbd "C-0") (lambda() (interactive) (elscreen-goto 0)))
+;(define-key evil-insert-state-map (kbd "C- ") (lambda() (interactive) (elscreen-goto 0)))
+;(define-key evil-insert-state-map (kbd "C-1") (lambda() (interactive) (elscreen-goto 1)))
+;(define-key evil-insert-state-map (kbd "C-2") (lambda() (interactive) (elscreen-goto 2)))
+;(define-key evil-insert-state-map (kbd "C-3") (lambda() (interactive) (elscreen-goto 3)))
+;(define-key evil-insert-state-map (kbd "C-4") (lambda() (interactive) (elscreen-goto 4)))
+;(define-key evil-insert-state-map (kbd "C-5") (lambda() (interactive) (elscreen-goto 5)))
+;(define-key evil-insert-state-map (kbd "C-6") (lambda() (interactive) (elscreen-goto 6)))
+;(define-key evil-insert-state-map (kbd "C-7") (lambda() (interactive) (elscreen-goto 7)))
+;(define-key evil-insert-state-map (kbd "C-8") (lambda() (interactive) (elscreen-goto 8)))
+;(define-key evil-insert-state-map (kbd "C-9") (lambda() (interactive) (elscreen-goto 9)))
+#+END_SRC
+
+** Evil - search highlighting
+#+BEGIN_SRC emacs-lisp
+;(require 'evil-search-highlight-persist)
+;(global-evil-search-highlight-persist t)
+;(evil-leader/set-key "SPC" 'evil-search-highlight-persist-remove-all) ; clear search highlights
+#+END_SRC
+
 ** ESC escapes, instead of needing to press it 3 times.
 #+BEGIN_SRC emacs-lisp
 (defun minibuffer-keyboard-quit ()
@@ -301,12 +243,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ** Scroll window with ctrl-j/ctrl-k
 #+BEGIN_SRC emacs-lisp
-(define-key evil-normal-state-map (kbd "C-k") (lambda ()
-                    (interactive)
-                    (evil-scroll-up nil)))
-(define-key evil-normal-state-map (kbd "C-j") (lambda ()
-                        (interactive)
-                        (evil-scroll-down nil)))
+      (define-key evil-normal-state-map (kbd "C-k") (lambda ()
+                          (interactive)
+                          (evil-scroll-up nil)))
+      (define-key evil-normal-state-map (kbd "C-j") (lambda ()
+                              (interactive)
+                              (evil-scroll-down nil)))
+    (define-prefix-command 'my-window-map)
 #+END_SRC
 
 ** Vim-like folding
@@ -314,7 +257,27 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (evil-vimish-fold-mode 1)
 #+END_SRC
 
-** Vim-based movement between windows and frames
+** Powerline
+#+BEGIN_SRC emacs-lisp
+(require 'powerline)
+(powerline-evil-vim-color-theme)
+(display-time-mode t)
+#+END_SRC
+
+* Neotree
+#+BEGIN_SRC emacs-lisp
+(require 'neotree)
+(global-set-key (kbd "M-t") 'neotree-toggle)
+(setq neo-window-fixed-size nil)
+(setq default-directory "~/doc/wiki")
+#+END_SRC
+
+* Magit
+#+BEGIN_SRC emacs-lisp
+(require 'magit)
+#+END_SRC
+
+* Vim-based movement between windows and frames
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "M-k") 'windmove-up)
 (global-set-key (kbd "M-j") 'windmove-down)
@@ -338,7 +301,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (winum-mode)
 #+END_SRC
 
-** No tabs for indentation, for crying out loud, emacs!
+** No tabs for indentation
 #+BEGIN_SRC emacs-lisp
 (setq-default tab-width 4 indent-tabs-mode nil)
 #+END_SRC
@@ -349,14 +312,42 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ; Solution found here:
 ; https://stackoverflow.com/questions/3518846/shift-tab-produces-cryptic-error-in-emacs
 #+BEGIN_SRC emacs-lisp
-;(add-hook 'term-setup-hook '(lambda () (define-key function-key-map "\e[Z" [backtab])))
+(add-hook 'term-setup-hook '(lambda () (define-key function-key-map "\e[Z" [backtab])))
 #+END_SRC
 
 ** Fancy parens, etc.
 #+BEGIN_SRC emacs-lisp
-;(show-paren-mode 1)
-;(require 'rainbow-delimiters)
-;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(show-paren-mode 1)
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+#+END_SRC
+
+* Helm/Ctrl-P
+#+BEGIN_SRC emacs-lisp
+  ;; helm settings (TAB in helm window for actions over selected items,
+  ;; C-SPC to select items)
+  (require 'helm-misc)
+  (require 'helm-projectile)
+  (require 'helm-locate)
+  (setq helm-quick-update t)
+  (setq helm-bookmark-show-location t)
+  (setq helm-buffers-fuzzy-matching t)
+  (global-set-key (kbd "M-x") 'helm-M-x) 
+
+  (after 'projectile
+    (require 'helm-projectile))
+  (global-set-key (kbd "M-x") 'helm-M-x)
+
+  (defun helm-my-buffers ()
+    (interactive)
+    (let ((helm-ff-transformer-show-only-basename nil))
+    (helm-other-buffer '(helm-c-source-buffers-list
+                         helm-c-source-elscreen
+                         helm-c-source-projectile-files-list
+                         helm-c-source-ctags
+                         helm-c-source-recentf
+                         helm-c-source-locate)
+                       "*helm-my-buffers*")))
 #+END_SRC
 
 * Ledger
@@ -386,7 +377,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
  (file . find-file)
  (wl . wl-other-frame)))
 
-(require 'cl-lib)
 (defun zin/org-open-other-window ()
   "Jump to bookmark in another frame. See `bookmark-jump' for more."
   (interactive)
@@ -397,38 +387,22 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 * Org agenda
 #+BEGIN_SRC emacs-lisp
-;(setq org-agenda-files
-;    '("~/doc/wiki/todo.org"))
-;(setq org-todo-keywords
-;    '((sequence "TODO(t)" "IN_PROGRESS(p)" "|" "DONE(d!)")))
-;
-; (setq org-refile-targets
-;    '(("~/doc/wiki/doc/personal/archived.org" :maxlevel . 1)
-;      ("~/doc/wiki/doc/ppw/archived.org" :maxlevel . 1)
-;      ("~/doc/wiki/doc/nintai/archived.org" :maxlevel . 1)))
-;
-; (setq org-agenda-custom-commands
-;   '(("p" "In progress"
-;     ((todo "IN_PROGRESS"
-;        ((org-agenda-overriding-header "In progress")))))))
+(setq org-agenda-files
+    '("~/doc/wiki/todo.org"))
+(setq org-todo-keywords
+    '((sequence "TODO(t)" "IN_PROGRESS(p)" "|" "DONE(d!)")))
+
+ (setq org-refile-targets
+    '(("~/doc/wiki/doc/personal/archived.org" :maxlevel . 1)
+      ("~/doc/wiki/doc/ppw/archived.org" :maxlevel . 1)
+      ("~/doc/wiki/doc/nintai/archived.org" :maxlevel . 1)))
+
+ (setq org-agenda-custom-commands
+   '(("p" "In progress"
+     ((todo "IN_PROGRESS"
+        ((org-agenda-overriding-header "In progress")))))))
 ;; Save Org buffers after refiling!
-;(advice-add 'org-refile :after 'org-save-all-org-buffers)
-#+END_SRC
-
-* Rust
-#+BEGIN_SRC emacs-lisp
-(require 'rust-mode)
-(add-hook 'rust-mode-hook
-  (lambda () (setq indent-tabs-mode nil)))
-#+END_SRC
-
-* Slime
-#+BEGIN_SRC emacs-lisp
-; Note: slime-helper install
-; via (ql:quickload "quicklisp-slime-helper")
-;(setq inferior-lisp-program "sbcl")
-;(slime-setup '(slime-company))
-;(load (expand-file-name "~/quicklisp/slime-helper.el"))
+(advice-add 'org-refile :after 'org-save-all-org-buffers)
 #+END_SRC
 
 * Dokuwiki
@@ -450,26 +424,58 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 )))
 #+END_SRC
 
-* Org-roam
-#+BEGIN_SRC emacs-lisp
-(require 'org-roam)
-(global-set-key (kbd "C-c n l") 'org-roam-buffer-toggle)
-(global-set-key (kbd "C-c n f") 'org-roam-node-find)
-(global-set-key (kbd "C-c n g") 'org-roam-graph)
-(global-set-key (kbd "C-c n i") 'org-roam-node-insert)
-(global-set-key (kbd "C-c n c") 'org-roam-capture)
-(global-set-key (kbd "C-c n j") 'org-roam-capture-today) ;; Dailies
-(setq org-roam-directory (file-truename "~/doc/personal/wiki/doc/pkm"))
-(org-roam-setup)
-#+END_SRC
-
-* ssh-agency
+* Ssh-agency
 #+BEGIN_SRC emacs-lisp
 (setenv "SSH_ASKPASS" "git-gui--askpass")
 #+END_SRC
 
-* overrides
+* Org-roam
 #+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C--") 'xref-pop-marker-stack)
-(global-set-key (kbd "C-S o") 'helm-find-files)
+  (require 'org-roam)
+  (global-set-key (kbd "C-c n l") 'org-roam-buffer-toggle)
+  (global-set-key (kbd "C-c n f") 'org-roam-node-find)
+  (global-set-key (kbd "C-c n g") 'org-roam-graph)
+  (global-set-key (kbd "C-c n i") 'org-roam-node-insert)
+  (global-set-key (kbd "C-c n c") 'org-roam-capture)
+  (global-set-key (kbd "C-c n j") 'org-roam-capture-today) ;; Dailies
+  (setq org-roam-directory (file-truename "~/doc/wiki/doc/pkm"))
+  (org-roam-setup)
+#+END_SRC
+
+* CSharp
+#+BEGIN_SRC emacs-lisp
+  ;; if you want to change prefix for lsp-mode keybindings.
+  (setq lsp-keymap-prefix "C-c l")
+
+  (require 'lsp-mode)
+  (add-hook 'csharp-mode-hook #'lsp)
+  (require 'lsp-ui)
+
+  ;; The path to lsp-mode needs to be added to load-path as well as the
+  ;; path to the `clients' subdirectory.
+  (add-to-list 'load-path (expand-file-name "lib/lsp-mode" user-emacs-directory))
+  (add-to-list 'load-path (expand-file-name "lib/lsp-mode/clients" user-emacs-directory))
+#+END_SRC
+
+* Rust
+#+BEGIN_SRC emacs-lisp
+(require 'rust-mode)
+(add-hook 'rust-mode-hook
+  (lambda () (setq indent-tabs-mode nil)))
+#+END_SRC
+
+* Slime
+#+BEGIN_SRC emacs-lisp
+; Note: slime-helper install
+; via (ql:quickload "quicklisp-slime-helper")
+;(setq inferior-lisp-program "sbcl")
+;(slime-setup '(slime-company))
+;(load (expand-file-name "~/quicklisp/slime-helper.el"))
+#+END_SRC
+
+* Overrides
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C--") 'pop-tag-mark) 
+  (global-set-key (kbd "C-]") 'xref-find-definitions)
+  (global-set-key (kbd "C-S-o") 'helm-find-files) 
 #+END_SRC
