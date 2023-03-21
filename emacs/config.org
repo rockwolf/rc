@@ -70,6 +70,8 @@
 * Behaviour
 ** Dired
 #+BEGIN_SRC emacs-lisp
+  (setq ls-lisp-use-insert-directory-program nil)
+  (setq ls-lisp-dirs-first t) ; Because --group-directories-first is not supported on Windows, which uses a lisp emulation of ls.
   (setq dired-listing-switches "-alh -v --group-directories-first")
 #+END_SRC
 
@@ -161,12 +163,6 @@
   (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
   (evil-collection-init)
 #+END_SRC
-
-** Dired - fix
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'dired 'evil-normal-state) ; Fix for evil-normal-state not activating
-#+END_SRC
-
 
 ** Evil - leader key
 #+BEGIN_SRC emacs-lisp
@@ -267,6 +263,11 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (require 'powerline)
 (powerline-evil-vim-color-theme)
 (display-time-mode t)
+#+END_SRC
+
+** Dired - fix
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'dired-mode-hook 'evil-normal-state) ; Fix for evil-normal-state not activating
 #+END_SRC
 
 * Neotree
