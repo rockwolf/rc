@@ -68,6 +68,11 @@
 #+END_SRC
 
 * Behaviour
+** Dired
+#+BEGIN_SRC emacs-lisp
+  (setq dired-listing-switches "-alh -v --group-directories-first")
+#+END_SRC
+
 ** Line-wrapping
 #+BEGIN_SRC emacs-lisp
 (global-visual-line-mode t)
@@ -145,9 +150,9 @@
 #+END_SRC
 
 * Evil-mode
- * Dired
+** Dired - fix
 #+BEGIN_SRC emacs-lisp
-(add-hook 'dired 'evil-normal-state) ; Fix for evil-normal-state not activating
+  (add-hook 'dired 'evil-normal-state) ; Fix for evil-normal-state not activating
 #+END_SRC
 
 ** Evil/Evil-collection
