@@ -265,9 +265,21 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (display-time-mode t)
 #+END_SRC
 
-** Dired - fix
+** Dired
 #+BEGIN_SRC emacs-lisp
   (add-hook 'dired-mode-hook 'evil-normal-state) ; Fix for evil-normal-state not activating
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "h" 'dired-up-directory
+    "l" 'dired-find-file)
+  (evil-leader/set-key "j" 'dired-jump)
+#+END_SRC
+
+** Which-key
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'load-path "path/to/which-key.el")
+  (require 'which-key)
+  (which-key-mode)
+  (which-key-setup-side-window-bottom)
 #+END_SRC
 
 * Neotree
