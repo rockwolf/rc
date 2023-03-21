@@ -150,11 +150,6 @@
 #+END_SRC
 
 * Evil-mode
-** Dired - fix
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'dired 'evil-normal-state) ; Fix for evil-normal-state not activating
-#+END_SRC
-
 ** Evil/Evil-collection
 #+BEGIN_SRC emacs-lisp
   (setq evil-want-keybinding nil) 
@@ -164,9 +159,14 @@
   ;; Use visual line motions even outside of visual-line-mode buffers
   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
   (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
-  (evil-set-initial-state 'dired-mode 'normal)
   (evil-collection-init)
 #+END_SRC
+
+** Dired - fix
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'dired 'evil-normal-state) ; Fix for evil-normal-state not activating
+#+END_SRC
+
 
 ** Evil - leader key
 #+BEGIN_SRC emacs-lisp
