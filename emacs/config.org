@@ -71,8 +71,7 @@
 ** Dired
 #+BEGIN_SRC emacs-lisp
   (setq ls-lisp-use-insert-directory-program nil)
-  (setq ls-lisp-dirs-first t) ; Because --group-directories-first is not supported on Windows, which uses a lisp emulation of ls.
-  (setq dired-listing-switches "-alh -v --group-directories-first")
+  (setq dired-listing-switches "-alh")
 #+END_SRC
 
 ** Line-wrapping
