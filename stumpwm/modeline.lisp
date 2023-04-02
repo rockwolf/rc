@@ -1,6 +1,6 @@
 (setf *mode-line-timeout* 2)
 (setf *time-modeline-string* "%F %H:%M")
-(setf "group-format" "%t")
+(setf *group-format* "%t")
 (setf *window-format* "%n: %30t")
 
 (load "~/.config/stumpwm/colors.lisp")
@@ -10,20 +10,21 @@
 (setf *mode-line-border-color* gruvbox-bg-bright
       *mode-line-border-width* 0)
 
-(load-module "battery-portable")
-(load-module "cpu")
-(load-module "mem")
+;(load-module "battery-portable")
+;(load-module "cpu")
+;(load-module "mem")
 
-(setf cpu::*cpu-modeline-fmt*        "%c"
-      cpu::*cpu-usage-modeline-fmt*  "^f2^f0^[~A~2D%^]"
-      mem::*mem-modeline-fmt*        "%a%p"
-      mpd:*mpd-modeline-fmt*         "%a - %t"
-      mpd:*mpd-status-fmt*           "%a - %t"
-      *hidden-window-color*          "^**"
+;(setf cpu::*cpu-modeline-fmt*        "%c"
+;      cpu::*cpu-usage-modeline-fmt*  "^f2^f0^[~A~2D%^]"
+;      mem::*mem-modeline-fmt*        "%a%p"
+;      *hidden-window-color*          "^**"
+;      *mode-line-highlight-template* "«~A»")
+
+(setf *hidden-window-color*          "^**"
       *mode-line-highlight-template* "«~A»")
 
 (defvar *mode-line-formatter-list*
-  '(("%g") ("%W") ("^>") ("mu-unread" .t) ("%C") ("%M") ("%d"))
+  '(("%g") ("%W") ("^>") ("%d"))
   "List of formatters for the modeline.")
 
 (defun generate-modeline (elements &optional not-invertedp rightp)
@@ -35,8 +36,8 @@ when the `car' is a formatter and t when it is a shell command."
     (cons (format nil
                   " ^[~A^]^(:bg \"~A\") "
                   (format nil "^(:fg \"~A\")^(:bg \"~A\")^f1~A^f0"
-                          (if (xor not-invertedp rightp) phundrak-nord1 phundrak-nord3)
-                          (if (xor not-invertedp rightp) phundrak-nord3 phundrak-nord1)
+                          (if (xor not-invertedp rightp) gruvbox-fg gruvbox-bg)
+                          (if (xor not-invertedp rightp) gruvbox-bg gruvbox-fg)
                           (if rightp "" ""))
                   (if not-invertedp gruvbox-fg gruvbox-bg))
           (let* ((current-element (car elements))

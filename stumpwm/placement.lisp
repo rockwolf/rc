@@ -9,4 +9,4 @@
 
 (define-frame-preference "1" (nil t t :class "Ranger"))
 
-(setf *dynamic-group-master-split-ratio* 1/2) ; half the available space
+;(setf *dynamic-group-master-split-ratio* 1/2) ; half the available space

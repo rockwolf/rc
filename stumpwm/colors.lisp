@@ -1,5 +1,5 @@
 (defvar gruvbox-bg "#282828")
-(defvar gruvbox-bg "#ebdbb2")
+(defvar gruvbox-fg "#ebdbb2")
 (defvar gruvbox-red "#cc241d")
 (defvar gruvbox-green "#98971a")
 (defvar gruvbox-yellow "#d79921")
@@ -18,7 +18,7 @@
 (defvar gruvbox-aqua-bright "#8ec07c")
 (defvar gruvbox-orange-bright "#fe8019")
 
-(seq *colors*
+(setq *colors*
      `(,gruvbox-bg
        ,gruvbox-red
        ,gruvbox-green

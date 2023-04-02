@@ -25,8 +25,5 @@
 (load "~/.config/stumpwm/modeline.lisp")
 (when "initializing"
   (mode-line))
-(load-module "end-session") ; Gracefully end programs when ending user session
-(load-module "globalwindows") ; Navigate between windows from all workspaces
-(load-module "urgentwindows") ; Get urgent windows
 
 (setf *startup-message* "System ready.")

@@ -1,6 +1,6 @@
-(load "~/.config/colors.lisp")
+(load "~/.config/stumpwm/colors.lisp")
 
-(set-font `(,(make-instance 'xft:font :family "Inconsolata" :size 11 :antialias t)))
+;(set-font `(,(make-instance 'xft:font :family "Inconsolata" :size 11 :antialias t)))
 
 (set-border-color gruvbox-bg)
 (set-focus-color gruvbox-green-bright)
@@ -20,9 +20,9 @@
       *message-window-y-padding* 10
       *message-window-gravity* :top)
 
-(load-module "swm-gaps")
-(setf swm-gaps:*head-gaps-size* 0
-      swm-gaps:*inner-gaps-size* 3
-      swm-gaps:*outer-gaps-size* 40)
-(when *initializing*
-  (swm-gaps:toggle-gaps))
+;(load-module "swm-gaps")
+;(setf swm-gaps:*head-gaps-size* 0
+;      swm-gaps:*inner-gaps-size* 3
+;      swm-gaps:*outer-gaps-size* 40)
+;(when *initializing*
+;  (swm-gaps:toggle-gaps))
