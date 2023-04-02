@@ -29,3 +29,4 @@ alias vscode "code-oss"
 
 # General settings
 fish_user_key_bindings
+theme_gruvbox dark medium
