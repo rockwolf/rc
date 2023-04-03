@@ -11,7 +11,7 @@
 (setf *startup-message* nil)
 
 ;; Run a shell command
-;(run-shell-command "myscript")
+(run-shell-command "xsetroot -cursor_name left_ptr") ; Change X cursor to a left-pointer
 
 ;; Load Mod4+ as modifier
 ; TODO

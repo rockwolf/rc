@@ -1,5 +1,5 @@
 (setf *mode-line-timeout* 2)
-(setf *time-modeline-string* "%F %H:%M")
+(setf *time-modeline-string* "%Y-%m-%d %H:%M")
 (setf *group-format* "%t")
 (setf *window-format* "%n: %30t")
 
@@ -35,11 +35,12 @@ when the `car' is a formatter and t when it is a shell command."
   (when elements
     (cons (format nil
                   " ^[~A^]^(:bg \"~A\") "
-                  (format nil "^(:fg \"~A\")^(:bg \"~A\")^f1~A^f0"
+                  ;(format nil "^(:fg \"~A\")^(:bg \"~A\")^f1~A^f0"
+                  (format nil "^(:fg \"~A\")^(:bg \"~A\")~A"
                           (if (xor not-invertedp rightp) gruvbox-fg gruvbox-bg)
-                          (if (xor not-invertedp rightp) gruvbox-bg gruvbox-fg)
+                          (if (xor not-invertedp rightp) gruvbox-fg gruvbox-bg)
                           (if rightp "" ""))
-                  (if not-invertedp gruvbox-fg gruvbox-bg))
+                  (if not-invertedp gruvbox-bg gruvbox-fg))
           (let* ((current-element (car elements))
                  (formatter       (car current-element))
                  (commandp        (cdr current-element)))
