@@ -13,8 +13,11 @@
 ;; Run a shell command
 (run-shell-command "xsetroot -cursor_name left_ptr") ; Change X cursor to a left-pointer
 
+(setf *mouse-focus-policy* :sloppy)
+
 ;; Load Mod4+ as modifier
-; TODO
+(run-shell-command "xmodmap -e \"clear mod4\"")
+(run-shell-command "xmodmap -e \"keycode 133 = F20\"")
 
 ;; Load modules
 (load "~/.config/stumpwm/commands.lisp")
