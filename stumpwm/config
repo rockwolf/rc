@@ -14,6 +14,7 @@
 (run-shell-command "xsetroot -cursor_name left_ptr") ; Change X cursor to a left-pointer
 
 (setf *mouse-focus-policy* :sloppy)
+(setf *suppress-frame-indicator* t)
 
 ;; Load Mod4+ as modifier
 (run-shell-command "xmodmap -e \"clear mod4\"")

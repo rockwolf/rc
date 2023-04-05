@@ -5,7 +5,7 @@
 
 (load "~/.config/stumpwm/colors.lisp")
 (setf *mode-line-background-color* gruvbox-bg-bright
-      *mode-line-foreground-color* gruvbox-fg-bright)
+      *mode-line-foreground-color* gruvbox-green-bright)
 
 (setf *mode-line-border-color* gruvbox-bg-bright
       *mode-line-border-width* 0)

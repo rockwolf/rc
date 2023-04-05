@@ -33,3 +33,13 @@
 (define-key *root-map* (kbd "Q") "delete-window-and-frame")
 (define-key *root-map* (kbd "C") "kill-window") ; If delete-window didn't work, try this.
 (define-key *root-map* (kbd "S-RET") "term")
+(define-key *root-map* (kbd "1") "gselect 1")
+(define-key *root-map* (kbd "2") "gselect 2")
+(define-key *root-map* (kbd "3") "gselect 3")
+(define-key *root-map* (kbd "4") "gselect 4")
+(define-key *root-map* (kbd "5") "gselect 5")
+(define-key *root-map* (kbd "6") "gselect 6")
+(define-key *root-map* (kbd "7") "gselect 7")
+(define-key *root-map* (kbd "8") "gselect 8")
+(define-key *root-map* (kbd "9") "gselect 9")
+(define-key *root-map* (kbd "0") "gselect 0")
