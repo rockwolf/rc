@@ -198,6 +198,9 @@ vim.opt.listchars:append "eol:$"
 -- Set highlight on search
 vim.o.hlsearch = false
 
+-- Line wrapping
+vim.opt.wrap = true
+
 -- Make line numbers default
 vim.wo.number = true
 
@@ -237,6 +240,7 @@ vim.o.termguicolors = true
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set({'n', 'v'}, '<Leader>t', '<cmd>Neotree toggle<cr>')
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
