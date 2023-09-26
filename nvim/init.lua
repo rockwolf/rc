@@ -200,12 +200,57 @@ require('lazy').setup({
             config = {
               workspaces = {
                 notes = "~/doc/personal/notes",
+                brain = "~/doc/personal/brain",
               },
+              default_workspace = "brain"
             },
           },
-        },
+          ["core.integrations.roam"] = {
+            -- default keymaps
+            config = {
+              keymaps = {
+                -- select_prompt is used to create a new note / capture from the prompt directly
+                -- instead of the telescope choice
+                select_prompt = "<C-n>",
+                insert_link = "<leader>ni",
+                find_note = "<leader>nf",
+                capture_note = "<leader>nc",
+                capture_index = "<leader>nci",
+                capture_cancel = "<C-q>",
+                capture_save = "<C-w>",
+              },
+              -- telescope theme
+              theme = "ivy",
+
+              capture_templates = {
+                {
+                  name = "default",
+                  file = "${title}_${date}",
+                  lines = { "", "* General info", "" },
+                }
+              },
+              substitutions = {
+                title = function(metadata)
+                          return metadata.title
+                        end,
+                date = function(metadata)
+                          return os.date("%Y-%m-%d")
+                       end
+              }
+            }
+          }
+        }
       }
     end,
+  },
+
+  -- Neorg-roam
+  {
+    "Jarvismkennedy/neorg-roam.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim"
+    },
   }
 }, {})
 
