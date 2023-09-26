@@ -191,6 +191,10 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+-- Show special chars
+vim.opt.list = true
+vim.opt.listchars:append "eol:$"
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
