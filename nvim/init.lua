@@ -184,6 +184,28 @@ require('lazy').setup({
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim"
     }
+  },
+
+  -- Neorg
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},
+          ["core.concealer"] = {},
+          ["core.dirman"] = {
+            config = {
+              workspaces = {
+                notes = "~/doc/personal/notes",
+              },
+            },
+          },
+        },
+      }
+    end,
   }
 }, {})
 
