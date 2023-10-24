@@ -1,12 +1,10 @@
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
+require("custom_keybindings")
 
--- Install package manager
---    https://github.com/folke/lazy.nvim
---    `:help lazy.nvim.txt` for more info
+--------------------------------------------------------------------------------
+-- Lazy package manager
+--------------------------------------------------------------------------------
+-- https://github.com/folke/lazy.nvim
+-- `:help lazy.nvim.txt` for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -20,21 +18,19 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+--------------------------------------------------------------------------------
 -- NOTE: Here is where you install your plugins.
---  You can configure plugins using the `config` key.
---
---  You can also configure plugins after the setup call,
---    as they will be available in your neovim runtime.
+-- You can configure plugins using the `config` key.
+--------------------------------------------------------------------------------
+-- You can also configure plugins after the setup call,
+-- as they will be available in your neovim runtime.
 require('lazy').setup({
-  -- NOTE: First, some plugins that don't require any configuration
-
-  -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
-
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
+  --------------------------------------------------------------------------------
+  -- LSP: language server
+  --------------------------------------------------------------------------------
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -54,8 +50,10 @@ require('lazy').setup({
     },
   },
 
+  --------------------------------------------------------------------------------
+  -- CMP: autocompletion
+  --------------------------------------------------------------------------------
   {
-    -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
@@ -70,41 +68,17 @@ require('lazy').setup({
     },
   },
 
-  -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  --------------------------------------------------------------------------------
+  -- Which-key: Useful plugin to show you pending keybinds
+  --------------------------------------------------------------------------------
   {
-    -- Adds git related signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      -- See `:help gitsigns.txt`
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-      on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr, desc = 'Preview git hunk' })
-
-        -- don't override the built-in and fugitive keymaps
-        local gs = package.loaded.gitsigns
-        vim.keymap.set({'n', 'v'}, ']c', function()
-          if vim.wo.diff then return ']c' end
-          vim.schedule(function() gs.next_hunk() end)
-          return '<Ignore>'
-        end, {expr=true, buffer = bufnr, desc = "Jump to next hunk"})
-        vim.keymap.set({'n', 'v'}, '[c', function()
-          if vim.wo.diff then return '[c' end
-          vim.schedule(function() gs.prev_hunk() end)
-          return '<Ignore>'
-        end, {expr=true, buffer = bufnr, desc = "Jump to previous hunk"})
-      end,
-    },
+    'folke/which-key.nvim', opts = {}
   },
 
+  --------------------------------------------------------------------------------
+  -- Theme
+  --------------------------------------------------------------------------------
   {
-    -- Theme inspired by Atom
     'ellisonleao/gruvbox.nvim',
     priority = 1000,
     config = function()
@@ -113,10 +87,13 @@ require('lazy').setup({
     end,
   },
 
+  --------------------------------------------------------------------------------
+  -- Lualine
+  --------------------------------------------------------------------------------
+  -- Set lualine as statusline
+  -- See `:help lualine.txt`
   {
-    -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
     opts = {
       options = {
         icons_enabled = false,
@@ -127,19 +104,29 @@ require('lazy').setup({
     },
   },
 
+  --------------------------------------------------------------------------------
+  -- Indent-blankline: Add indentation guides even on blank lines
+  --------------------------------------------------------------------------------
   {
-    -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
     main = "ibl",
-    opts = {},
+    opts = {
+      indent = { char = "|" }
+    },
   },
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  --------------------------------------------------------------------------------
+  -- Comment: "gc" to comment visual regions/lines 
+  --------------------------------------------------------------------------------
+  {
+    'numToStr/Comment.nvim', opts = {}
+  },
 
-  -- Fuzzy Finder (files, lsp, etc)
+  --------------------------------------------------------------------------------
+  -- Telescope: Fuzzy Finder (files, lsp, etc)
+  --------------------------------------------------------------------------------
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
@@ -160,6 +147,9 @@ require('lazy').setup({
     },
   },
 
+  --------------------------------------------------------------------------------
+  -- Treesitter
+  --------------------------------------------------------------------------------
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -169,11 +159,9 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  --    
-  --    Custom plugins
-  --
-  
+  --------------------------------------------------------------------------------
   -- Neotree
+  --------------------------------------------------------------------------------
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -184,7 +172,9 @@ require('lazy').setup({
     }
   },
 
+  --------------------------------------------------------------------------------
   -- Neorg
+  --------------------------------------------------------------------------------
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
@@ -232,7 +222,7 @@ require('lazy').setup({
                           return metadata.title
                         end,
                 date = function(metadata)
-                          return os.date("%Y-%m-%d")
+                          return os.date("%Y%m%d")
                        end
               }
             }
@@ -242,23 +232,55 @@ require('lazy').setup({
     end,
   },
 
+  --------------------------------------------------------------------------------
   -- Neorg-roam
+  --------------------------------------------------------------------------------
   {
     "Jarvismkennedy/neorg-roam.nvim",
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim"
     },
+  },
+
+  --------------------------------------------------------------------------------
+  -- Orgmode
+  --------------------------------------------------------------------------------
+  {
+      'nvim-orgmode/orgmode',
+      dependencies = {
+        { 'nvim-treesitter/nvim-treesitter', lazy = true },
+    },
+    event = 'VeryLazy',
+    config = function()
+      -- Load treesitter grammar for org
+      require('orgmode').setup_ts_grammar()
+
+      -- Setup treesitter
+      require('nvim-treesitter.configs').setup({
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = { 'org' },
+        },
+        ensure_installed = { 'org' },
+      })
+
+      -- Setup orgmode
+      require('orgmode').setup({
+        org_default_notes_file = '~/doc/wiki/index.org',
+      })
+    end,
   }
 }, {})
 
--- [[ Setting options ]]
+--------------------------------------------------------------------------------
+-- Options
+--------------------------------------------------------------------------------
 -- See `:help vim.o`
--- NOTE: You can change these options as you wish!
 
 -- Show special chars
 vim.opt.list = true
-vim.opt.listchars:append "eol:$"
+vim.opt.listchars:append "space:∙,eol:↵"
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -268,9 +290,6 @@ vim.opt.wrap = true
 
 -- Make line numbers default
 vim.wo.number = true
-
--- Enable mouse mode
-vim.o.mouse = 'a'
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -300,18 +319,7 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
--- [[ Basic Keymaps ]]
-
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-vim.keymap.set({'n', 'v'}, '<A-t>', '<cmd>Neotree toggle<cr>')
-
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- [[ Highlight on yank ]]
+-- Highlight on yank
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -322,7 +330,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- [[ Configure Telescope ]]
+--------------------------------------------------------------------------------
+-- Telescope configuration
+--------------------------------------------------------------------------------
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
@@ -357,7 +367,9 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 
--- [[ Configure Treesitter ]]
+--------------------------------------------------------------------------------
+-- Treesitter configuration
+--------------------------------------------------------------------------------
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
@@ -423,13 +435,9 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-
--- [[ Configure LSP ]]
+--------------------------------------------------------------------------------
+-- LSP configuration
+--------------------------------------------------------------------------------
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
@@ -486,9 +494,9 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
+  rust_analyzer = {},
   -- tsserver = {},
-  html = { filetypes = { 'html' } },
+  --html = { filetypes = { 'html' } },
 
   --lua_ls = {
   --  Lua = {
@@ -523,7 +531,9 @@ mason_lspconfig.setup_handlers {
   end
 }
 
--- [[ Configure nvim-cmp ]]
+--------------------------------------------------------------------------------
+-- CMP configuration
+--------------------------------------------------------------------------------
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
