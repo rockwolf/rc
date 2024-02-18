@@ -26,6 +26,7 @@ alias gprolog "rlwrap gprolog" # gprolog has no readline history support, but wi
 alias swipl "rlwrap swipl" # swipl has no readline history support, but with rlwrap we can simulate it.
 alias vim "emacsclient -c"
 alias vscode "code-oss"
+alias gis "git status"
 
 # General settings
 #fish_user_key_bindings
