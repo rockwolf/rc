@@ -12,7 +12,7 @@ xinitrc_settings_general.fish &
 xinitrc_custom_scripts.fish &
 redshift &
 #exec stumpwm
-exec ssh-agent stumpwm
+#exec ssh-agent stumpwm
 #exec ssh-agent /usr/local/dt/bin/Xsession
-#exec ssh-agent i3
+exec ssh-agent i3
 #exec i3

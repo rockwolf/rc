@@ -28,5 +28,8 @@ alias vim "emacsclient -c"
 alias vscode "code-oss"
 
 # General settings
-fish_user_key_bindings
-theme_gruvbox dark medium
+#fish_user_key_bindings
+#theme_gruvbox dark medium
+
+# opam configuration
+source /mnt/data00/rockwolf/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
