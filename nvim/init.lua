@@ -56,10 +56,6 @@ require('lazy').setup({
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
 
@@ -81,6 +77,10 @@ require('lazy').setup({
   {
     'ellisonleao/gruvbox.nvim',
     priority = 1000,
+    opts = {
+      terminal_colors = true, -- add neovim terminal colors
+      contrast = "hard"
+    },
     config = function()
       vim.o.background = "dark"
       vim.cmd.colorscheme 'gruvbox'
@@ -107,15 +107,15 @@ require('lazy').setup({
   --------------------------------------------------------------------------------
   -- Indent-blankline: Add indentation guides even on blank lines
   --------------------------------------------------------------------------------
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = "ibl",
-    opts = {
-      indent = { char = "|" }
-    },
-  },
+  -- {
+  --  'lukas-reineke/indent-blankline.nvim',
+  --  -- Enable `lukas-reineke/indent-blankline.nvim`
+  --  -- See `:help ibl`
+  --  main = "ibl",
+  --  opts = {
+  --    indent = { char = "|" }
+  --  },
+  --},
 
   --------------------------------------------------------------------------------
   -- Comment: "gc" to comment visual regions/lines 
@@ -222,7 +222,7 @@ require('lazy').setup({
                           return metadata.title
                         end,
                 date = function(metadata)
-                          return os.date("%Y%m%d")
+                          return os.date("%Y%m%d%H%M%S")
                        end
               }
             }
@@ -279,7 +279,7 @@ require('lazy').setup({
 -- See `:help vim.o`
 
 -- Show special chars
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars:append "space:∙,eol:↵"
 
 -- Set highlight on search
@@ -300,7 +300,7 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.breakindent = true
 
 -- Save undo history
-vim.o.undofile = true
+vim.o.undofile = false 
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
@@ -492,18 +492,12 @@ end
 --  define the property 'filetypes' to the map in question.
 local servers = {
   -- clangd = {},
+  -- omnisharp = {},
   -- gopls = {},
   -- pyright = {},
   rust_analyzer = {},
   -- tsserver = {},
   --html = { filetypes = { 'html' } },
-
-  --lua_ls = {
-  --  Lua = {
-  --    workspace = { checkThirdParty = false },
-  --    telemetry = { enable = false },
-  --  },
-  --},
 }
 
 -- Setup neovim lua configuration
@@ -529,56 +523,6 @@ mason_lspconfig.setup_handlers {
       filetypes = (servers[server_name] or {}).filetypes,
     }
   end
-}
-
---------------------------------------------------------------------------------
--- CMP configuration
---------------------------------------------------------------------------------
--- See `:help cmp`
-local cmp = require 'cmp'
-local luasnip = require 'luasnip'
-require('luasnip.loaders.from_vscode').lazy_load()
-luasnip.config.setup {}
-
-cmp.setup {
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert {
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete {},
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.locally_jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  },
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
