@@ -1,0 +1,18 @@
+[user]
+    email = thereisanewway@gmail.com
+    name = rockwolf
+[alias]
+    graph = log --all --stat --decorate --oneline --graph --date=iso
+[merge]
+    tool = kdiff3
+    ff = false
+    commit = false
+[mergetool "kdiff3"]
+    trustExitCode = false
+[diff]
+    guitool = kdiff3
+[difftool "kdiff3"]
+    trustExitCode = false
+[core]
+    editor = nvim
+    autocrlf = false
