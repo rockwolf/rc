@@ -6,7 +6,7 @@ set -x PATH /home/rockwolf/sh_ $PATH
 set -x PATH /home/rockwolf/.cargo/bin $PATH
 set -x PAGER /usr/bin/less
 set -x APP_ENV development
-set -x EDITOR /usr/local/bin/emacs
+set -x EDITOR /usr/local/bin/nvim
 set -x LSCOLORS xxxxxxxxxxx # Use default fg color for everything. This should disable the colors.
 
 # Aliases
