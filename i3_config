@@ -39,9 +39,9 @@ bar {
                 statusline              #009900
                 separator               #39ff14
         }
-    tray_output HDMI-0
+    tray_output default
         workspace_buttons yes
-        output HDMI-0
+        output default
         hidden_state hide
         mode dock
 }
