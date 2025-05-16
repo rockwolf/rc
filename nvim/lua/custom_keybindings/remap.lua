@@ -7,7 +7,7 @@ vim.g.maplocalleader = ','
 -- See `:help vim.keymap.set()`
 vim.keymap.set('n', "<leader>ex", vim.cmd.Ex)
 
-vim.keymap.set({'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+--vim.keymap.set({'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set({'n', 'v'}, '<A-t>', '<cmd>Neotree toggle<cr>')
 
 -- Remap for dealing with word wrap
