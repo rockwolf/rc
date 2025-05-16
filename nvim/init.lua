@@ -173,89 +173,20 @@ require('lazy').setup({
   },
 
   --------------------------------------------------------------------------------
-  -- Neorg
+  -- vim-table-mode
   --------------------------------------------------------------------------------
   {
-    "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                notes = "~/doc/personal/notes",
-                brain = "~/doc/personal/brain",
-              },
-              default_workspace = "brain"
-            },
-          },
-          ["core.integrations.roam"] = {
-            -- default keymaps
-            config = {
-              keymaps = {
-                -- select_prompt is used to create a new note / capture from the prompt directly
-                -- instead of the telescope choice
-                select_prompt = "<C-n>",
-                insert_link = "<leader>ni",
-                find_note = "<leader>nf",
-                capture_note = "<leader>nc",
-                capture_index = "<leader>nci",
-                capture_cancel = "<C-q>",
-                capture_save = "<C-w>",
-              },
-              -- telescope theme
-              theme = "ivy",
-
-              capture_templates = {
-                {
-                  name = "default",
-                  file = "${title}_${date}",
-                  lines = { "", "* General info", "" },
-                }
-              },
-              substitutions = {
-                title = function(metadata)
-                          return metadata.title
-                        end,
-                date = function(metadata)
-                          return os.date("%Y%m%d%H%M%S")
-                       end
-              }
-            }
-          }
-        }
-      }
-    end,
-  },
-
-  --------------------------------------------------------------------------------
-  -- Neorg-roam
-  --------------------------------------------------------------------------------
-  {
-    "Jarvismkennedy/neorg-roam.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim"
-    },
+    'dhruvasagar/vim-table-mode'
   },
 
   --------------------------------------------------------------------------------
   -- Orgmode
   --------------------------------------------------------------------------------
   {
-      'nvim-orgmode/orgmode',
-      dependencies = {
-        { 'nvim-treesitter/nvim-treesitter', lazy = true },
-    },
+    'nvim-orgmode/orgmode',
+    dependencies = { },
     event = 'VeryLazy',
     config = function()
-      -- Load treesitter grammar for org
-      require('orgmode').setup_ts_grammar()
-
       -- Setup treesitter
       require('nvim-treesitter.configs').setup({
         highlight = {
@@ -267,9 +198,41 @@ require('lazy').setup({
 
       -- Setup orgmode
       require('orgmode').setup({
-        org_default_notes_file = '~/doc/wiki/index.org',
+        org_default_notes_file = '/home/doc/personal/pkm/doc/index.org',
+        mappings = {
+          capture = {
+            -- Behave like Emacs' orgmode capture
+            org_capture_finalize = "<leader>ncc",
+          },
+          org = {
+            org_toggle_checkbox = "<leader>cc",
+          }
+        },
+        org_adapt_indentation = false
       })
     end,
+  },
+
+  --------------------------------------------------------------------------------
+  -- Org-roam
+  --------------------------------------------------------------------------------
+  {
+    "chipsenkbeil/org-roam.nvim",
+    tag = "0.1.1",
+    dependencies = {
+    {
+        "nvim-orgmode/orgmode",
+        tag = "0.3.7",
+      },
+    },
+    config = function()
+      require("org-roam").setup({
+        database = {
+          path = "/home/rockwolf/doc/personal/pkm/db"
+        },
+        directory = "/home/rockwolf/doc/personal/pkm/doc",
+    })
+    end
   }
 }, {})
 
@@ -288,6 +251,11 @@ vim.o.hlsearch = false
 -- Line wrapping
 vim.opt.wrap = true
 
+-- Indent
+vim.opt.smartindent = false
+vim.opt.autoindent = false
+vim.opt.cindent = false
+
 -- Make line numbers default
 vim.wo.number = true
 
@@ -297,7 +265,7 @@ vim.wo.number = true
 vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
-vim.o.breakindent = true
+vim.o.breakindent = false
 
 -- Save undo history
 vim.o.undofile = false 
@@ -379,7 +347,7 @@ require('nvim-treesitter.configs').setup {
   auto_install = false,
 
   highlight = { enable = true },
-  indent = { enable = true },
+  indent = { enable = false },
   incremental_selection = {
     enable = true,
     keymaps = {
