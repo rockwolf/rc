@@ -1,0 +1,29 @@
+;;; dokuwiki-autoloads.el --- automatically extracted autoloads  -*- lexical-binding: t -*-
+;;
+;;; Code:
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
+
+;;;### (autoloads nil "dokuwiki" "dokuwiki.el" (0 0 0 0))
+;;; Generated autoloads from dokuwiki.el
+
+(autoload 'dokuwiki-login "dokuwiki" "\
+Connects to the dokuwiki." t nil)
+
+(register-definition-prefixes "dokuwiki" '("dokuwiki-"))
+
+;;;***
+
+;;;### (autoloads nil nil ("dokuwiki-pkg.el") (0 0 0 0))
+
+;;;***
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; no-update-autoloads: t
+;; coding: utf-8
+;; End:
+;;; dokuwiki-autoloads.el ends here
