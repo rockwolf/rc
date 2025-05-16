@@ -26,4 +26,14 @@ emacs/\#*
 *~ 
 task/*.data
 nvim/lazy-lock.json
+.dotfiles/config/nvim/lazy-lock.json
 emacs/org-roam.db
+.dotfiles/emacs/org-roam.db
+.dotfiles/emacs/init.el~
+.dotfiles/emacs/config.el
+.dotfiles/emacs/elpa
+.dotfiles/emacs/eshell
+.dotfiles/emacs/transient
+.dotfiles/emacs/*.data
+.dotfiles/.emacs
+.dotfiles/.emacs~
