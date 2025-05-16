@@ -1,28 +1,18 @@
 
 ;;; The following lines added by ql:add-to-init-file:
 #-quicklisp
-(let ((quicklisp-init #P"/mnt/data00/rockwolf/quicklisp/setup.lisp"))
+(let ((quicklisp-init #P"/home/rockwolf/quicklisp/setup.lisp"))
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
 
 ;;; The following was added, to allow ql:quickload on own projects.
 #+quicklisp
 (progn
-  (pushnew #P"/home/rockwolf/dev/speed-dial-cl/"
+  (pushnew #P"/home/rockwolf/dev/nintai/speed-dial-cl/"
            ql:*local-project-directories*)
-  (pushnew #P"/home/rockwolf/dev/ledgerexport-tax-cl/"
+  (pushnew #P"/home/rockwolf/dev/nintai/area91-cl/"
            ql:*local-project-directories*)
-  (pushnew #P"/home/rockwolf/dev/txt-to-pdf/"
-           ql:*local-project-directories*)
-  (pushnew #P"/home/rockwolf/dev/area91-cl/"
-           ql:*local-project-directories*)
-  (pushnew #P"/home/rockwolf/dev/area91-gui-cl/"
-           ql:*local-project-directories*)
-  (pushnew #P "/home/rockwolf/dev/ledgerplot-cl/"
-           ql:*local-project-directories*)
-  (pushnew #P "/home/rockwolf/dev/clgplot/"
-           ql:*local-project-directories*)
-  (pushnew #P "/home/rockwolf/dev/ntutils-cl/"
+  (pushnew #P "/home/rockwolf/dev/nintai/ntutils-cl/"
            ql:*local-project-directories*)
   ) 
 

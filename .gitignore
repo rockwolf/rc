@@ -25,3 +25,5 @@ emacs/\#*
 \#*
 *~ 
 task/*.data
+nvim/lazy-lock.json
+emacs/org-roam.db
