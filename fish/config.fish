@@ -27,8 +27,17 @@ alias swipl "rlwrap swipl" # swipl has no readline history support, but with rlw
 alias vim "emacsclient -c"
 alias vscode "code-oss"
 alias gis "git status"
-alias gri "git fetch --all && git rebase -i --rebase-merges"
+alias gri "git fetch --prune --all && git rebase -i --rebase-merges"
 alias grc "git rebase --continue"
+alias qalc "qalc -i --terse -s \"rpn 1\" -s \"calculate_as_you_type\" 1"
 
+function y
+  set tmp (mktemp -t "yazi-cwd.XXXXXX")
+  yazi $argv --cwd-file="$tmp"
+  if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+    builtin cd -- "$cwd"
+  end
+  rm -f -- "$tmp"
+end
 # General settings
 fish_user_key_bindings

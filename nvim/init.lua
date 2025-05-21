@@ -173,6 +173,14 @@ require('lazy').setup({
   },
 
   --------------------------------------------------------------------------------
+  -- vim-table-mode
+  --------------------------------------------------------------------------------
+  {
+    'dhruvasagar/vim-table-mode'
+  },
+
+
+  --------------------------------------------------------------------------------
   -- Orgmode
   --------------------------------------------------------------------------------
   {
@@ -191,10 +199,31 @@ require('lazy').setup({
 
       -- Setup orgmode
       require('orgmode').setup({
-        org_default_notes_file = '~/doc/personal/pkm/index.org',
+        org_default_notes_file = '/home/doc/personal/pkm/doc/index.org',
+        mappings = {
+          capture = {
+            -- Behave like Emacs' orgmode capture
+            org_capture_finalize = "<leader>ncc",
+          },
+          org = {
+            org_toggle_checkbox = "<leader>cc",
+          }
+        },
+        org_adapt_indentation = false
       })
     end,
   },
+
+  --------------------------------------------------------------------------------
+  -- Org-bullets
+  --------------------------------------------------------------------------------
+  {
+    "akinsho/org-bullets.nvim",
+    config = function()
+      require("org-bullets").setup()
+    end
+  },
+
 
   --------------------------------------------------------------------------------
   -- Org-roam
@@ -211,9 +240,9 @@ require('lazy').setup({
     config = function()
       require("org-roam").setup({
         database = {
-          path = "~/doc/personal/pkm/db"
+          path = "/home/anagels/doc/personal/pkm/db"
         },
-        directory = "~/doc/personal/pkm"
+        directory = "/home/anagels/doc/personal/pkm/doc",
     })
     end
   }
@@ -234,6 +263,11 @@ vim.o.hlsearch = false
 -- Line wrapping
 vim.opt.wrap = true
 
+-- Indent
+vim.opt.smartindent = false
+vim.opt.autoindent = false
+vim.opt.cindent = false
+
 -- Make line numbers default
 vim.wo.number = true
 
@@ -243,7 +277,7 @@ vim.wo.number = true
 vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
-vim.o.breakindent = true
+vim.o.breakindent = false
 
 -- Save undo history
 vim.o.undofile = false 
@@ -306,12 +340,13 @@ vim.keymap.set('n', '<leader>/', function()
 end, { desc = '[/] Fuzzily search in current buffer' })
 
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = 'Buffers' })
 
 --------------------------------------------------------------------------------
 -- Treesitter configuration
@@ -325,7 +360,7 @@ require('nvim-treesitter.configs').setup {
   auto_install = false,
 
   highlight = { enable = true },
-  indent = { enable = true },
+  indent = { enable = false },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -441,7 +476,7 @@ local servers = {
   -- omnisharp = {},
   -- gopls = {},
   -- pyright = {},
-  rust_analyzer = {},
+  -- rust_analyzer = {},
   -- tsserver = {},
   --html = { filetypes = { 'html' } },
 }
