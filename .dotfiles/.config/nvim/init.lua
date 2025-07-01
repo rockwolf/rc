@@ -51,20 +51,6 @@ require('lazy').setup({
   },
 
   --------------------------------------------------------------------------------
-  -- CMP: autocompletion
-  --------------------------------------------------------------------------------
-  {
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      -- Adds LSP completion capabilities
-      'hrsh7th/cmp-nvim-lsp',
-
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
-    },
-  },
-
-  --------------------------------------------------------------------------------
   -- Which-key: Useful plugin to show you pending keybinds
   --------------------------------------------------------------------------------
   {
@@ -198,7 +184,7 @@ require('lazy').setup({
 
       -- Setup orgmode
       require('orgmode').setup({
-        org_default_notes_file = '/home/doc/personal/pkm/doc/index.org',
+        org_default_notes_file = '~/doc/personal/pkm/doc/index.org',
         mappings = {
           capture = {
             -- Behave like Emacs' orgmode capture
@@ -228,9 +214,9 @@ require('lazy').setup({
     config = function()
       require("org-roam").setup({
         database = {
-          path = "/home/rockwolf/doc/personal/pkm/db"
+          path = "~/doc/personal/pkm/db"
         },
-        directory = "/home/rockwolf/doc/personal/pkm/doc",
+        directory = "~/doc/personal/pkm/doc",
     })
     end
   }
@@ -463,17 +449,13 @@ local servers = {
   -- omnisharp = {},
   -- gopls = {},
   -- pyright = {},
-  rust_analyzer = {},
+  --rust_analyzer = {},
   -- tsserver = {},
   --html = { filetypes = { 'html' } },
 }
 
 -- Setup neovim lua configuration
 require('neodev').setup()
-
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
