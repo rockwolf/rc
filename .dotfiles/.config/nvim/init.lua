@@ -184,7 +184,7 @@ require('lazy').setup({
 
       -- Setup orgmode
       require('orgmode').setup({
-        org_default_notes_file = '~/doc/personal/pkm/doc/index.org',
+        org_default_notes_file = os.getenv('HOME') .. '/doc/personal/pkm/doc/index.org',
         mappings = {
           capture = {
             -- Behave like Emacs' orgmode capture
@@ -214,9 +214,12 @@ require('lazy').setup({
     config = function()
       require("org-roam").setup({
         database = {
-          path = "~/doc/personal/pkm/db"
+          path = roamdb
         },
-        directory = "~/doc/personal/pkm/doc",
+        directory = os.getenv('HOME') .. "/doc/personal/pkm/doc",
+        org_files = {
+          os.getenv('HOME') .. "/doc/personal/import/*.org"
+        },
     })
     end
   }
@@ -390,6 +393,19 @@ require('nvim-treesitter.configs').setup {
 }
 
 --------------------------------------------------------------------------------
+-- Treesitter grammar for org
+--------------------------------------------------------------------------------
+--local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+--parser_config.org = {
+--  install_info = {
+--    url = 'https://github.com/milisims/tree-sitter-org',
+--    revision = 'main',
+--    files = { 'src/parser.c', 'src/scanner.c' },
+--  },
+--  filetype = 'org',
+--}
+
+--------------------------------------------------------------------------------
 -- LSP configuration
 --------------------------------------------------------------------------------
 --  This function gets run when an LSP connects to a particular buffer.
@@ -455,25 +471,7 @@ local servers = {
 }
 
 -- Setup neovim lua configuration
-require('neodev').setup()
-
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
-
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end
-}
+-- TODO: Perhaps use lazydev, neodev is EOLn
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
