@@ -1,4 +1,28 @@
-require("custom_keybindings")
+--------------------------------------------------------------------------------
+-- Key remapping
+--------------------------------------------------------------------------------
+
+-- Set <space> as the leader key
+-- See `:help mapleader`
+--  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+vim.g.mapleader = ','
+vim.g.maplocalleader = ','
+
+-- See `:help vim.keymap.set()`
+vim.keymap.set('n', "<leader>ex", vim.cmd.Ex)
+
+--vim.keymap.set({'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set({'n', 'v'}, '<A-t>', '<cmd>Neotree toggle<cr>')
+
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 --------------------------------------------------------------------------------
 -- Lazy package manager
@@ -43,10 +67,10 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+      --{ 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
+      --'folke/neodev.nvim',
     },
   },
 
@@ -72,36 +96,6 @@ require('lazy').setup({
       vim.cmd.colorscheme 'gruvbox'
     end,
   },
-
-  --------------------------------------------------------------------------------
-  -- Lualine
-  --------------------------------------------------------------------------------
-  -- Set lualine as statusline
-  -- See `:help lualine.txt`
-  {
-    'nvim-lualine/lualine.nvim',
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'gruvbox',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
-
-  --------------------------------------------------------------------------------
-  -- Indent-blankline: Add indentation guides even on blank lines
-  --------------------------------------------------------------------------------
-  -- {
-  --  'lukas-reineke/indent-blankline.nvim',
-  --  -- Enable `lukas-reineke/indent-blankline.nvim`
-  --  -- See `:help ibl`
-  --  main = "ibl",
-  --  opts = {
-  --    indent = { char = "|" }
-  --  },
-  --},
 
   --------------------------------------------------------------------------------
   -- Comment: "gc" to comment visual regions/lines 
@@ -134,11 +128,34 @@ require('lazy').setup({
   },
 
   --------------------------------------------------------------------------------
+  -- Treesitter TextObjects
+  --------------------------------------------------------------------------------
+ { 
+   "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
+    init = function()
+      -- Disable entire built-in ftplugin mappings to avoid conflicts.
+      -- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
+      vim.g.no_plugin_maps = true
+
+      -- Or, disable per filetype (add as you like)
+      -- vim.g.no_python_maps = true
+      -- vim.g.no_ruby_maps = true
+      -- vim.g.no_rust_maps = true
+      -- vim.g.no_go_maps = true
+    end,
+    config = function()
+      -- put your config here
+    end, 
+  },
+
+  --------------------------------------------------------------------------------
   -- Treesitter
   --------------------------------------------------------------------------------
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    lazy = false,
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
@@ -170,21 +187,46 @@ require('lazy').setup({
   --------------------------------------------------------------------------------
   {
     'nvim-orgmode/orgmode',
+    tag = "0.7.0",
     dependencies = { },
     event = 'VeryLazy',
     config = function()
       -- Setup treesitter
-      require('nvim-treesitter.configs').setup({
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = { 'org' },
-        },
-        ensure_installed = { 'org' },
-      })
+      --require('nvim-treesitter.configs').setup({
+      --  highlight = {
+      --    enable = false,
+      --    additional_vim_regex_highlighting = { 'org' },
+      --  },
+      --  ensure_installed = { 'org' },
+      --})
 
       -- Setup orgmode
       require('orgmode').setup({
+        org_todo_keywords = {'TODO', 'IN_PROGRESS', 'DONE'},
+        org_todo_keyword_faces = {
+            IN_PROGRESS = ':foreground #b8bb26', -- blue = #83a598 
+            TODO = ':foreground #fb4934'
+        },
         org_default_notes_file = os.getenv('HOME') .. '/doc/personal/pkm/doc/index.org',
+        org_agenda_files = os.getenv('HOME') .. '/doc/personal/pkm/doc/*.org',
+        org_agenda_custom_commands = {
+          -- "c" is the shortcut that will be used in the prompt
+          c = {
+            description = 'Kanban view', -- Description shown in the prompt for the shortcut
+            types = {
+              {
+                type = 'tags_todo', -- Type can be agenda | tags | tags_todo
+                match = '+TODO="IN_PROGRESS"', --Same as providing a "Match:" for tags view <leader>oa + m, See: https://orgmode.org/manual/Matching-tags-and-properties.html
+                org_agenda_overriding_header = 'IN_PROGRESS',
+              },
+              {
+                type = 'tags_todo', -- Type can be agenda | tags | tags_todo
+                match = '+TODO="TODO"', --Same as providing a "Match:" for tags view <leader>oa + m, See: https://orgmode.org/manual/Matching-tags-and-properties.html
+                org_agenda_overriding_header = 'TODO',
+              },
+            }
+          }
+        },
         mappings = {
           capture = {
             -- Behave like Emacs' orgmode capture
@@ -204,11 +246,11 @@ require('lazy').setup({
   --------------------------------------------------------------------------------
   {
     "chipsenkbeil/org-roam.nvim",
-    tag = "0.1.1",
+    tag = "0.2.0",
     dependencies = {
     {
         "nvim-orgmode/orgmode",
-        tag = "0.3.7",
+        tag = "0.7.0",
       },
     },
     config = function()
@@ -218,7 +260,7 @@ require('lazy').setup({
         },
         directory = os.getenv('HOME') .. "/doc/personal/pkm/doc",
         org_files = {
-          os.getenv('HOME') .. "/doc/personal/import/*.org"
+          --os.getenv('HOME') .. "/doc/personal/import/*.org"
         },
     })
     end
@@ -247,6 +289,10 @@ vim.opt.cindent = false
 
 -- Make line numbers default
 vim.wo.number = true
+
+-- Statusline
+--vim.o.statusline = [[%<%f %h%m%r %y%=%{v:register} %-14.(%l,%c%V%) %P]]
+vim.o.laststatus = 0
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -328,69 +374,7 @@ vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = 
 -- Treesitter configuration
 --------------------------------------------------------------------------------
 -- See `:help nvim-treesitter`
-require('nvim-treesitter.configs').setup {
-  -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
-
-  -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-  auto_install = false,
-
-  highlight = { enable = true },
-  indent = { enable = false },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = '<c-space>',
-      node_incremental = '<c-space>',
-      scope_incremental = '<c-s>',
-      node_decremental = '<M-space>',
-    },
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ['aa'] = '@parameter.outer',
-        ['ia'] = '@parameter.inner',
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        [']m'] = '@function.outer',
-        [']]'] = '@class.outer',
-      },
-      goto_next_end = {
-        [']M'] = '@function.outer',
-        [']['] = '@class.outer',
-      },
-      goto_previous_start = {
-        ['[m'] = '@function.outer',
-        ['[['] = '@class.outer',
-      },
-      goto_previous_end = {
-        ['[M'] = '@function.outer',
-        ['[]'] = '@class.outer',
-      },
-    },
-    swap = {
-      enable = true,
-      swap_next = {
-        ['<leader>a'] = '@parameter.inner',
-      },
-      swap_previous = {
-        ['<leader>A'] = '@parameter.inner',
-      },
-    },
-  },
-}
+--require('nvim-treesitter').install { 'org', 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' }
 
 --------------------------------------------------------------------------------
 -- Treesitter grammar for org
@@ -469,9 +453,6 @@ local servers = {
   -- tsserver = {},
   --html = { filetypes = { 'html' } },
 }
-
--- Setup neovim lua configuration
--- TODO: Perhaps use lazydev, neodev is EOLn
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
