@@ -38,3 +38,5 @@ emacs/org-roam.db
 .dotfiles/emacs/*.data
 .dotfiles/.emacs
 .dotfiles/.emacs~
+.dotfiles/.config/fish/fish_variables
+.dotfiles/.config/fish/fish_history
